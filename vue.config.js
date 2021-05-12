@@ -15,6 +15,8 @@ module.exports = {
     resolve: {
       alias: {
         "@": resolve("pages"),
+				"com": resolve("components"),
+				"img": resolve("static/img"),
         "plu": resolve("plugins"),
       },
     },

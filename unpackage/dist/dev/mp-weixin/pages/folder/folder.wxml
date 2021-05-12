@@ -1,0 +1,1 @@
+<view class="content data-v-ad7dd3f4"><text class="title data-v-ad7dd3f4">{{title}}</text><block wx:if="{{isShowTabs}}"><view class="bottomTabs _div data-v-ad7dd3f4"><tabs vue-id="7ee22bc0-1" route="{{route}}" class="data-v-ad7dd3f4" bind:__l="__l"></tabs></view></block></view>

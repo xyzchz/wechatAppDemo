@@ -1,1 +1,1 @@
-<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{title}}</text><u-button vue-id="8dd740cc-1" ripple="{{true}}" ripple-bg-color="#909399" bind:__l="__l" vue-slots="{{['default']}}">之约</u-button></view></view>
+<view class="content data-v-57280228"><text class="title data-v-57280228">{{title}}</text><block wx:if="{{isShowTabs}}"><view class="bottomTabs _div data-v-57280228"><tabs vue-id="8dd740cc-1" route="{{route}}" class="data-v-57280228" bind:__l="__l"></tabs></view></block></view>

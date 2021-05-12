@@ -1,22 +1,27 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-			<u-button :ripple="true" ripple-bg-color="#909399">之约</u-button>
-		</view>
+		<text class="title">{{title}}</text>
+		<div v-if="isShowTabs" class="bottomTabs">
+			<Tabs :route="route" />
+		</div>
 	</view>
 </template>
 
 <script>
+	import Tabs from '../../components/tabbar.vue'
+
 	export default {
 		data() {
 			return {
-				title: 'aaa'
+				title: '首页',
+				isShowTabs: true,
+				route: this.$mp.page.route
 			}
 		},
-		onLoad() {
-
+		onLoad(e) {
+		},
+		components: {
+			Tabs,
 		},
 		methods: {
 
@@ -24,30 +29,12 @@
 	}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+<style scoped lang="scss">
+	.bottomTabs {
+		position: absolute;
+		bottom: 0;
+		z-index: 100;
+		height: 88rpx;
+		width: 100%;
 	}
 </style>

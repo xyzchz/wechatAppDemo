@@ -1,11 +1,14 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/folder/folder",
+    "pages/appCenter/appCenter",
+    "pages/userCenter/userCenter"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "福昕云文档",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
