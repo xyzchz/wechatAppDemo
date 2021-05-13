@@ -31,4 +31,12 @@
   height: 88rpx;
   width: 100%;
 }
+.shadow.data-v-ad7dd3f4 {
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
+}
 

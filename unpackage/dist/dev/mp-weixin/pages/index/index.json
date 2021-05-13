@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "福昕云文档",
   "usingComponents": {
-    "tabs": "/components/tabbar"
+    "u-tabs-swiper": "/node-modules/uview-ui/components/u-tabs-swiper/u-tabs-swiper",
+    "header": "/components/header"
   }
 }

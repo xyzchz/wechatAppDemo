@@ -47,7 +47,7 @@
 	export default {
 		data() {
 			return {
-				title: "底部tabs",
+				title: "底部tabbar",
 			};
 		},
 		mounted() {
@@ -60,10 +60,9 @@
 		},
 		methods: {
 			to(name) {
-				uni.navigateTo({
+				uni.redirectTo({
 				    url: `/pages/${name}/${name}`,
-				    animationType: 'pop-in',
-				    animationDuration: 200
+						disableScroll: true
 				});
 			}
 		}
