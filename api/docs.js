@@ -6,7 +6,7 @@ import request from './request.js'
  * @return {*}
  */
  export const getToken = (config) => request({
-  url: `user/getToken`,
+  url: `user/getTokenByWxToken`,
 	method: 'GET',
   ...config
 });

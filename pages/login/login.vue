@@ -19,6 +19,8 @@
 </template>
 
 <script>
+	import { getToken } from 'api'
+	
 	export default {
 		data() {
 			return {
@@ -61,7 +63,14 @@
 									success: (data) => {
 										console.log(data)
 										if (data.data.ret == 0) {
-											var token = data.data.data.token;
+											const token = data.data.data.token;
+											getToken({
+												data: {
+													wxToken: token
+												}
+											}).then(res => {
+												console.log(res)
+											})
 										} else {
 											// uni.hideLoading();
 										}
