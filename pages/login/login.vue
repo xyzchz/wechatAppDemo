@@ -19,16 +19,23 @@
 </template>
 
 <script>
-	import { getToken } from 'api'
-	
+	import { mapMutations } from 'vuex'
+	import { wxLogin } from '../../utils/login.js'
+
 	export default {
 		data() {
 			return {
-
 			}
 		},
 
+		created() {
+			uni.clearStorage();
+		},
+
 		methods: {
+			...mapMutations('user', [
+				"UPDATE_GLOBAL_DATA",
+			]),
 			/**
 			 * 返回文档页
 			 */
@@ -38,53 +45,45 @@
 				})
 			},
 			/**
-			 * 获取用户code
+			 * 获取用户授权
 			 * 
-			 */
+			*/
 			handleGetUserInfo() {
 				// 授权
-				// uni.showloading();
 				uni.getUserProfile({
-					desc: 'Wexin', // 这个参数是必须的
+					desc: 'Login', // 这个参数是必须的
 					success: res => {
-						wx.login({
-							success: (res) => {
-								if (res.errMsg !== "login:ok") return wx.hideLoading();
-								const code = res.code
-								uni.request({
-									url: 'https://wechatmp.foxitreader.cn/api/miniProgramLogin',
-									data: {
-										code,
-										appid: "wxeeeee850023ae299"
-									},
-									header: {
-										'content-type': 'application/x-www-form-urlencoded'
-									},
-									success: (data) => {
-										console.log(data)
-										if (data.data.ret == 0) {
-											const token = data.data.data.token;
-											getToken({
-												data: {
-													wxToken: token
-												}
-											}).then(res => {
-												console.log(res)
-											})
-										} else {
-											// uni.hideLoading();
-										}
-									},
-									fail: res => {
-										// uni.hideLoading();
-									},
-								})
-							},
+						const globalData = {
+							userInfo: res.userInfo,
+							encryptedData: res.encryptedData,
+							iv: res.iv,
+							rawData: res.rawData,
+							signature: res.signature
+						}
+						uni.showLoading({
+							title: '授权中...'
+						})
+						uni.setStorageSync('globalData', globalData);
+						wxLogin().then((res) => {
+							uni.hideLoading();
+							uni.showToast({
+								title: '授权成功',
+								icon: 'success'
+							})
+							uni.reLaunch({
+								url: this.$mp.page.options.url || '/pages/folder/folder'
+							})
 						})
 					},
+					fail: (res) => {
+						uni.showToast({
+							title: '授权失败，请重试',
+							icon: 'none'
+						})
+					}
 				})
-			}
-		}
+			},
+		},
 	}
 </script>
 
@@ -134,7 +133,6 @@
 		top: 50%;
 		margin-top: -30rpx;
 		width: 2rpx;
-		/* background: #2c943b; */
 		background: #DDD;
 		left: 100rpx;
 		z-index: 99999;

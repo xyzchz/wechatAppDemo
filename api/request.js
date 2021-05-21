@@ -1,19 +1,20 @@
 import store from '../store/index.js';
+import { REQUEST_URL, APPKEY } from '../const/const.js'
 
 let requestNumber = 0
 const requestContinue = 100;
 
 const request = (config) => {
 	// 处理 apiUrl
-	config.url = 'https://docsapi.foxitcloud.cn/' + config.url;
+	config.url = REQUEST_URL + config.url;
 	if (!config.data) {
 		config.data = {};
 	}
 	
 	if (!config.header) {
 			config.header = {
-			appKey: 'uw8PbyY2',
-			token: uni.getStorageSync('token') || '',
+			appKey: APPKEY,
+			token: uni.getStorageSync('token')?.token || '',
 			'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
 		}
 	} else {
@@ -32,11 +33,9 @@ const request = (config) => {
 		}
 		uni.request(config).then(responses => {
 			if(!config.hideLoading) {
-				console.log(requestNumber)
 				requestNumber--;
 				if (requestNumber === 0) uni.hideLoading();
 			}
-			console.log(responses)
 			// 异常
 			if (responses[0]) {
 				reject({
@@ -44,18 +43,19 @@ const request = (config) => {
 				});
 			} else {
 				const { data } = responses[1];
-				if (data.code === 200) return resolve(data);
+				if (data.code === 0) return resolve(data);
 				switch (data.code) {
 					case 401: 
-					uni.clearStorageSync()
-					uni.showToast({
-						title: '登录已失效，请重新登录',
-						icon: 'none',
-						duration: 3000
+					if (config.url.indexOf("getTokenByWxToken") !== -1) break;
+					uni.removeStorageSync('token')
+					uni.showLoading({
+						title: '重新获取登陆信息...'
 					})
-					uni.redirectTo({
-						url: '/pages/index/index',
-					})
+					setTimeout(() => {
+						uni.reLaunch({
+							url: '/pages/folder/folder',
+						})
+					}, 1000)
 						break;
 					default: uni.showToast({
 						title: data.msg,
@@ -63,6 +63,7 @@ const request = (config) => {
 						duration: 3000
 					})
 				}
+				return reject(data)
 			}
 		}).catch(error => {
 			if(!config.hideLoading) {

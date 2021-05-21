@@ -3304,15 +3304,23 @@ u-dropdown {
 
 
 /* end-头条小程序编译后页面有组件名的元素，特别处理--end */
-
-
-
-
-
-
-
-
-
-
-
+page {
+  height: 100%;
+}
+.u-tabbar__content__item__text {
+  bottom: 11rpx;
+}
+.u-tabbar__content__item__text .u-line-1 {
+  font-size: 20rpx;
+}
+.u-tabbar__content {
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.2);
+}
+.u-toast {
+  width: 413rpx !important;
+  background-color: #000000;
+  border-radius: 4rpx;
+  opacity: 0.6;
+  min-height: 90rpx;
+}
 

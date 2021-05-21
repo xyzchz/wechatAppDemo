@@ -7947,9 +7947,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!*****************************************!*\
-  !*** D:/foxit/wechatAppDemo/pages.json ***!
-  \*****************************************/
+/*!*********************************!*\
+  !*** D:/weapp/weapp/pages.json ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8090,9 +8090,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 11 */
-/*!*********************************************!*\
-  !*** D:/foxit/wechatAppDemo/store/index.js ***!
-  \*********************************************/
+/*!*************************************!*\
+  !*** D:/weapp/weapp/store/index.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9226,17 +9226,17 @@ var index = {
 
 /***/ }),
 /* 13 */
-/*!*******************************************************!*\
-  !*** D:/foxit/wechatAppDemo/store/modules sync \.js$ ***!
-  \*******************************************************/
+/*!***********************************************!*\
+  !*** D:/weapp/weapp/store/modules sync \.js$ ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"./label.js": 14,
-	"./list.js": 19,
-	"./request.js": 20,
-	"./user.js": 21
+	"./list.js": 20,
+	"./request.js": 21,
+	"./user.js": 22
 };
 
 
@@ -9261,31 +9261,14 @@ webpackContext.id = 13;
 
 /***/ }),
 /* 14 */
-/*!*****************************************************!*\
-  !*** D:/foxit/wechatAppDemo/store/modules/label.js ***!
-  \*****************************************************/
+/*!*********************************************!*\
+  !*** D:/weapp/weapp/store/modules/label.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);
 
 
 
@@ -9318,21 +9301,21 @@ var _api = __webpack_require__(/*! api */ 17);function _defineProperty(obj, key,
 
 /***/ }),
 /* 15 */
-/*!******************************************************!*\
-  !*** D:/foxit/wechatAppDemo/store/mutation-types.js ***!
-  \******************************************************/
+/*!**********************************************!*\
+  !*** D:/weapp/weapp/store/mutation-types.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.SET_LABEL_LIST = exports.UPDATE_LIST_STATUS = exports.UPDATE_EDIT_FOLDER_ID = exports.UPDATE_VIEW_FOLDER_ID = exports.UPDATE_USER_ROOT_FOLDER = exports.UPDATE_SUBTRACT_REQUEST_COUNT = exports.UPDATE_ADD_REQUEST_COUNT = exports.UPDATE_INIT_STATUS = exports.UPDATE_USER_DOC_SETTING = exports.UPDATE_CERTIFICATION = exports.UPDATE_USER_INFO = void 0; /*
-                                                                                                                                                                                                                                                                                                                                                                                                                                                * @Author: your name
-                                                                                                                                                                                                                                                                                                                                                                                                                                                * @Date: 2021-04-21 14:28:28
-                                                                                                                                                                                                                                                                                                                                                                                                                                                * @LastEditTime: 2021-04-30 16:16:45
-                                                                                                                                                                                                                                                                                                                                                                                                                                                * @LastEditors: Please set LastEditors
-                                                                                                                                                                                                                                                                                                                                                                                                                                                * @Description: In User Settings Edit
-                                                                                                                                                                                                                                                                                                                                                                                                                                                * @FilePath: \cloud_app\src\store\mutation-types.js
-                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+Object.defineProperty(exports, "__esModule", { value: true });exports.SET_LABEL_LIST = exports.UPDATE_LIST_STATUS = exports.UPDATE_SUBTRACT_REQUEST_COUNT = exports.UPDATE_ADD_REQUEST_COUNT = exports.UPDATE_INIT_STATUS = exports.UPDATE_USER_DOC_SETTING = exports.UPDATE_CERTIFICATION = exports.UPDATE_USER_INFO = void 0; /*
+                                                                                                                                                                                                                                                                                                                                              * @Author: your name
+                                                                                                                                                                                                                                                                                                                                              * @Date: 2021-04-21 14:28:28
+                                                                                                                                                                                                                                                                                                                                              * @LastEditTime: 2021-04-30 16:16:45
+                                                                                                                                                                                                                                                                                                                                              * @LastEditors: Please set LastEditors
+                                                                                                                                                                                                                                                                                                                                              * @Description: In User Settings Edit
+                                                                                                                                                                                                                                                                                                                                              * @FilePath: \cloud_app\src\store\mutation-types.js
+                                                                                                                                                                                                                                                                                                                                              */
 
 // 用户模块
 var UPDATE_USER_INFO = 'UPDATE_USER_INFO';exports.UPDATE_USER_INFO = UPDATE_USER_INFO;
@@ -9345,19 +9328,16 @@ exports.UPDATE_INIT_STATUS = UPDATE_INIT_STATUS;var UPDATE_ADD_REQUEST_COUNT = '
 var UPDATE_SUBTRACT_REQUEST_COUNT = 'UPDATE_SUBTRACT_REQUEST_COUNT';
 
 // 列表模块
-exports.UPDATE_SUBTRACT_REQUEST_COUNT = UPDATE_SUBTRACT_REQUEST_COUNT;var UPDATE_USER_ROOT_FOLDER = 'UPDATE_USER_ROOT_FOLDER';exports.UPDATE_USER_ROOT_FOLDER = UPDATE_USER_ROOT_FOLDER;
-var UPDATE_VIEW_FOLDER_ID = 'UPDATE_VIEW_FOLDER_ID';exports.UPDATE_VIEW_FOLDER_ID = UPDATE_VIEW_FOLDER_ID;
-var UPDATE_EDIT_FOLDER_ID = 'UPDATE_EDIT_FOLDER_ID';exports.UPDATE_EDIT_FOLDER_ID = UPDATE_EDIT_FOLDER_ID;
-var UPDATE_LIST_STATUS = 'UPDATE_LIST_STATUS'; // 列表查看或编辑状态
+exports.UPDATE_SUBTRACT_REQUEST_COUNT = UPDATE_SUBTRACT_REQUEST_COUNT;var UPDATE_LIST_STATUS = 'UPDATE_LIST_STATUS'; // 列表查看或编辑状态
 
 // 标签模块
 exports.UPDATE_LIST_STATUS = UPDATE_LIST_STATUS;var SET_LABEL_LIST = 'SET_LABEL_LIST';exports.SET_LABEL_LIST = SET_LABEL_LIST;
 
 /***/ }),
 /* 16 */
-/*!****************************************************!*\
-  !*** D:/foxit/wechatAppDemo/store/action-types.js ***!
-  \****************************************************/
+/*!********************************************!*\
+  !*** D:/weapp/weapp/store/action-types.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9375,50 +9355,290 @@ var GET_LABEL_LIST = 'GET_LABEL_LIST';exports.GET_LABEL_LIST = GET_LABEL_LIST;
 
 /***/ }),
 /* 17 */
-/*!******************************************!*\
-  !*** D:/foxit/wechatAppDemo/api/docs.js ***!
-  \******************************************/
+/*!**********************************!*\
+  !*** D:/weapp/weapp/api/docs.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getToken = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.addDocFolder = exports.copyDocFile = exports.moveDocFolder = exports.moveDocFile = exports.deleteDocFileRecent = exports.openDocFile = exports.getRecent = exports.renameFolderName = exports.renameFile = exports.deleteDocFolder = exports.deleteDocFile = exports.findDocFolder = exports.findDocFile = exports.findDocUserLabelList = exports.findDocSettingList = exports.getRootFolderId = exports.certification = exports.getUserInfo = exports.getToken = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              * @description: 获取令牌
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              * @param {*}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              * @return {*}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              */
-var getToken = function getToken(config) {return (0, _request.default)(_objectSpread({
-    url: "user/getTokenByWxToken",
-    method: 'GET' },
-  config));};exports.getToken = getToken;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @description: 获取令牌
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @param {*}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @return {*}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
+var getToken = function getToken() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/user/getTokenByWxToken",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取用户信息
+               * @param {*}
+               * @return {*}
+               */exports.getToken = getToken;
+var getUserInfo = function getUserInfo() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/user/getUserInfo",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 是否认证
+               * @param {*}
+               * @return {*}
+               */exports.getUserInfo = getUserInfo;
+var certification = function certification() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/certification/hasCertification",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取用户根目录ID
+               * @param {*}
+               * @return {*}
+               */exports.certification = certification;
+var getRootFolderId = function getRootFolderId() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/getRootFolder",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取用户所有参数
+               * @param {*}
+               * @return {*}
+               */exports.getRootFolderId = getRootFolderId;
+var findDocSettingList = function findDocSettingList() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docSetting/findDocSettingList",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取标签列表
+               * @param {*}
+               * @return {*}
+               */exports.findDocSettingList = findDocSettingList;
+var findDocUserLabelList = function findDocUserLabelList() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docUserLabel/findDocUserLabelList",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取文件列表数据
+               * @param {*}
+               * @return {*}
+               */exports.findDocUserLabelList = findDocUserLabelList;
+var findDocFile = function findDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/findDocFile",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取目录列表数据
+               * @param {*}
+               * @return {*}
+               */exports.findDocFile = findDocFile;
+var findDocFolder = function findDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/findDocFolder",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 删除文档
+               * @param {*}
+               * @return {*}
+               */exports.findDocFolder = findDocFolder;
+var deleteDocFile = function deleteDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/deleteDocFile",
+    method: 'DELETE',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 删除目录
+               * @param {*}
+               * @return {*}
+               */exports.deleteDocFile = deleteDocFile;
+var deleteDocFolder = function deleteDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/deleteDocFolder",
+    method: 'DELETE',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 文档重命名
+               * @param {*}
+               * @return {*}
+               */exports.deleteDocFolder = deleteDocFolder;
+var renameFile = function renameFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/rename",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 目录重命名
+               * @param {*}
+               * @return {*}
+               */exports.renameFile = renameFile;
+var renameFolderName = function renameFolderName() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/rename",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+
+/**
+               * @description: 最近打开列表
+               * @param {*}
+               * @return {*}
+               */exports.renameFolderName = renameFolderName;
+var getRecent = function getRecent() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFileRecentOpen/findPage",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 上传最近打开记录
+               * @param {*}
+               * @return {*}
+               */exports.getRecent = getRecent;
+var openDocFile = function openDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+    hideLoading: true };var
+  header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFileRecentOpen/openDocFile",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 删除打开记录
+               * @param {*}
+               * @return {*}
+               */exports.openDocFile = openDocFile;
+var deleteDocFileRecent = function deleteDocFileRecent() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFileRecentOpen/deleteDocFileRecent/" + data.docId,
+    method: 'DELETE',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 移动文档
+               * @param {*}
+               * @return {*}
+               */exports.deleteDocFileRecent = deleteDocFileRecent;
+var moveDocFile = function moveDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/moveDocFile",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 移动目录
+               * @param {*}
+               * @return {*}
+               */exports.moveDocFile = moveDocFile;
+var moveDocFolder = function moveDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/moveDocFolder",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 复制文档
+               * @param {*}
+               * @return {*}
+               */exports.moveDocFolder = moveDocFolder;
+var copyDocFile = function copyDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/copyDocFile",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 新建文件夹
+               * @param {*}
+               * @return {*}
+               */exports.copyDocFile = copyDocFile;
+var addDocFolder = function addDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/addDocFolder",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};exports.addDocFolder = addDocFolder;
 
 /***/ }),
 /* 18 */
-/*!*********************************************!*\
-  !*** D:/foxit/wechatAppDemo/api/request.js ***!
-  \*********************************************/
+/*!*************************************!*\
+  !*** D:/weapp/weapp/api/request.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../store/index.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../store/index.js */ 11));
+var _const = __webpack_require__(/*! ../const/const.js */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var requestNumber = 0;
 var requestContinue = 100;
 
 var request = function request(config) {
   // 处理 apiUrl
-  config.url = 'https://docsapi.foxitcloud.cn/' + config.url;
+  config.url = _const.REQUEST_URL + config.url;
   if (!config.data) {
     config.data = {};
   }
 
-  if (!config.header) {
+  if (!config.header) {var _uni$getStorageSync;
     config.header = {
-      appKey: 'uw8PbyY2',
-      token: uni.getStorageSync('token') || '',
+      appKey: _const.APPKEY,
+      token: ((_uni$getStorageSync = uni.getStorageSync('token')) === null || _uni$getStorageSync === void 0 ? void 0 : _uni$getStorageSync.token) || '',
       'content-type': 'application/x-www-form-urlencoded;charset=utf-8' };
 
   } else {
@@ -9437,11 +9657,9 @@ var request = function request(config) {
     }
     uni.request(config).then(function (responses) {
       if (!config.hideLoading) {
-        console.log(requestNumber);
         requestNumber--;
         if (requestNumber === 0) uni.hideLoading();
       }
-      console.log(responses);
       // 异常
       if (responses[0]) {
         reject({
@@ -9449,18 +9667,19 @@ var request = function request(config) {
 
       } else {var
         data = responses[1].data;
-        if (data.code === 200) return resolve(data);
+        if (data.code === 0) return resolve(data);
         switch (data.code) {
           case 401:
-            uni.clearStorageSync();
-            uni.showToast({
-              title: '登录已失效，请重新登录',
-              icon: 'none',
-              duration: 3000 });
+            if (config.url.indexOf("getTokenByWxToken") !== -1) break;
+            uni.removeStorageSync('token');
+            uni.showLoading({
+              title: '重新获取登陆信息...' });
 
-            uni.redirectTo({
-              url: '/pages/index/index' });
+            setTimeout(function () {
+              uni.reLaunch({
+                url: '/pages/folder/folder' });
 
+            }, 1000);
             break;
           default:uni.showToast({
               title: data.msg,
@@ -9468,6 +9687,7 @@ var request = function request(config) {
               duration: 3000 });}
 
 
+        return reject(data);
       }
     }).catch(function (error) {
       if (!config.hideLoading) {
@@ -9485,9 +9705,41 @@ request;exports.default = _default;
 
 /***/ }),
 /* 19 */
-/*!****************************************************!*\
-  !*** D:/foxit/wechatAppDemo/store/modules/list.js ***!
-  \****************************************************/
+/*!*************************************!*\
+  !*** D:/weapp/weapp/const/const.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.TABBAR = exports.APPKEY = exports.REQUEST_URL = void 0;var REQUEST_URL = "https://docsapi.foxitcloud.cn";exports.REQUEST_URL = REQUEST_URL;
+var APPKEY = 'uw8PbyY2';exports.APPKEY = APPKEY;
+var TABBAR = [{
+  "pagePath": "/pages/index/index",
+  "iconPath": "/static/img/tabs/home.png",
+  "selectedIconPath": "/static/img/tabs/home_.png",
+  "text": "首页" },
+{
+  "pagePath": "/pages/folder/folder",
+  "iconPath": "/static/img/tabs/folder.png",
+  "selectedIconPath": "/static/img/tabs/folder_.png",
+  "text": "文档" },
+{
+  "pagePath": "/pages/appCenter/appCenter",
+  "iconPath": "/static/img/tabs/appCenter.png",
+  "selectedIconPath": "/static/img/tabs/appCenter_.png",
+  "text": "应用" },
+{
+  "pagePath": "/pages/userCenter/userCenter",
+  "iconPath": "/static/img/tabs/userCenter.png",
+  "selectedIconPath": "/static/img/tabs/userCenter_.png",
+  "text": "我的" }];exports.TABBAR = TABBAR;
+
+/***/ }),
+/* 20 */
+/*!********************************************!*\
+  !*** D:/weapp/weapp/store/modules/list.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9501,40 +9753,26 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);var _mutations;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
-
-
-
+var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 
 
 
 {
   namespaced: true,
   state: function state() {return {
-      viewFolderId: "",
-      editFolderId: "",
-      listStatus: 'view',
-      initStatus: false };},
+      listStatus: 'view' };},
 
-  mutations: (_mutations = {}, _defineProperty(_mutations,
-
-  _mutationTypes.UPDATE_VIEW_FOLDER_ID, function (state, folderId) {
-    state.viewFolderId = folderId;
-  }), _defineProperty(_mutations,
-
-  _mutationTypes.UPDATE_EDIT_FOLDER_ID, function (state, folderId) {
-    state.editFolderId = folderId;
-  }), _defineProperty(_mutations,
+  mutations: _defineProperty({},
 
   _mutationTypes.UPDATE_LIST_STATUS, function (state, type) {
     state.listStatus = listStatus;
-  }), _mutations) };exports.default = _default;
+  }) };exports.default = _default;
 
 /***/ }),
-/* 20 */
-/*!*******************************************************!*\
-  !*** D:/foxit/wechatAppDemo/store/modules/request.js ***!
-  \*******************************************************/
+/* 21 */
+/*!***********************************************!*\
+  !*** D:/weapp/weapp/store/modules/request.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9570,10 +9808,10 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);var _mutat
   }), _mutations) };exports.default = _default;
 
 /***/ }),
-/* 21 */
-/*!****************************************************!*\
-  !*** D:/foxit/wechatAppDemo/store/modules/user.js ***!
-  \****************************************************/
+/* 22 */
+/*!********************************************!*\
+  !*** D:/weapp/weapp/store/modules/user.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9595,12 +9833,16 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);var _mutat
 
 
 
+
 {
   namespaced: true,
   state: function state() {return {
       isCertification: false,
       token: uni.getStorageSync('token') || {},
-      userInfo: "" };},
+      userInfo: "",
+      globalData: null,
+      initStatus: false,
+      userDocSetting: [] };},
 
   mutations: (_mutations = {}, _defineProperty(_mutations,
 
@@ -9612,51 +9854,155 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);var _mutat
     state.userInfo = userInfo;
   }), _defineProperty(_mutations,
 
-  _mutationTypes.UPDATE_USER_ROOT_FOLDER, function (state, folder) {
-    state.userRootFolder = folder;
-  }), _defineProperty(_mutations,
-
   _mutationTypes.UPDATE_USER_DOC_SETTING, function (state, setting) {
     state.userDocSetting = setting;
   }), _defineProperty(_mutations,
 
   _mutationTypes.UPDATE_INIT_STATUS, function (state, status) {
     state.initStatus = status;
+  }), _defineProperty(_mutations,
+
+  _mutationTypes.UPDATE_GLOBAL_DATA, function (state, gloablData) {
+    state.gloablData = gloablData;
   }), _mutations) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 22 */
-/*!**************************************************!*\
-  !*** D:/foxit/wechatAppDemo/plugins/useUView.js ***!
-  \**************************************************/
+/* 23 */
+/*!******************************************!*\
+  !*** D:/weapp/weapp/utils/protoUtils.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /*
+                                                                                                      * @Author: your name
+                                                                                                      * @Date: 2021-04-30 11:29:30
+                                                                                                      * @LastEditTime: 2021-04-30 11:37:26
+                                                                                                      * @LastEditors: your name
+                                                                                                      * @Description: In User Settings Edit
+                                                                                                      * @FilePath: \cloud_doc\src\base\utils\util.js
+                                                                                                      */var _default =
+{
+  install: function install(Vue, opt) {
+    // 时间转换
+    Vue.filter('formatTime', function (time) {
+      var date = new Date(Number(time));
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var formatNumber = function formatNumber(n) {
+        n = n.toString();
+        return n[1] ? n : '0' + n;
+      };
+      return [year, month, day].map(formatNumber).join('-');
+    });
+    // 文件大小转换
+    Vue.filter('bytesToSize', function (bytes) {
+      if (bytes === 0 || bytes === "0") return '0 B';
+      var k = 1024;
+      var sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+      var i = Math.floor(Math.log(bytes) / Math.log(k));
+      var num = bytes / Math.pow(k, i);
+      return num.toFixed(2) + sizes[i];
+    });
+    Vue.filter('fileIcon', function (fileType) {
+      return 'webImg/list/pdf.png';
+    });
+    // 判断文件特殊符号
+    Vue.prototype.specialSymbol = function (str) {
+      var myReg = /[%*/|<>?"\\:]/;
+      if (!myReg.test(str) && str.trim() !== '') {
+        return true;
+      }
+      return false;
+    };
+    // 列表文件名展示
+    Vue.filter('formatListName', function (item) {
+      if (item.folderName) return item.folderName;
+      var fileNameArr = item.fileName.split('.');
+      if (fileNameArr.length !== 0 && fileNameArr.length > 2) {
+        fileNameArr.pop();
+        return fileNameArr.join('.');
+      }
+      if (fileNameArr.length !== 0) {
+        return fileNameArr[0];
+      }
+    });
+    Vue.filter('extName', function (item) {
+      var fileNameArr = item.fileName.split('.');
+      if (fileNameArr.length !== 0 && fileNameArr.length > 2) {
+        return fileNameArr.pop();
+      }
+      if (fileNameArr.length === 2) {
+        return fileNameArr[1];
+      }
+      return '';
+    });
+
+    /**
+         * @description: 获取extName
+         * @param {*}
+         * @return {*}
+         */
+    Vue.prototype.getExtName = function (fileName) {
+      var fileNameArr = fileName.split('.');
+      if (fileNameArr.length !== 0 && fileNameArr.length > 2) {
+        return fileNameArr.pop().toLowerCase();
+      }
+      if (fileNameArr.length === 2) {
+        return fileNameArr[1].toLowerCase();
+      }
+      return '';
+    };
+    /**
+        * @description: 拼接url参数
+        * @param {*}
+        * @return {*}
+        */
+    Vue.prototype.urlPlusOptions = function (url, options) {
+      if (!options) return url;
+      Reflect.ownKeys(options).forEach(function (key, index) {
+        console.log(key);
+        if (index === 0) {
+          url += "?".concat(key, "=").concat(options[key]);
+        } else {
+          url += "&".concat(key, "=").concat(options[key]);
+        }
+      });
+      return url;
+    };
+  } };exports.default = _default;
+
+/***/ }),
+/* 24 */
+/*!******************************************!*\
+  !*** D:/weapp/weapp/plugins/useUView.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 _vue.default.use(_uviewUi.default);
 
 /***/ }),
-/* 23 */
-/*!*************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/index.js ***!
-  \*************************************************************/
+/* 25 */
+/*!*****************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/index.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 24));
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 26));
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 25));
-
-
-
-
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 27));
 
 
 
@@ -9673,56 +10019,60 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 
 
 
 
-var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 29));
-
-var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 30));
-
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 34));
-
-var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 35));
-
-var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 36));
-
-var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 37));
-
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 38));
-
-var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 39));
-
-var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 40));
-
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 27));
-
-var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 26));
-
-var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 41));
-
-
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 28));
-
-var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 42));
-
-var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 43));
-
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 44));
-
-var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 45));
-
-var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 46));
 
 
 
-var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 47);
 
-var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 48));
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 31));
 
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 49));
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 32));
+
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 36));
+
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 37));
+
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 38));
+
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 39));
+
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 40));
+
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 41));
+
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 42));
+
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 29));
+
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 28));
+
+var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 43));
+
+
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 30));
+
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 44));
+
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 45));
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 46));
+
+var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 47));
+
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 48));
 
 
 
-var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 50));
+var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 49);
 
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 50));
+
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 51));
+
+
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 52));
+
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 53));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
 // 引入关于是否mixin集成小程序分享的配置
 // import wxshare from './libs/mixin/mpShare.js'
 // 全局挂载引入http相关请求拦截插件
@@ -9790,10 +10140,10 @@ var install = function install(Vue) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 24 */
-/*!************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/mixin/mixin.js ***!
-  \************************************************************************/
+/* 26 */
+/*!****************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/mixin/mixin.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9863,16 +10213,16 @@ var install = function install(Vue) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 25 */
-/*!**************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/request/index.js ***!
-  \**************************************************************************/
+/* 27 */
+/*!******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/request/index.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 26));
-var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 28));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 28));
+var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 30));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
     // 设置全局默认配置
     value: function setConfig(customConfig) {
@@ -10043,15 +10393,15 @@ new Request();exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 26 */
-/*!*******************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/deepMerge.js ***!
-  \*******************************************************************************/
+/* 28 */
+/*!***********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/deepMerge.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 27));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 29));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // JS对象深度合并
 function deepMerge() {var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -10083,10 +10433,10 @@ function deepMerge() {var target = arguments.length > 0 && arguments[0] !== unde
 deepMerge;exports.default = _default;
 
 /***/ }),
-/* 27 */
-/*!*******************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/deepClone.js ***!
-  \*******************************************************************************/
+/* 29 */
+/*!***********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/deepClone.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10116,10 +10466,10 @@ function deepClone(obj) {
 deepClone;exports.default = _default;
 
 /***/ }),
-/* 28 */
-/*!**************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/test.js ***!
-  \**************************************************************************/
+/* 30 */
+/*!******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/test.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10357,10 +10707,10 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
   code: code };exports.default = _default;
 
 /***/ }),
-/* 29 */
-/*!*********************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/queryParams.js ***!
-  \*********************************************************************************/
+/* 31 */
+/*!*************************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/queryParams.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10425,18 +10775,18 @@ function queryParams() {var data = arguments.length > 0 && arguments[0] !== unde
 queryParams;exports.default = _default;
 
 /***/ }),
-/* 30 */
-/*!***************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/route.js ***!
-  \***************************************************************************/
+/* 32 */
+/*!*******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/route.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 31));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 并且带有路由拦截功能
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 33));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * 并且带有路由拦截功能
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */var
 
 Router = /*#__PURE__*/function () {
   function Router() {_classCallCheck(this, Router);
@@ -10558,17 +10908,17 @@ new Router().route;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 31 */
+/* 33 */
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 32);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 34);
 
 /***/ }),
-/* 32 */
+/* 34 */
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -10599,7 +10949,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 33);
+module.exports = __webpack_require__(/*! ./runtime */ 35);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -10615,7 +10965,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 33 */
+/* 35 */
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -11346,10 +11696,10 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 34 */
-/*!********************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/timeFormat.js ***!
-  \********************************************************************************/
+/* 36 */
+/*!************************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/timeFormat.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11407,15 +11757,15 @@ function timeFormat() {var dateTime = arguments.length > 0 && arguments[0] !== u
 timeFormat;exports.default = _default;
 
 /***/ }),
-/* 35 */
-/*!******************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/timeFrom.js ***!
-  \******************************************************************************/
+/* 37 */
+/*!**********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/timeFrom.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 36));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /**
                                                                                                                                                                                                                                                                                           * 时间戳转为多久之前
@@ -11464,10 +11814,10 @@ function timeFrom() {var dateTime = arguments.length > 0 && arguments[0] !== und
 timeFrom;exports.default = _default;
 
 /***/ }),
-/* 36 */
-/*!***********************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/colorGradient.js ***!
-  \***********************************************************************************/
+/* 38 */
+/*!***************************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/colorGradient.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11607,10 +11957,10 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
   colorToRgba: colorToRgba };exports.default = _default;
 
 /***/ }),
-/* 37 */
-/*!**************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/guid.js ***!
-  \**************************************************************************/
+/* 39 */
+/*!******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/guid.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11658,10 +12008,10 @@ function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? 
 guid;exports.default = _default;
 
 /***/ }),
-/* 38 */
-/*!***************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/color.js ***!
-  \***************************************************************************/
+/* 40 */
+/*!*******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/color.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11705,10 +12055,10 @@ var color = {
 color;exports.default = _default;
 
 /***/ }),
-/* 39 */
-/*!*******************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/type2icon.js ***!
-  \*******************************************************************************/
+/* 41 */
+/*!***********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/type2icon.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11750,10 +12100,10 @@ function type2icon() {var type = arguments.length > 0 && arguments[0] !== undefi
 type2icon;exports.default = _default;
 
 /***/ }),
-/* 40 */
-/*!*********************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/randomArray.js ***!
-  \*********************************************************************************/
+/* 42 */
+/*!*************************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/randomArray.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11767,15 +12117,15 @@ function randomArray() {var array = arguments.length > 0 && arguments[0] !== und
 randomArray;exports.default = _default;
 
 /***/ }),
-/* 41 */
-/*!*****************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/addUnit.js ***!
-  \*****************************************************************************/
+/* 43 */
+/*!*********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/addUnit.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 28));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 30));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
 function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
@@ -11785,10 +12135,10 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 }
 
 /***/ }),
-/* 42 */
-/*!****************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/random.js ***!
-  \****************************************************************************/
+/* 44 */
+/*!********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/random.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11805,10 +12155,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 random;exports.default = _default;
 
 /***/ }),
-/* 43 */
-/*!**************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/trim.js ***!
-  \**************************************************************************/
+/* 45 */
+/*!******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/trim.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11830,10 +12180,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 trim;exports.default = _default;
 
 /***/ }),
-/* 44 */
-/*!***************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/toast.js ***!
-  \***************************************************************************/
+/* 46 */
+/*!*******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/toast.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11850,10 +12200,10 @@ toast;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 45 */
-/*!*******************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/getParent.js ***!
-  \*******************************************************************************/
+/* 47 */
+/*!***********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/getParent.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11907,10 +12257,10 @@ function getParent(name, keys) {
 }
 
 /***/ }),
-/* 46 */
-/*!*****************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/$parent.js ***!
-  \*****************************************************************************/
+/* 48 */
+/*!*********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/$parent.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11935,10 +12285,10 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 }
 
 /***/ }),
-/* 47 */
-/*!*************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/sys.js ***!
-  \*************************************************************************/
+/* 49 */
+/*!*****************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/sys.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11953,10 +12303,10 @@ function sys() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 48 */
-/*!******************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/debounce.js ***!
-  \******************************************************************************/
+/* 50 */
+/*!**********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/debounce.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11992,10 +12342,10 @@ function debounce(func) {var wait = arguments.length > 1 && arguments[1] !== und
 debounce;exports.default = _default;
 
 /***/ }),
-/* 49 */
-/*!******************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/throttle.js ***!
-  \******************************************************************************/
+/* 51 */
+/*!**********************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/throttle.js ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12034,10 +12384,10 @@ function throttle(func) {var wait = arguments.length > 1 && arguments[1] !== und
 throttle;exports.default = _default;
 
 /***/ }),
-/* 50 */
-/*!**************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/config/config.js ***!
-  \**************************************************************************/
+/* 52 */
+/*!******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/config/config.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12057,10 +12407,10 @@ var version = '1.8.3';var _default =
   'warning'] };exports.default = _default;
 
 /***/ }),
-/* 51 */
-/*!**************************************************************************!*\
-  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/config/zIndex.js ***!
-  \**************************************************************************/
+/* 53 */
+/*!******************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/config/zIndex.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12084,6 +12434,1241 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   topTips: 975,
   sticky: 970,
   indexListSticky: 965 };exports.default = _default;
+
+/***/ }),
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */
+/*!*******************************************!*\
+  !*** D:/weapp/weapp/mixin/tabbarMixin.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  methods: {
+    setSelectedTabbar: function setSelectedTabbar(index) {
+      if (typeof this.$mp.page.getTabBar === 'function' &&
+      this.$mp.page.getTabBar()) {
+        this.$mp.page.getTabBar().setData({
+          selected: index });
+
+      }
+    },
+    // 拦截未登录跳转 wxf51b2594be7627c4
+    beforeSwitch: function beforeSwitch(index) {
+      if (index === 1) return true;
+      if (index !== 1) {
+        if (uni.getStorageSync('isLogin')) {
+          if (index !== 3) return true;
+          uni.navigateToMiniProgram({
+            appId: "wxf51b2594be7627c4" });
+
+          return false;
+        }
+        uni.redirectTo({
+          url: '/pages/login/login?url=/pages/folder/folder' });
+
+      } else return false;
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 61 */
+/*!*****************************************!*\
+  !*** D:/weapp/weapp/mixin/listMixin.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 33));var _vuex = __webpack_require__(/*! vuex */ 12);
+
+
+
+var _const = __webpack_require__(/*! const/const */ 19);
+
+
+
+var _login = __webpack_require__(/*! ../utils/login.js */ 62);
+
+
+var _api = __webpack_require__(/*! api */ 17);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  data: function data() {
+    return {
+      folderList: [], // 文件夹列表
+      fileList: [], // 文件列表
+      listClosure: true, // 列表加载开关（防止重复请求）
+      rollLoad: false, // 是否滚动加载
+      page: 1, // 当前页
+      limit: 15, // 是否为ie10
+      labelListData: [], // 标签列表数据
+      listType: 'folder',
+      tempFileLength: 0 };
+
+  },
+  computed: _objectSpread(_objectSpread({},
+  (0, _vuex.mapState)('list', ['listStatus'])), {}, {
+    totalList: function totalList() {
+      return [].concat(_toConsumableArray(this.folderList), _toConsumableArray(this.fileList));
+    } }),
+
+  mounted: function mounted() {},
+  methods: _objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)('list',
+  [
+  'UPDATE_LIST_STATUS',
+  'UPDATE_VIEW_FOLDER_ID',
+  'UPDATE_EDIT_FOLDER_ID'])), {}, {
+
+    /**
+                                     * [getList 获取文件列表数据]
+                                     *
+                                     * @params
+                                     * @return  {[type]}  [return description]
+                                     */
+    getList: function getList(params) {var
+
+      listType =
+      params.listType;
+      this.listType = listType;
+      switch (listType) {
+        case 'recently':
+          this.recentOpenDocuments(params);
+          break;
+        case 'folder':
+          this.getFolder(params);
+          break;}
+
+    },
+    /**
+        * [getFolder 获取文件列表数据]
+        *
+        * @params
+        * @return  {[type]}  [return description]
+        */
+    getFolder: function getFolder(params) {var _this = this;
+      if (!this.listClosure) {
+        return;
+      }
+      // 刷新重置
+      this.page = 1;
+      this.limit = 15,
+      this.listClosure = false;
+      var folderId = this.getFolderId();
+      var pageParams = {
+        folderId: folderId,
+        page: this.page,
+        limit: this.limit };
+
+      var config = {
+        hideLoading: true };
+
+      Promise.all([(0, _api.findDocFolder)({
+        folderId: folderId },
+      config), (0, _api.findDocFile)(pageParams, config)]).then(
+      function (res) {
+        _this.listClosure = true; // 开启按钮防止重复请求
+        var _res = _slicedToArray(res, 2),resFolderList = _res[0],resFileList = _res[1];
+        if (resFolderList.code !== 0 || resFileList.code !== 0) return;
+        _this.folderList = resFolderList.data || [];
+        _this.fileList = resFileList.data.records || [];
+        if (resFileList.data.pages > resFileList.data.current) _this.rollLoad = true; // 还有更多数据时开启滚动加载
+        if (params && params.callback) params.callback();
+      },
+      function (err) {
+        _this.listClosure = true;
+      });
+    },
+    /**
+        * [getFolderId 获取所需查询列表的folderId]
+        *
+        * @params
+        * @return  {[type]}  [return description]
+        */
+    getFolderId: function getFolderId() {
+      if (this.$mp.page.options.folderId) return this.$mp.page.options.folderId;
+      var folderId = wx.getStorageSync('rootFolder').folderId;
+      return folderId;
+    },
+    /**
+        * [loadMore 加载更多]
+        *
+        * @return  {[type]}  [return description]
+        */
+    loadMore: function loadMore(params) {var _this2 = this;
+      if (!this.listClosure || !this.rollLoad) {
+        return;
+      }var
+
+      listType =
+      params.listType;
+      this.listType = listType;
+      this.listClosure = false;
+      this.rollLoad = false;
+      var folderId = this.getFolderId();
+      this.page += 1;
+      var pageParams = {
+        folderId: folderId,
+        page: this.page,
+        limit: this.limit };
+
+      var requestFunc;
+      switch (listType) {
+        case 'recently':
+          requestFunc = _api.getRecent;
+          break;
+        default:
+          requestFunc = _api.findDocFile;}
+
+      if (listType === 'recently') {
+        delete pageParams.folderId;
+      }
+      var config = {
+        hideLoading: true };
+
+      requestFunc(pageParams, config).then(function (resFileList) {
+        _this2.listClosure = true; // 开启按钮防止重复请求
+        if (resFileList.code !== 0) return;
+        _this2.fileList = [].concat(_toConsumableArray(_this2.fileList), _toConsumableArray(resFileList.data.records));
+        if (resFileList.data.pages > resFileList.data.current) _this2.rollLoad = true; // 还有更多数据时开启滚动加载
+        if (params && params.callback) params.callback();
+      });
+    },
+    /**
+        * [recentOpenDocuments 获取最近文件列表数据]
+        *
+        * @return  {[type]}  [return description]
+        */
+    recentOpenDocuments: function recentOpenDocuments(params) {var _this3 = this;
+      if (!this.listClosure) {
+        return;
+      }
+      // 刷新重置
+      this.page = 1;
+      this.limit = 10;
+      this.listClosure = false;
+      var pageParams = {
+        page: this.page,
+        limit: this.limit };
+
+      var config = {
+        showLoading: false };
+
+      (0, _api.getRecent)(pageParams, config).
+      then(
+      function (resFileList) {
+        _this3.listClosure = true; // 开启按钮防止重复请求
+        if (resFileList.code !== 0) return;
+        _this3.folderList = [];
+        _this3.fileList = resFileList.data.records || [];
+        if (resFileList.data.pages > resFileList.data.current) _this3.rollLoad = true; // 还有更多数据时开启滚动加载
+        if (params && params.callback) params.callback();
+      },
+      function (err) {
+        _this3.listClosure = true;
+      });
+    },
+    /**
+        * [listDataUpdate 更新列表数据]
+        *
+        * @param   {[object]}  listDataItem  [listDataItem 单条数据（文件/文件夹）]
+        * @param   {[string]}  action        [action 对数据做的操作类型]
+        * @param   {[string]}  objectId      [objectId 文件/文件夹id]
+        *
+        * @return  {[type]}                [return description]
+        */
+    listDataUpdate: function listDataUpdate(action, listItem, type, inputValue) {
+      switch (action) {
+        case 'add':
+          // 添加列表数据
+          this.addDataObject(listItem, type);
+          break;
+        case 'delete':
+          // 删除数组中指定对象(删除文件/文件夹)
+          this.deleteDataObject(listItem);
+          break;
+        case 'deleteRecently':
+          // 删除最近记录
+          this.deleteRecenlyDataObject(listItem);
+          break;
+        case 'rename':
+          // 重命名
+          this.rename(listItem, inputValue);
+          break;
+        case 'addFolder':
+          // 新建文件夹
+          this.addFolder(inputValue);
+          break;
+        case 'open':
+          // 打开文件
+          this.handleTdClick(listItem);
+        default:
+          break;}
+
+    },
+    /**
+        * [deleteListData 删除数组中指定对象]
+        *
+        * @param   {[object]}  objectId  [objectId 文件/文件夹id]
+        *
+        * @return  {[type]}            [return description]
+        */
+    deleteDataObject: function deleteDataObject(listItem) {var _this4 = this;
+      var removeItem = function removeItem(item) {
+        // 由于后端接口分页参数限制，不支持直接替换
+        // if (!item.docId) {
+        //   const index = this.folderList.findIndex(item => item.folderId === listItem.folderId);
+        //   this.folderList.splice(index, 1);
+        // } else {
+        //   const index = this.fileList.findIndex(item => item.docId === listItem.docId);
+        //   this.fileList.splice(index, 1);
+        // }
+        if (!item.docId) {
+          var index = _this4.folderList.findIndex(function (item) {return item.folderId === listItem.folderId;});
+          _this4.folderList.splice(index, 1);
+        } else {
+          _this4.fileList = [];
+          _this4.folderList = [];
+          _this4.getFolder();
+        }
+      };
+      var removeFunc = !listItem.docId ? _api.deleteDocFolder : _api.deleteDocFile;
+      var params = !listItem.docId ? {
+        folderId: listItem.folderId } :
+      {
+        docId: listItem.docId };
+
+      removeFunc(params).
+      then(function (res) {
+        if (res.code !== 0) return;
+        removeItem(listItem);
+        _this4.$refs.uToast.show({
+          title: '删除成功!' });
+
+      });
+    },
+    /**
+        * [deleteListData 删除数组中指定对象]
+        *
+        * @param   {[object]}  objectId  [objectId 文件/文件夹id]
+        *
+        * @return  {[type]}            [return description]
+        */
+    deleteRecenlyDataObject: function deleteRecenlyDataObject(listItem) {var _this5 = this;
+      var removeItem = function removeItem(item) {
+        // if (!item.docId) {
+        //   const index = this.folderList.findIndex(item => item.folderId === listItem.folderId);
+        //   this.folderList.splice(index, 1);
+        // } else {
+        //   const index = this.fileList.findIndex(item => item.docId === listItem.docId);
+        //   this.fileList.splice(index, 1);
+        // }
+        // 由于分页参数问题 暂时无法实现前端控制 必须刷新列表
+        _this5.fileList = [];
+        _this5.folderList = [];
+        _this5.recentOpenDocuments();
+      };
+      this.$confirm({
+        title: '提示',
+        message: "\u662F\u5426\u4ECE\u6700\u8FD1\u5217\u8868\u4E2D\u79FB\u9664\uFF1F\u79FB\u9664\u540E\uFF0C\u8BE5\u5185\u5BB9\u5728\u6700\u8FD1\u5217\u8868\u5C06\u4E0D\u53EF\u89C1" }).
+
+      then(function () {
+        _this5.$message.loading({
+          forbidClick: true,
+          message: "正在移除...",
+          duration: 0 });
+
+        var params = {
+          docId: listItem.docId };
+
+        (0, _api.deleteDocFileRecent)(params, {
+          showLoading: false }).
+
+        then(function (res) {
+          if (res.code !== 0) return;
+          removeItem(listItem);
+          _this5.$message("移除成功");
+        });
+      }).
+      catch(function () {});
+    },
+    /**
+        * [rename 重命名]
+        * @param   {[object]}  listItem  [listItem 单条数据（文件/文件夹）]
+        *
+        * @return  {[type]}                [return description]
+        */
+    rename: function rename(listItem, inputValue) {var _this6 = this;var
+
+      docId =
+
+
+
+      listItem.docId,folderId = listItem.folderId,folderName = listItem.folderName,fileName = listItem.fileName;
+      var defaultValue = folderName || fileName;
+      if (inputValue === defaultValue) return;
+      if (!inputValue.trim()) return this.$refs.uToast.show({
+        title: "".concat(docId ? '文件名不能为空' : '文件夹名称不能为空') });
+
+      if (/^\./.test(inputValue.trim())) return this.$refs.uToast.show({
+        title: "".concat(docId ? '文件' : '文件夹', "\u540D\u79F0\u9996\u4F4D\u5B57\u7B26\u4E0D\u80FD\u4E3A.") });
+
+      if (!this.specialSymbol(inputValue.trim())) return this.$refs.uToast.show({
+        title: "\u540D\u79F0\u4E2D\u5305\u542B\u4E0D\u88AB\u5141\u8BB8\u7684\u975E\u6CD5\u5B57\u7B26 / \\ : \" * ? < > | %" });
+
+      var requestFunc = docId ? _api.renameFile : _api.renameFolderName;
+      var params = docId ? {
+        docId: docId,
+        fileName: inputValue.trim() } :
+      {
+        folderId: folderId,
+        folderName: inputValue.trim() };
+
+      requestFunc(params).then(function () {
+        _this6.$refs.uToast.show({
+          title: '修改成功！' });
+
+        _this6.updataDataList(listItem, 'name', inputValue.trim());
+      });
+    },
+    /**
+        * [updataDataList 更新列表字段数据]
+        *
+        * @param   {[Array]}  listItem      [listItem 单条数据（文件/文件夹）]
+        * @param   {[object]}  field  [field 更新字段名]
+        *
+        * @return  {[type]}                [return description]
+        */
+    updataDataList: function updataDataList(listItem, field, value) {var
+
+      id =
+
+      listItem.id,docId = listItem.docId;
+      if (docId) {
+        var index = this.fileList.findIndex(function (item) {
+          return item.id === id;
+        });
+        this.fileList[index].fileName = value;
+      } else {
+        var _index = this.folderList.findIndex(function (item) {
+          return item.id === id;
+        });
+        this.folderList[_index].folderName = value;
+      }
+    },
+    /**
+        * [addDataObject 添加列表数据]
+        *
+        * @param   {[Array]}  listData      [listData 总数据（文件/文件夹）]
+        * @param   {[object]}  listDataItem  [listDataItem 单条数据（文件/文件夹）]
+        *
+        * @return  {[type]}                [return description]
+        */
+    addDataObject: function addDataObject(listDataItem, type) {
+      // 由于分页参数问题 暂时无法实现前端控制 必须刷新列表
+      if (type === 'file') {
+        this.fileList = [];
+        this.folderList = [];
+        this.getFolder();
+      } else {
+        this.folderList.push(listDataItem);
+      }
+    },
+    /**
+        * [tagFileLabel 整合标签和列表数据]
+        *
+        * @param   {[Array]}  listData  [listData 列表数据]
+        *
+        * @return  {[type]}            [return 返回整合好的数组]
+        */
+    tagFileLabel: function tagFileLabel() {var _this7 = this;var listData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];var _loop = function _loop(
+      i, max) {
+        if (
+        listData[i].description !== '' &&
+        JSON.parse(listData[i].description).label)
+        {
+          var labelDescription = _this7.labelListData.filter(function (item) {
+            return JSON.parse(listData[i].description).label.includes(
+            item.label);
+
+          });
+          listData[i].labelDescription = labelDescription.splice(0, 4);
+        }};for (var i = 0, max = listData.length; i < max; i++) {_loop(i, max);
+      }
+      return listData;
+    },
+    /**
+        * [handleTdClick 监听用户点击列表]
+        *
+        * @param   {[object]}  listHeadDataItem  [listHeadDataItem 列表类型数据]
+        *
+        * @return  {[type]}                    [return description]
+        */
+    handleTdClick: function handleTdClick() {var listItem = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var type;
+      if (listItem.docId) {
+        type = 'file';
+      } else {
+        type = 'folder';
+      }
+      if (type === 'folder') {
+        // 打开文件夹
+        this.openFolder(listItem.folderId);
+      } else {
+        // 打开文件
+        this.openFile(listItem);
+      }
+    },
+    /**
+        * [openFolder 打开文件夹]
+        *
+        * @param   {[string]}  folderId    [文件id]
+        *
+        * @return  {[type]}        [return description]
+        */
+    openFolder: function openFolder(folderId) {
+      var url = '';var
+
+      route =
+      this.$mp.page.route;
+      switch (route) {
+        case 'pages/folder/folder':
+          url = '/pages/childrenList/childrenList';
+          break;
+        case 'pages/move/move':
+          url = '/pages/move/move';
+          break;
+        default:
+          url = '/pages/childrenList/childrenList';}
+
+      uni.navigateTo({
+        url: "".concat(url, "?folderId=").concat(folderId) });
+
+    },
+    /**
+        * [openFile 打开文件]
+        *
+        * @param   {[string]}  id    [id 文件id]
+        * @param   {[string]}  name  [name 文件名]
+        *
+        * @return  {[type]}        [return description]
+        */
+    openFile: function openFile(listItem) {
+      var getExtName = function getExtName(fileName) {
+        var fileNameArr = fileName.split('.');
+        if (fileNameArr.length !== 0 && fileNameArr.length > 2) {
+          return fileNameArr.pop().toLowerCase();
+        }
+        if (fileNameArr.length === 2) {
+          return fileNameArr[1].toLowerCase();
+        }
+        return '';
+      };
+      var id = listItem.docId;
+      var type = getExtName(listItem.fileName);
+      if (type === 'pdf') {
+        (0, _api.openDocFile)({
+          docId: listItem.docId });
+
+      }
+      // pdf打开暂未实现
+      // openDocFile({ docId: id })
+      // window.open(`https://edit.foxitcloud.cn?url=${encodeURIComponent(`https://docsapi.foxitcloud.cn/docFile/downloadFile?docId=${listItem.docId}&token=${JSON.parse(token).token}&appKey=${appKey}`)}`);
+
+      // 下载文件
+      var filename = listItem.folderName || listItem.fileName;
+      this.downLoadFile(id, filename, type);
+    },
+    /**
+        * [downLoadFile 下载文件]
+        *
+        * @param   {[string]}  id  [id 文件的docId]
+        *
+        * @return  {[type]}      [return description]
+        */
+    downLoadFile: function downLoadFile(docId, filename, type) {var _this8 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var url, isOpenDocument;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.prev = 0;_context.next = 3;return (
+
+                  (0, _login.checkDocToken)());case 3:_context.next = 8;break;case 5:_context.prev = 5;_context.t0 = _context["catch"](0);return _context.abrupt("return");case 8:
+
+
+
+                url = "".concat(
+                _const.REQUEST_URL, "/docFile/downloadFile?docId=").concat(docId, "&appKey=").concat(_const.APPKEY, "&token=").concat(uni.getStorageSync('token').token);
+                isOpenDocument = type === "pdf" || type === "xls" || type === "doc" || type === "ppt" || type ===
+                "docx" || type === "xlsx" || type === "pptx" || type === "jpeg" || type === "png" || type === "jpg";
+                //新开页面打开文档，支持格式：doc, xls, ppt, pdf, docx, xlsx, pptx
+                if (isOpenDocument) {
+                  if (type === "jpeg" || type === "png" || type === "jpg") {
+                    console.log('图片');
+                    uni.previewImage({
+                      urls: [url] });
+
+                  } else {
+                    console.log('下载');
+                    uni.downloadFile({
+                      url: url,
+                      success: function success(res) {
+                        console.log(res);
+                        var filePath = res.tempFilePath;
+                        uni.openDocument({
+                          filePath: filePath });
+
+                      },
+                      fail: function fail(res) {
+                        console.log(res);
+                      } });
+
+                  }
+                } else {
+                  _this8.$refs.uToast.show({
+                    title: '该文件不支持在小程序内打开!' });
+
+                }case 11:case "end":return _context.stop();}}}, _callee, null, [[0, 5]]);}))();
+    },
+    /**
+        * [addFolder 下载文件]
+        *
+        * @return  {[type]}      [return description]
+        */
+    addFolder: function addFolder(inputValue) {var _this9 = this;
+      if (!inputValue.trim()) return this.$refs.uToast.show({
+        title: "\u6587\u4EF6\u5939\u540D\u79F0\u4E0D\u80FD\u4E3A\u7A7A" });
+
+      if (/^\./.test(inputValue.trim())) return this.$refs.uToast.show({
+        title: "\u6587\u4EF6\u5939\u540D\u79F0\u9996\u4F4D\u5B57\u7B26\u4E0D\u80FD\u4E3A." });
+
+      if (!this.specialSymbol(inputValue.trim())) return this.$refs.uToast.show({
+        title: "\u540D\u79F0\u4E2D\u5305\u542B\u4E0D\u88AB\u5141\u8BB8\u7684\u975E\u6CD5\u5B57\u7B26 / \\ : \" * ? < > | %" });
+
+      this.checkText(inputValue.trim()).
+      then(function () {
+        var params = {
+          folderName: inputValue.trim(),
+          parentId: _this9.getFolderId() };
+
+        uni.showLoading({
+          title: '正在创建...' });
+
+        (0, _api.addDocFolder)(params).then(function (res) {
+          uni.hideLoading();
+          _this9.$refs.uToast.show({
+            title: '创建成功！' });
+
+          _this9.addDataObject(res.data, 'folder');
+        });
+      }).
+      catch(function () {
+        uni.showToast({
+          title: '含有违法违规内容',
+          icon: 'none',
+          duration: 2000 });
+
+      });
+    },
+    /**
+        * 检测文本内容(内容是否含有违法违规内容)
+        */
+    checkText: function checkText(text) {
+      return new Promise(function (resolve, reject) {
+        var url = 'https://wechatmp.foxitreader.cn/security/checkText';
+        var sendData = {
+          appId: 'wxeeeee850023ae299',
+          content: text };
+
+        uni.request({
+          url: url,
+          method: "POST",
+          data: sendData,
+          header: {
+            // "Authorization": 'Bearer ' + this.cmis_token, 似乎可以不传
+            'content-type': 'application/x-www-form-urlencoded' } }).
+
+        then(function (res) {
+          if (res[0]) return reject('网络错误,请重试！');
+          if (res[1].data.ret === 0) {
+            resolve(res);
+          } else if (res[1].data.ret === 87014) {
+            reject('含有违法违规内容');
+          }
+        }).catch(function () {
+          reject('含有违法违规内容');
+        });
+      });
+    },
+    /**
+        * 微信文件上传
+        */
+    uploadWxFile: function uploadWxFile() {var _this10 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.prev = 0;_context4.next = 3;return (
+
+                  (0, _login.checkDocToken)());case 3:_context4.next = 8;break;case 5:_context4.prev = 5;_context4.t0 = _context4["catch"](0);return _context4.abrupt("return");case 8:
+
+
+
+                uni.chooseMessageFile({
+                  count: 10,
+                  success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(res) {var userDocSetting, uploadMaxLimit, uploadFileNotFormat, err, _loop2, i, max, _ret;return _regenerator.default.wrap(function _callee2$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                              _this10.tempFileLength = res.tempFiles.length;
+                              uni.showLoading({
+                                mask: true,
+                                title: '上传中...' });
+
+
+                              userDocSetting =
+                              _this10.$store.state.user.userDocSetting;
+                              uploadMaxLimit = userDocSetting.find(function (item) {return item.paramKey === 'uploadMaxLimit';}).
+                              paramValue;
+                              uploadFileNotFormat = userDocSetting.find(function (item) {return item.paramKey ===
+                                'uploadFileNotFormat';}).paramValue.split(',');
+                              err = [];_loop2 = /*#__PURE__*/_regenerator.default.mark(function _loop2(
+                              i, max) {var uploadFilePath, uploadFileName, size, extName, checkRes;return _regenerator.default.wrap(function _loop2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                                        uploadFilePath = res.tempFiles[i].path;
+                                        uploadFileName = res.tempFiles[i].name;
+                                        size = res.tempFiles[i].size;
+                                        extName = _this10.getExtName(uploadFileName);if (!
+                                        uploadFileNotFormat.find(function (item) {return item === extName;})) {_context2.next = 8;break;}
+                                        uni.hideLoading();
+                                        _this10.$refs.uToast.show({
+                                          title: '含有不支持上传的文件类型！' });return _context2.abrupt("return", { v: void 0 });case 8:if (!(
+
+
+
+                                        Number(size) > Number(uploadMaxLimit))) {_context2.next = 12;break;}
+                                        uni.hideLoading();
+                                        _this10.$refs.uToast.show({
+                                          title: '上传的文件过大！' });return _context2.abrupt("return", { v: void 0 });case 12:_context2.prev = 12;_context2.next = 15;return (
+
+
+
+
+
+                                          _this10.checkText(uploadFileName));case 15:checkRes = _context2.sent;_context2.next = 22;break;case 18:_context2.prev = 18;_context2.t0 = _context2["catch"](12);
+
+                                        _this10.$refs.uToast.show({
+                                          title: '含有违法违规内容！' });return _context2.abrupt("return", { v: void 0 });case 22:
+
+
+
+                                        uni.getFileInfo({
+                                          filePath: uploadFilePath,
+                                          success: function success(fileRes) {
+                                            var md5 = res.fileRes;
+                                            _this10.setUploadFile(uploadFilePath, uploadFileName, md5, res.tempFiles.length, err);
+                                          } });case 23:case "end":return _context2.stop();}}}, _loop2, null, [[12, 18]]);});i = 0, max = res.tempFiles.length;case 8:if (!(i < max)) {_context3.next = 16;break;}return _context3.delegateYield(_loop2(i, max), "t0", 10);case 10:_ret = _context3.t0;if (!(typeof _ret === "object")) {_context3.next = 13;break;}return _context3.abrupt("return", _ret.v);case 13:i++;_context3.next = 8;break;case 16:case "end":return _context3.stop();}}}, _callee2);}));function success(_x) {return _success.apply(this, arguments);}return success;}() });case 9:case "end":return _context4.stop();}}}, _callee3, null, [[0, 5]]);}))();
+
+
+
+
+    },
+    /**
+        * 上传文件请求
+        */
+    setUploadFile: function setUploadFile(uploadFilePath, uploadFileName, md5, total, err) {var _this11 = this;
+      wx.uploadFile({
+        url: "".concat(_const.REQUEST_URL, "/docFile/upload?fileName=").concat(uploadFileName, "&md5=").concat(md5, "&folderId=").concat(this.getFolderId()),
+        filePath: uploadFilePath,
+        name: 'file',
+        header: {
+          "token": uni.getStorageSync('token').token,
+          "appKey": _const.APPKEY,
+          "content-type": 'multipart/form-data' },
+
+        success: function success(data) {
+          console.log(data);
+          _this11.tempFileLength--;
+          // 添加异常备用
+          if (JSON.parse(data.data).code !== 0) {
+            err.push(JSON.parse(data.data).msg);
+          }
+          if (_this11.tempFileLength !== 0) {
+            return;
+          }
+          uni.hideLoading();
+          if (err.length > 0) {
+            if (total === err.length) {
+              return _this11.$refs.uToast.show({
+                title: '上传失败!' });
+
+            } else {
+              _this11.fileList = [];
+              _this11.folderList = [];
+              _this11.getFolder();
+              return _this11.$refs.uToast.show({
+                title: '部分文件上传失败!' });
+
+            }
+          } else {
+            _this11.$refs.uToast.show({
+              title: '上传成功!' });
+
+            _this11.fileList = [];
+            _this11.folderList = [];
+            _this11.getFolder();
+          }
+        },
+        fail: function fail(data) {
+          err.push('上传失败!');
+          _this11.tempFileLength--;
+        } });
+
+    } }) };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 62 */
+/*!*************************************!*\
+  !*** D:/weapp/weapp/utils/login.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.wxLogin = wxLogin;exports.reGetToken = reGetToken;exports.checkDocToken = checkDocToken;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 33));var _api = __webpack_require__(/*! api */ 17);
+
+
+var _index = _interopRequireDefault(__webpack_require__(/*! ../store/index.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+function wxLogin() {
+  return new Promise(function (resolve, reject) {
+    doWxlogin().
+    then(function (res) {
+      resolve(res);
+    }).
+    catch(function (msg) {
+      uni.showToast({
+        title: msg,
+        icon: 'none' });
+
+      _index.default.commit('user/UPDATE_INIT_STATUS', false);
+      setTimeout(function () {
+        uni.reLaunch({
+          url: '/pages/login/login' });
+
+      }, 1400);
+    });
+  });
+}
+
+/**
+   * 获取微信登陆
+   */
+function doWxlogin() {
+  return new Promise(function (resolve, reject) {
+    getCode().then(function (res) {
+      return getWxToken(res.code).then(function (res) {
+        resolve(res);
+      });
+    }).catch(function (msg) {
+      reject(msg);
+    });
+  });
+}
+
+/**
+   * 获取微信code 过期5分钟
+   */
+function getCode() {
+  return new Promise(function (resolve, reject) {
+    uni.login({
+      success: function success(res) {
+        resolve(res);
+      },
+      fail: function fail() {
+        reject("网络错误, 请重试");
+      } });
+
+  });
+}
+
+/**
+   * 获取微信token
+   * 
+   */
+function getWxToken(code) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: 'https://wechatmp.foxitreader.cn/api/miniProgramLogin',
+      data: {
+        code: code,
+        appid: "wxeeeee850023ae299" },
+
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' },
+
+      success: function success(data) {
+        if (data.data.ret == 0) {
+          uni.setStorageSync('wxToken', data.data.data.token);
+          checkLogin().then(function (checkLoginRes) {
+            return getCloudDocToken(data.data.data.token).then(function (res) {
+              resolve(res);
+            });
+          }).catch(function (msg) {
+            reject(msg);
+          });
+        } else {
+          reject('用户code认证授权失败！');
+          uni.hideLoading();
+        }
+      },
+      fail: function fail(res) {
+        reject("网络错误, 请重试");
+      } });
+
+  });
+}
+
+/**
+   * 用户信息验证
+   * 
+   */
+function checkLogin() {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: 'https://wechatmp.foxitreader.cn/api/miniProgramCheckLogin',
+      data: _objectSpread(_objectSpread({},
+      uni.getStorageSync('globalData')), {}, {
+        token: uni.getStorageSync('wxToken') }),
+
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' },
+
+      success: function success(res) {
+        if (res.data.ret === 0) {
+          var globalData = uni.getStorageSync('globalData');
+          //用户userId
+          globalData.userInfo.userId = res.data.data.userId;
+          //用户绑定手机
+          globalData.userInfo.tel = res.data.data.tel;
+          //用户绑定邮箱
+          globalData.userInfo.email = res.data.data.email;
+          //用户登录来源
+          globalData.userInfo.type = res.data.data.type;
+          //缓存用户信息
+          wx.setStorageSync({
+            key: "globalData",
+            data: globalData });
+
+          wx.setStorageSync("isLogin", true);
+          resolve(res);
+        } else {
+          reject('登陆认证失败,签名有误!');
+        }
+      },
+      fail: function fail(res) {
+        reject('登陆认证失败!');
+      } });
+
+  });
+}
+
+/**
+   * 获取云文档token
+   * 
+   */
+function getCloudDocToken() {
+  return new Promise(function (resolve, reject) {
+    (0, _api.getToken)({
+      wxToken: uni.getStorageSync('wxToken') }).
+
+    then(function (res) {
+      uni.setStorageSync('token', {
+        token: res.data.token,
+        expireTime: new Date().getTime() + res.data.expireTime * 1000 - 300 * 1000 });
+
+      resolve(res);
+    }).
+    catch(function (res) {
+      reject('docToken获取错误');
+    });
+  });
+}
+
+/**
+   * 重新获取token
+   * 
+   */
+function reGetToken() {
+  return new Promise(function (resolve, reject) {
+    uni.getUserInfo({
+      success: function success(res) {
+        var globalData = {
+          userInfo: res.userInfo,
+          encryptedData: res.encryptedData,
+          iv: res.iv,
+          rawData: res.rawData,
+          signature: res.signature };
+
+        uni.showLoading();
+        uni.setStorageSync('globalData', globalData);
+        wxLogin().
+        then(function (res) {
+          uni.hideLoading();
+          resolve(res);
+        }).
+        catch(function (msg) {
+          uni.hideLoading();
+          reject(msg);
+        });
+      },
+      fail: function fail(res) {
+        reject("网络错误, 请重试");
+      } });
+
+  });
+}
+
+// 验证token是否过期 过期重新获取
+function checkDocToken() {
+  return new Promise( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve, reject) {var tokenRes, reGetTokenRes;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
+              !uni.getStorageSync('token') || Number(uni.getStorageSync('token').expireTime) < Number(
+              new Date().getTime()))) {_context.next = 27;break;}_context.prev = 1;
+
+
+              // 首次尝试重新获取docToken
+              console.log('获取云文档token');_context.next = 5;return (
+                (0, _api.getToken)({
+                  wxToken: uni.getStorageSync('wxToken') || false }));case 5:tokenRes = _context.sent;
+
+              uni.setStorageSync('token', {
+                token: tokenRes.data.token,
+                expireTime: new Date().getTime() + tokenRes.data.expireTime * 1000 - 300 * 1000 });
+
+              resolve();_context.next = 25;break;case 10:_context.prev = 10;_context.t0 = _context["catch"](1);_context.prev = 12;
+
+
+
+              console.log('获取微信token', _context.t0);_context.next = 16;return (
+                reGetToken());case 16:reGetTokenRes = _context.sent;
+              resolve();_context.next = 25;break;case 20:_context.prev = 20;_context.t1 = _context["catch"](12);
+
+              console.log('获取微信token错误', _context.t1);
+              uni.showToast({
+                icon: 'none',
+                title: _context.t1 });
+
+              reject();case 25:_context.next = 28;break;case 27:
+
+
+
+              resolve();case 28:case "end":return _context.stop();}}}, _callee, null, [[1, 10], [12, 20]]);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
+
+
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 63 */
+/*!************************************!*\
+  !*** D:/weapp/weapp/mixin/init.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = __webpack_require__(/*! api */ 17);
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 12);
+
+
+
+
+var _login = __webpack_require__(/*! ../utils/login.js */ 62);
+
+
+var _const = __webpack_require__(/*! ../const/const.js */ 19);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
+{
+  computed: _objectSpread({},
+  (0, _vuex.mapState)('user', [
+  "initStatus"])),
+
+
+  methods: _objectSpread(_objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)('user', [
+  "UPDATE_CERTIFICATION",
+  "UPDATE_USER_INFO",
+  "UPDATE_USER_ROOT_FOLDER",
+  "UPDATE_USER_DOC_SETTING",
+  "UPDATE_INIT_STATUS"])),
+
+  (0, _vuex.mapActions)('label', ["GET_LABEL_LIST"])), {}, {
+    /**
+                                                              * [findDocSettingList 获取用户限制参数设置]
+                                                              *
+                                                              * @return  {[type]}  [return description]
+                                                              */
+    findDocSettingList: function findDocSettingList() {var _this = this;
+      return new Promise(function (resolve, reject) {
+        (0, _api.findDocSettingList)().then(
+        function (res) {
+          _this.UPDATE_USER_DOC_SETTING(res.data);
+          resolve(res);
+        },
+        function (err) {
+          reject(err);
+        });
+
+      });
+    },
+    /**
+        * [获取用户根文档ID]
+        *
+        * @return  {[type]}       [return description]
+        */
+    getRootFolderId: function getRootFolderId() {
+      if (uni.getStorageSync('rootFolder')) return Promise.resolve(_objectSpread(_objectSpread({},
+      uni.getStorageSync('rootFolder')), {}, {
+        code: 0 }));
+
+      return new Promise(function (resolve, reject) {
+        (0, _api.getRootFolderId)().then(
+        function (res) {
+          uni.setStorageSync('rootFolder', res.data);
+          resolve(res);
+        });
+
+      });
+    },
+    /**
+        * [certification 认证]
+        *
+        * @return  {[type]}       [return description]
+        */
+    certification: function certification() {var _this2 = this;
+      return new Promise(function (resolve, reject) {
+        (0, _api.certification)().then(
+        function (res) {
+          if (res.code === 0) {
+            _this2.UPDATE_CERTIFICATION(res.data);
+          }
+          resolve(res);
+        },
+        function (err) {
+          reject(err);
+        });
+
+      });
+    },
+    /**
+        * [获取用户信息]
+        *
+        * @return  {[type]}       [return description]
+        */
+    getUserInfo: function getUserInfo() {var _this3 = this;
+      return new Promise(function (resolve, reject) {
+        (0, _api.getUserInfo)().then(
+        function (res) {
+          _this3.UPDATE_USER_INFO(res.data);
+          resolve(res);
+        },
+        function (err) {
+          reject(err);
+        });
+
+      });
+    },
+    /**
+        * [initUserInfo 初始化用户信息]
+        *
+        * @return  {[type]}  [return description]
+        */
+    initUserInfo: function initUserInfo() {var _this4 = this;
+      return new Promise(function (resolve, reject) {
+        Promise.all([
+        _this4.certification(),
+        _this4.getUserInfo(),
+        _this4.getRootFolderId(),
+        _this4.findDocSettingList(),
+        _this4.GET_LABEL_LIST()]).
+        then(function (res) {
+          var isSuccess = res.every(function (item) {return item.code === 0;});
+          if (isSuccess) resolve(res);
+          if (!isSuccess) {
+            localStorage.clear();
+            window.location.href = "".concat(_const.REQUEST_URL, "/logout?url=").concat(window.location.href);
+          } // 登出 
+        });
+      });
+    },
+    /**
+        * [init 初始化]
+        *
+        * @return  {[type]}  [return description]
+        */
+    init: function init() {var _this5 = this;
+      if (uni.getStorageSync('token') && Number(uni.getStorageSync('token').expireTime) > Number(new Date().
+      getTime())) {
+        if (!this.initStatus) {
+          return new Promise(function (resolve, reject) {
+            _this5.initUserInfo().then(function () {
+              _this5.UPDATE_INIT_STATUS(true);
+              resolve();
+            });
+          });
+        }
+        return new Promise(function (resolve) {
+          resolve();
+        });
+      } else {
+        return new Promise(function (resolve, reject) {
+          (0, _api.getToken)({
+            wxToken: uni.getStorageSync('wxToken') || false }).
+
+          then(function (res) {
+            uni.setStorageSync('token', {
+              token: res.data.token,
+              expireTime: new Date().getTime() + res.data.expireTime * 1000 - 300 * 1000 // 提早5分钟过期
+            });
+            _this5.initUserInfo().then(function () {
+              _this5.UPDATE_INIT_STATUS(true);
+              resolve();
+            });
+          }).
+          catch(function (err) {
+            (0, _login.reGetToken)().then(function () {
+              resolve();
+            });
+          });
+        });
+      }
+    } }) };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 64 */
+/*!***********************************!*\
+  !*** D:/weapp/weapp/utils/bus.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+new _vue.default();exports.default = _default;
 
 /***/ })
 ]]);

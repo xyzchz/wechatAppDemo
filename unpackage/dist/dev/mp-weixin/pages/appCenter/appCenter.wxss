@@ -26,7 +26,7 @@
 /* 文章场景相关 */
 .container.data-v-1edc1118 {
   padding: 55rpx 40rpx 0;
-  background-color: #f2f2f2;
+  background-color: #F2F2F2;
   height: 100vh;
 }
 .container ._h3.data-v-1edc1118 {
@@ -41,7 +41,7 @@
 }
 .container .list.data-v-1edc1118 {
   background-color: #f2f2f2;
-  height: calc(100vh - 55rpx - 50rpx - 88rpx);
+  height: calc(100% - 55rpx - 50rpx - 88rpx);
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;

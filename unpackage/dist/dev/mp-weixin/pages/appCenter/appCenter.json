@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "福昕云文档",
-  "usingComponents": {}
+  "backgroundColor": "#F2F2F2",
+  "usingComponents": {
+    "u-tabbar": "/node-modules/uview-ui/components/u-tabbar/u-tabbar"
+  }
 }

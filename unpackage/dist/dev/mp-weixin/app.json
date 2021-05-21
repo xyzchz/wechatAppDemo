@@ -1,19 +1,23 @@
 {
   "pages": [
-    "pages/login/login",
-    "pages/index/index",
     "pages/folder/folder",
+    "pages/index/index",
+    "pages/login/login",
     "pages/appCenter/appCenter",
-    "pages/userCenter/userCenter"
+    "pages/userCenter/userCenter",
+    "pages/childrenList/childrenList",
+    "pages/move/move",
+    "pages/localUpload/localUpload"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "福昕云文档",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "backgroundColor": "#333333"
+    "backgroundColor": "#FFFFFF"
   },
   "tabBar": {
+    "custom": true,
     "borderStyle": "white",
     "backgroundColor": "#FFFFFF",
     "color": "#999999",
@@ -45,5 +49,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

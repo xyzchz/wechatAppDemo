@@ -30,7 +30,7 @@ page {
 /* 透明度 */
 /* 文章场景相关 */
 .content.data-v-57280228 {
-  height: 100vh;
+  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -78,13 +78,5 @@ page {
   -webkit-box-flex: 1;
   -webkit-flex: auto;
           flex: auto;
-}
-.shadow.data-v-57280228 {
-  width: 100vw;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
 }
 

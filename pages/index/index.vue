@@ -9,7 +9,7 @@
 				<u-tabs-swiper ref="uTabs" :list="list" :current="current" @change="tabsChange" bar-height="3"
 					active-color="#333333" inactive-color="#999999"></u-tabs-swiper>
 			</view>
-			<view class="listContent">
+			<view class="listContent" v-if="showPage">
 				<swiper height="300rpx" :current="swiperCurrent" @transition="transition"
 					@animationfinish="animationfinish">
 					<swiper-item class="swiper-item" :key="index">
@@ -24,16 +24,22 @@
 				</swiper>
 			</view>
 		</view>
-		<view class="shadow" />
+		<u-tabbar  :before-switch="beforeSwitch" :list="tabbar" height="88" active-color="#3370ff" icon-size="30" inactive-color="#999999" ></u-tabbar>
 	</view>
 </template>
 
 <script>
 	import Header from '../../components/header.vue'
+	import {
+		TABBAR
+	} from 'const/const.js'
+	import tabbarMixin from 'mixin/tabbarMixin'
+	import init from 'mixin/init'
 
 	export default {
 		data() {
 			return {
+				tabbar: '',
 				route: this.$mp.page.route,
 				list: [{
 					name: '最近'
@@ -44,9 +50,19 @@
 				}],
 				current: 0,
 				swiperCurrent: 0,
+				showPage: false,
 			}
 		},
-		onLoad(e) {},
+		mixins: [tabbarMixin, init],
+		onShow() {
+			this.setSelectedTabbar(0)
+		},
+		onLoad(e) {
+			this.tabbar = TABBAR;
+			this.init().then(() => {
+				this.showPage = true
+			})
+		},
 		components: {
 			Header,
 		},
@@ -79,7 +95,7 @@
 
 <style scoped lang="scss">
 	.content {
-		height: 100vh;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 	}
@@ -120,14 +136,5 @@
 		.listContent {
 			flex: auto;
 		}
-	}
-
-	.shadow {
-		width: 100vw;
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		height: 1px;
-		box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
 	}
 </style>

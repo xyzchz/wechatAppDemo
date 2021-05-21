@@ -4,7 +4,7 @@
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/login/login",
+			"path": "pages/folder/folder",
 			"style": {
 				"navigationBarTitleText": "福昕云文档"
 			}
@@ -16,7 +16,7 @@
 			}
 		},
 		{
-			"path": "pages/folder/folder",
+			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "福昕云文档"
 			}
@@ -24,7 +24,8 @@
 		{
 			"path": "pages/appCenter/appCenter",
 			"style": {
-				"navigationBarTitleText": "福昕云文档"
+				"navigationBarTitleText": "福昕云文档",
+				"backgroundColor": "#F2F2F2"
 			}
 		},
 		{
@@ -32,9 +33,28 @@
 			"style": {
 				"navigationBarTitleText": "福昕云文档"
 			}
+		},
+		{
+			"path": "pages/childrenList/childrenList",
+			"style": {
+				"navigationBarTitleText": "福昕云文档"
+			}
+		},
+		{
+			"path": "pages/move/move",
+			"style": {
+				"navigationBarTitleText": "福昕云文档"
+			}
+		},
+		{
+			"path": "pages/localUpload/localUpload",
+			"style": {
+				"navigationBarTitleText": "福昕云文档"
+			}
 		}
 	],
 	"tabBar": {
+		"custom": true,
 		"borderStyle": "white",
 		"backgroundColor": "#FFFFFF",
 		"color": "#999999",
@@ -65,7 +85,7 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "福昕云文档",
 		"navigationBarBackgroundColor": "#FFFFFF",
-		"backgroundColor": "#333333"
+		"backgroundColor": "#FFFFFF"
 	},
 	"condition": { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式(list 的索引项)

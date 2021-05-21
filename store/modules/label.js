@@ -1,20 +1,3 @@
-/*
- * @Author: zeng_cheng
- * @Date: 2021-04-29 14:04:11
- * @LastEditTime: 2021-04-30 14:17:43
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \cloud_app\src\store\modules\label.js
- */
-/*
- * @Author: your name
- * @Date: 2021-04-26 16:03:38
- * @LastEditTime: 2021-04-29 11:08:18
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \cloud_app\src\store\modules\user.js
- */
-
 import {
   SET_LABEL_LIST,
 } from '../mutation-types'

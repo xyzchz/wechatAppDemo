@@ -35,31 +35,6 @@
   -webkit-flex-direction: column;
           flex-direction: column;
 }
-.search.data-v-b86c55f0 {
-  width: 690rpx;
-  height: 60rpx;
-  background-color: #f2f2f2;
-  border-radius: 8rpx;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  padding: 0 24rpx;
-  font-family: MicrosoftYaHei;
-  font-size: 24rpx;
-  font-weight: normal;
-  font-stretch: normal;
-  letter-spacing: 1rpx;
-  color: #bbbbbb;
-}
-.search image.data-v-b86c55f0 {
-  width: 25rpx;
-  height: 25rpx;
-  margin-right: 15rpx;
-}
 .main.data-v-b86c55f0 {
   height: 233rpx;
   width: 100%;

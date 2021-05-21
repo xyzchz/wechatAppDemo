@@ -19,6 +19,8 @@ module.exports = {
 				"com": resolve("components"),
 				"img": resolve("static/img"),
         "plu": resolve("plugins"),
+				"mixin": resolve("mixin"),
+				"const": resolve("const"),
       },
     },
   },

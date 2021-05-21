@@ -8,29 +8,15 @@
  */
 
 import {
-  UPDATE_USER_ROOT_FOLDER,
-  UPDATE_VIEW_FOLDER_ID,
-  UPDATE_EDIT_FOLDER_ID,
   UPDATE_LIST_STATUS,
 } from '../mutation-types'
 
 export default {
   namespaced: true,
   state: () => ({
-    viewFolderId: "",
-    editFolderId: "",
     listStatus: 'view',
-    initStatus: false
   }),
   mutations: {
-    // 当前浏览目录ID
-    [UPDATE_VIEW_FOLDER_ID](state, folderId) {
-      state.viewFolderId = folderId
-    },
-    // 当前编辑目录ID
-    [UPDATE_EDIT_FOLDER_ID](state, folderId) {
-      state.editFolderId = folderId
-    },
     // 当前列表状态
     [UPDATE_LIST_STATUS](state, type) {
       state.listStatus = listStatus

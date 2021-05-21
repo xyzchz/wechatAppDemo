@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "opt-menu": "/components/optMenu"
+  }
+}

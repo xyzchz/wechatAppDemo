@@ -1,10 +1,7 @@
 <template>
 	<div class="header">
 		<div class="main">
-			<view class="search">
-				<image src="/static/img/home/search.png" />
-				搜索
-			</view>
+			<Search />
 			<div class="toolsBox">
 				<div class="item">
 					<img class="toolImg" src="/static/img/home/ybj.png" />
@@ -32,6 +29,7 @@
 </template>
 
 <script>
+	import Search from './search.vue'
 	import {
 		mapState
 	} from "vuex";
@@ -39,6 +37,9 @@
 	export default {
 		data() {
 			return {};
+		},
+		components:{
+			Search
 		},
 		methods: {
 			toAppCenter() {
@@ -58,30 +59,6 @@
 		display: flex;
 		flex-direction: column;
 	}
-
-	.search {
-		width: 690rpx;
-		height: 60rpx;
-		background-color: #f2f2f2;
-		border-radius: 8rpx;
-		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		padding: 0 24rpx;
-		font-family: MicrosoftYaHei;
-		font-size: 24rpx;
-		font-weight: normal;
-		font-stretch: normal;
-		letter-spacing: 1rpx;
-		color: #bbbbbb;
-
-		image {
-			width: 25rpx;
-			height: 25rpx;
-			margin-right: 15rpx;
-		}
-	}
-
 
 	.main {
 		height: 233rpx;

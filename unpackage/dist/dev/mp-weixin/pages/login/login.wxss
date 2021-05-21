@@ -39,7 +39,6 @@
 	top: 50%;
 	margin-top: -30rpx;
 	width: 2rpx;
-	/* background: #2c943b; */
 	background: #DDD;
 	left: 100rpx;
 	z-index: 99999;
