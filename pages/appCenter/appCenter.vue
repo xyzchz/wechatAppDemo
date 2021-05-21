@@ -3,7 +3,7 @@
 		<h3>我的应用</h3>
 		<ul class="list">
 			<li>
-				<div @click="navigateToMiniProgram('1234556')">
+				<div @click="navigateToMiniProgram('')">
 					<img src="/static/img/appCenter/ybj_s.png" />
 					<span>云编辑</span>
 				</div>
@@ -15,7 +15,7 @@
 				</div>
 			</li>
 			<li>
-				<div @click="navigateToMiniProgram('1234556')">
+				<div @click="navigateToMiniProgram('')">
 					<img src="/static/img/appCenter/ysj_s.png" />
 					<span>云收集</span>
 				</div>
@@ -27,7 +27,7 @@
 				</div>
 			</li>
 			<li>
-				<div @click="navigateToMiniProgram('1234556')">
+				<div @click="navigateToMiniProgram('wx16c7354ce301319d')">
 					<img src="/static/img/appCenter/yfy_s.png" />
 					<span>云翻译</span>
 				</div>
