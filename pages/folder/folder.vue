@@ -40,7 +40,7 @@
 		<u-modal title="重命名" v-model="showPrompt" show-confirm-button show-cancel-button border-radius="8" confirm-color="#3370ff" negative-top="150" @confirm="prompt">
 			<div class="inputContainer"><input type="text" v-model="name" /></div>
 		</u-modal>
-		<image @click="toggleUploadPopup" class="upload_btn" src="/static/img/list/btn.png" />
+		<image v-if="isLogin" @click="toggleUploadPopup" class="upload_btn" src="/static/img/list/btn.png" />
 		<UploadPopup ref="uploadPopup" @toggleFolderModal="toggleFolderModal" @uploadWxFile="uploadWxFile" />
 		<OptModal ref="optModal" @submitFolderName="submitFolderName" />
 		<u-toast ref="uToast" />
@@ -93,6 +93,13 @@ export default {
 				});
 			});
 		}
+		// 重置folderlist子组件下拉刷新 在小程序后台挂机时重进可能存在未初始化问题
+		this.$nextTick(() => {
+			setTimeout(() => {
+				this.$refs.list.triggered = false
+				this.$refs.list._freshing = false
+			}, 500)
+		})
 		//解除绑定
 		Bus.$off('listOption');
 		//监听文件操作

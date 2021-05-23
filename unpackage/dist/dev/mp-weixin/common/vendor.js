@@ -7947,9 +7947,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!*********************************!*\
-  !*** D:/weapp/weapp/pages.json ***!
-  \*********************************/
+/*!*****************************************!*\
+  !*** D:/foxit/wechatAppDemo/pages.json ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8090,9 +8090,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 11 */
-/*!*************************************!*\
-  !*** D:/weapp/weapp/store/index.js ***!
-  \*************************************/
+/*!*********************************************!*\
+  !*** D:/foxit/wechatAppDemo/store/index.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9226,9 +9226,9 @@ var index = {
 
 /***/ }),
 /* 13 */
-/*!***********************************************!*\
-  !*** D:/weapp/weapp/store/modules sync \.js$ ***!
-  \***********************************************/
+/*!*******************************************************!*\
+  !*** D:/foxit/wechatAppDemo/store/modules sync \.js$ ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9261,9 +9261,9 @@ webpackContext.id = 13;
 
 /***/ }),
 /* 14 */
-/*!*********************************************!*\
-  !*** D:/weapp/weapp/store/modules/label.js ***!
-  \*********************************************/
+/*!*****************************************************!*\
+  !*** D:/foxit/wechatAppDemo/store/modules/label.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9301,9 +9301,9 @@ var _api = __webpack_require__(/*! api */ 17);function _defineProperty(obj, key,
 
 /***/ }),
 /* 15 */
-/*!**********************************************!*\
-  !*** D:/weapp/weapp/store/mutation-types.js ***!
-  \**********************************************/
+/*!******************************************************!*\
+  !*** D:/foxit/wechatAppDemo/store/mutation-types.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9335,9 +9335,9 @@ exports.UPDATE_LIST_STATUS = UPDATE_LIST_STATUS;var SET_LABEL_LIST = 'SET_LABEL_
 
 /***/ }),
 /* 16 */
-/*!********************************************!*\
-  !*** D:/weapp/weapp/store/action-types.js ***!
-  \********************************************/
+/*!****************************************************!*\
+  !*** D:/foxit/wechatAppDemo/store/action-types.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9355,9 +9355,9 @@ var GET_LABEL_LIST = 'GET_LABEL_LIST';exports.GET_LABEL_LIST = GET_LABEL_LIST;
 
 /***/ }),
 /* 17 */
-/*!**********************************!*\
-  !*** D:/weapp/weapp/api/docs.js ***!
-  \**********************************/
+/*!******************************************!*\
+  !*** D:/foxit/wechatAppDemo/api/docs.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9615,9 +9615,9 @@ var addDocFolder = function addDocFolder() {var data = arguments.length > 0 && a
 
 /***/ }),
 /* 18 */
-/*!*************************************!*\
-  !*** D:/weapp/weapp/api/request.js ***!
-  \*************************************/
+/*!*********************************************!*\
+  !*** D:/foxit/wechatAppDemo/api/request.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9705,9 +9705,9 @@ request;exports.default = _default;
 
 /***/ }),
 /* 19 */
-/*!*************************************!*\
-  !*** D:/weapp/weapp/const/const.js ***!
-  \*************************************/
+/*!*********************************************!*\
+  !*** D:/foxit/wechatAppDemo/const/const.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9737,9 +9737,9 @@ var TABBAR = [{
 
 /***/ }),
 /* 20 */
-/*!********************************************!*\
-  !*** D:/weapp/weapp/store/modules/list.js ***!
-  \********************************************/
+/*!****************************************************!*\
+  !*** D:/foxit/wechatAppDemo/store/modules/list.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9770,9 +9770,9 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);function _
 
 /***/ }),
 /* 21 */
-/*!***********************************************!*\
-  !*** D:/weapp/weapp/store/modules/request.js ***!
-  \***********************************************/
+/*!*******************************************************!*\
+  !*** D:/foxit/wechatAppDemo/store/modules/request.js ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9809,9 +9809,9 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);var _mutat
 
 /***/ }),
 /* 22 */
-/*!********************************************!*\
-  !*** D:/weapp/weapp/store/modules/user.js ***!
-  \********************************************/
+/*!****************************************************!*\
+  !*** D:/foxit/wechatAppDemo/store/modules/user.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9869,9 +9869,9 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);var _mutat
 
 /***/ }),
 /* 23 */
-/*!******************************************!*\
-  !*** D:/weapp/weapp/utils/protoUtils.js ***!
-  \******************************************/
+/*!**************************************************!*\
+  !*** D:/foxit/wechatAppDemo/utils/protoUtils.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9977,9 +9977,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 /* 24 */
-/*!******************************************!*\
-  !*** D:/weapp/weapp/plugins/useUView.js ***!
-  \******************************************/
+/*!**************************************************!*\
+  !*** D:/foxit/wechatAppDemo/plugins/useUView.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9990,9 +9990,9 @@ _vue.default.use(_uviewUi.default);
 
 /***/ }),
 /* 25 */
-/*!*****************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/index.js ***!
-  \*****************************************************/
+/*!*************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/index.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10141,9 +10141,9 @@ var install = function install(Vue) {
 
 /***/ }),
 /* 26 */
-/*!****************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/mixin/mixin.js ***!
-  \****************************************************************/
+/*!************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/mixin/mixin.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10214,9 +10214,9 @@ var install = function install(Vue) {
 
 /***/ }),
 /* 27 */
-/*!******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/request/index.js ***!
-  \******************************************************************/
+/*!**************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/request/index.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10394,9 +10394,9 @@ new Request();exports.default = _default;
 
 /***/ }),
 /* 28 */
-/*!***********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/deepMerge.js ***!
-  \***********************************************************************/
+/*!*******************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/deepMerge.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10434,9 +10434,9 @@ deepMerge;exports.default = _default;
 
 /***/ }),
 /* 29 */
-/*!***********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/deepClone.js ***!
-  \***********************************************************************/
+/*!*******************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/deepClone.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10467,9 +10467,9 @@ deepClone;exports.default = _default;
 
 /***/ }),
 /* 30 */
-/*!******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/test.js ***!
-  \******************************************************************/
+/*!**************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/test.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10708,9 +10708,9 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
 
 /***/ }),
 /* 31 */
-/*!*************************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/queryParams.js ***!
-  \*************************************************************************/
+/*!*********************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/queryParams.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10776,17 +10776,17 @@ queryParams;exports.default = _default;
 
 /***/ }),
 /* 32 */
-/*!*******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/route.js ***!
-  \*******************************************************************/
+/*!***************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/route.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 33));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            * 并且带有路由拦截功能
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */var
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * 并且带有路由拦截功能
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */var
 
 Router = /*#__PURE__*/function () {
   function Router() {_classCallCheck(this, Router);
@@ -11697,9 +11697,9 @@ if (hadRuntime) {
 
 /***/ }),
 /* 36 */
-/*!************************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/timeFormat.js ***!
-  \************************************************************************/
+/*!********************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/timeFormat.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11758,9 +11758,9 @@ timeFormat;exports.default = _default;
 
 /***/ }),
 /* 37 */
-/*!**********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/timeFrom.js ***!
-  \**********************************************************************/
+/*!******************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/timeFrom.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11815,9 +11815,9 @@ timeFrom;exports.default = _default;
 
 /***/ }),
 /* 38 */
-/*!***************************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/colorGradient.js ***!
-  \***************************************************************************/
+/*!***********************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/colorGradient.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11958,9 +11958,9 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
 
 /***/ }),
 /* 39 */
-/*!******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/guid.js ***!
-  \******************************************************************/
+/*!**************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/guid.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12009,9 +12009,9 @@ guid;exports.default = _default;
 
 /***/ }),
 /* 40 */
-/*!*******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/color.js ***!
-  \*******************************************************************/
+/*!***************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/color.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12056,9 +12056,9 @@ color;exports.default = _default;
 
 /***/ }),
 /* 41 */
-/*!***********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/type2icon.js ***!
-  \***********************************************************************/
+/*!*******************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/type2icon.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12101,9 +12101,9 @@ type2icon;exports.default = _default;
 
 /***/ }),
 /* 42 */
-/*!*************************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/randomArray.js ***!
-  \*************************************************************************/
+/*!*********************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/randomArray.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12118,9 +12118,9 @@ randomArray;exports.default = _default;
 
 /***/ }),
 /* 43 */
-/*!*********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/addUnit.js ***!
-  \*********************************************************************/
+/*!*****************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/addUnit.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12136,9 +12136,9 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 
 /***/ }),
 /* 44 */
-/*!********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/random.js ***!
-  \********************************************************************/
+/*!****************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/random.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12156,9 +12156,9 @@ random;exports.default = _default;
 
 /***/ }),
 /* 45 */
-/*!******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/trim.js ***!
-  \******************************************************************/
+/*!**************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/trim.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12181,9 +12181,9 @@ trim;exports.default = _default;
 
 /***/ }),
 /* 46 */
-/*!*******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/toast.js ***!
-  \*******************************************************************/
+/*!***************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/toast.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12201,9 +12201,9 @@ toast;exports.default = _default;
 
 /***/ }),
 /* 47 */
-/*!***********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/getParent.js ***!
-  \***********************************************************************/
+/*!*******************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/getParent.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12258,9 +12258,9 @@ function getParent(name, keys) {
 
 /***/ }),
 /* 48 */
-/*!*********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/$parent.js ***!
-  \*********************************************************************/
+/*!*****************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/$parent.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12286,9 +12286,9 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 
 /***/ }),
 /* 49 */
-/*!*****************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/sys.js ***!
-  \*****************************************************************/
+/*!*************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/sys.js ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12304,9 +12304,9 @@ function sys() {
 
 /***/ }),
 /* 50 */
-/*!**********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/debounce.js ***!
-  \**********************************************************************/
+/*!******************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/debounce.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12343,9 +12343,9 @@ debounce;exports.default = _default;
 
 /***/ }),
 /* 51 */
-/*!**********************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/throttle.js ***!
-  \**********************************************************************/
+/*!******************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/function/throttle.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12385,9 +12385,9 @@ throttle;exports.default = _default;
 
 /***/ }),
 /* 52 */
-/*!******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/config/config.js ***!
-  \******************************************************************/
+/*!**************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/config/config.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12408,9 +12408,9 @@ var version = '1.8.3';var _default =
 
 /***/ }),
 /* 53 */
-/*!******************************************************************!*\
-  !*** D:/weapp/weapp/node_modules/uview-ui/libs/config/zIndex.js ***!
-  \******************************************************************/
+/*!**************************************************************************!*\
+  !*** D:/foxit/wechatAppDemo/node_modules/uview-ui/libs/config/zIndex.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12443,9 +12443,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 58 */,
 /* 59 */,
 /* 60 */
-/*!*******************************************!*\
-  !*** D:/weapp/weapp/mixin/tabbarMixin.js ***!
-  \*******************************************/
+/*!***************************************************!*\
+  !*** D:/foxit/wechatAppDemo/mixin/tabbarMixin.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12480,9 +12480,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 /* 61 */
-/*!*****************************************!*\
-  !*** D:/weapp/weapp/mixin/listMixin.js ***!
-  \*****************************************/
+/*!*************************************************!*\
+  !*** D:/foxit/wechatAppDemo/mixin/listMixin.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13234,9 +13234,9 @@ var _api = __webpack_require__(/*! api */ 17);function _interopRequireDefault(ob
 
 /***/ }),
 /* 62 */
-/*!*************************************!*\
-  !*** D:/weapp/weapp/utils/login.js ***!
-  \*************************************/
+/*!*********************************************!*\
+  !*** D:/foxit/wechatAppDemo/utils/login.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13476,9 +13476,9 @@ function checkDocToken() {
 
 /***/ }),
 /* 63 */
-/*!************************************!*\
-  !*** D:/weapp/weapp/mixin/init.js ***!
-  \************************************/
+/*!********************************************!*\
+  !*** D:/foxit/wechatAppDemo/mixin/init.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13660,9 +13660,9 @@ var _const = __webpack_require__(/*! ../const/const.js */ 19);function ownKeys(o
 
 /***/ }),
 /* 64 */
-/*!***********************************!*\
-  !*** D:/weapp/weapp/utils/bus.js ***!
-  \***********************************/
+/*!*******************************************!*\
+  !*** D:/foxit/wechatAppDemo/utils/bus.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

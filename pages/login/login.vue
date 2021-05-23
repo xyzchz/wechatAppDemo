@@ -49,8 +49,11 @@
 			 * 
 			*/
 			handleGetUserInfo() {
+				let req;
 				// 授权
-				uni.getUserProfile({
+				if (uni.getUserProfile) req = uni.getUserProfile
+				if (!uni.getUserProfile) req = uni.getUserInfo
+				req({
 					desc: 'Login', // 这个参数是必须的
 					success: res => {
 						const globalData = {
