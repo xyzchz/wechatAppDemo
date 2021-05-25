@@ -1,6 +1,6 @@
 
 page {
-	background: #F8F8F8
+	background: #f8f8f8;
 }
 
 @charset "UTF-8";
@@ -78,5 +78,16 @@ page {
   -webkit-box-flex: 1;
   -webkit-flex: auto;
           flex: auto;
+}
+.tips.data-v-57280228 {
+  height: 155rpx;
+  padding-top: 40rpx;
+  text-align: center;
+  font-family: MicrosoftYaHei;
+  font-size: 28rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: #666666;
 }
 

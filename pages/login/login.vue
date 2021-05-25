@@ -61,7 +61,8 @@
 							signature: res.signature
 						}
 						uni.showLoading({
-							title: '授权中...'
+							title: '授权中...',
+							mask: true,
 						})
 						uni.setStorageSync('globalData', globalData);
 						wxLogin().then((res) => {

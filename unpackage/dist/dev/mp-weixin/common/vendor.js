@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */,
-/* 1 */
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ 1:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -1869,7 +1869,1952 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ 10:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 11:
+/*!*************************************!*\
+  !*** D:/weapp/weapp/store/index.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+_vue.default.use(_vuex.default);
+
+var modulesFiles = __webpack_require__(13);
+var modules = modulesFiles.keys().reduce(function (modules, modulePath) {
+  var moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, "$1");
+  var value = modulesFiles(modulePath);
+  modules[moduleName] = value.default;
+  return modules;
+}, {});var _default =
+
+new _vuex.default.Store({
+  modules: modules });exports.default = _default;
+
+/***/ }),
+
+/***/ 12:
+/*!********************************************!*\
+  !*** ./node_modules/vuex/dist/vuex.esm.js ***!
+  \********************************************/
+/*! exports provided: default, Store, createNamespacedHelpers, install, mapActions, mapGetters, mapMutations, mapState */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNamespacedHelpers", function() { return createNamespacedHelpers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapActions", function() { return mapActions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapGetters", function() { return mapGetters; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
+/*!
+ * vuex v3.4.0
+ * (c) 2020 Evan You
+ * @license MIT
+ */
+function applyMixin (Vue) {
+  var version = Number(Vue.version.split('.')[0]);
+
+  if (version >= 2) {
+    Vue.mixin({ beforeCreate: vuexInit });
+  } else {
+    // override init and inject vuex init procedure
+    // for 1.x backwards compatibility.
+    var _init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      if ( options === void 0 ) options = {};
+
+      options.init = options.init
+        ? [vuexInit].concat(options.init)
+        : vuexInit;
+      _init.call(this, options);
+    };
+  }
+
+  /**
+   * Vuex init hook, injected into each instances init hooks list.
+   */
+
+  function vuexInit () {
+    var options = this.$options;
+    // store injection
+    if (options.store) {
+      this.$store = typeof options.store === 'function'
+        ? options.store()
+        : options.store;
+    } else if (options.parent && options.parent.$store) {
+      this.$store = options.parent.$store;
+    }
+  }
+}
+
+var target = typeof window !== 'undefined'
+  ? window
+  : typeof global !== 'undefined'
+    ? global
+    : {};
+var devtoolHook = target.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+function devtoolPlugin (store) {
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.replaceState(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  }, { prepend: true });
+
+  store.subscribeAction(function (action, state) {
+    devtoolHook.emit('vuex:action', action, state);
+  }, { prepend: true });
+}
+
+/**
+ * Get the first item that pass the test
+ * by second argument function
+ *
+ * @param {Array} list
+ * @param {Function} f
+ * @return {*}
+ */
+
+/**
+ * forEach for object
+ */
+function forEachValue (obj, fn) {
+  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+}
+
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+function partial (fn, arg) {
+  return function () {
+    return fn(arg)
+  }
+}
+
+// Base data struct for store's module, package with some attribute and method
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  // Store some children item
+  this._children = Object.create(null);
+  // Store the origin module object which passed by programmer
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+
+  // Store the origin module's state
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors = { namespaced: { configurable: true } };
+
+prototypeAccessors.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.hasChild = function hasChild (key) {
+  return key in this._children
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+Module.prototype.forEachChild = function forEachChild (fn) {
+  forEachValue(this._children, fn);
+};
+
+Module.prototype.forEachGetter = function forEachGetter (fn) {
+  if (this._rawModule.getters) {
+    forEachValue(this._rawModule.getters, fn);
+  }
+};
+
+Module.prototype.forEachAction = function forEachAction (fn) {
+  if (this._rawModule.actions) {
+    forEachValue(this._rawModule.actions, fn);
+  }
+};
+
+Module.prototype.forEachMutation = function forEachMutation (fn) {
+  if (this._rawModule.mutations) {
+    forEachValue(this._rawModule.mutations, fn);
+  }
+};
+
+Object.defineProperties( Module.prototype, prototypeAccessors );
+
+var ModuleCollection = function ModuleCollection (rawRootModule) {
+  // register root module (Vuex.Store options)
+  this.register([], rawRootModule, false);
+};
+
+ModuleCollection.prototype.get = function get (path) {
+  return path.reduce(function (module, key) {
+    return module.getChild(key)
+  }, this.root)
+};
+
+ModuleCollection.prototype.getNamespace = function getNamespace (path) {
+  var module = this.root;
+  return path.reduce(function (namespace, key) {
+    module = module.getChild(key);
+    return namespace + (module.namespaced ? key + '/' : '')
+  }, '')
+};
+
+ModuleCollection.prototype.update = function update$1 (rawRootModule) {
+  update([], this.root, rawRootModule);
+};
+
+ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
+    var this$1 = this;
+    if ( runtime === void 0 ) runtime = true;
+
+  if ((true)) {
+    assertRawModule(path, rawModule);
+  }
+
+  var newModule = new Module(rawModule, runtime);
+  if (path.length === 0) {
+    this.root = newModule;
+  } else {
+    var parent = this.get(path.slice(0, -1));
+    parent.addChild(path[path.length - 1], newModule);
+  }
+
+  // register nested modules
+  if (rawModule.modules) {
+    forEachValue(rawModule.modules, function (rawChildModule, key) {
+      this$1.register(path.concat(key), rawChildModule, runtime);
+    });
+  }
+};
+
+ModuleCollection.prototype.unregister = function unregister (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+  if (!parent.getChild(key).runtime) { return }
+
+  parent.removeChild(key);
+};
+
+ModuleCollection.prototype.isRegistered = function isRegistered (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+
+  return parent.hasChild(key)
+};
+
+function update (path, targetModule, newModule) {
+  if ((true)) {
+    assertRawModule(path, newModule);
+  }
+
+  // update target module
+  targetModule.update(newModule);
+
+  // update nested modules
+  if (newModule.modules) {
+    for (var key in newModule.modules) {
+      if (!targetModule.getChild(key)) {
+        if ((true)) {
+          console.warn(
+            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
+            'manual reload is needed'
+          );
+        }
+        return
+      }
+      update(
+        path.concat(key),
+        targetModule.getChild(key),
+        newModule.modules[key]
+      );
+    }
+  }
+}
+
+var functionAssert = {
+  assert: function (value) { return typeof value === 'function'; },
+  expected: 'function'
+};
+
+var objectAssert = {
+  assert: function (value) { return typeof value === 'function' ||
+    (typeof value === 'object' && typeof value.handler === 'function'); },
+  expected: 'function or object with "handler" function'
+};
+
+var assertTypes = {
+  getters: functionAssert,
+  mutations: functionAssert,
+  actions: objectAssert
+};
+
+function assertRawModule (path, rawModule) {
+  Object.keys(assertTypes).forEach(function (key) {
+    if (!rawModule[key]) { return }
+
+    var assertOptions = assertTypes[key];
+
+    forEachValue(rawModule[key], function (value, type) {
+      assert(
+        assertOptions.assert(value),
+        makeAssertionMessage(path, key, type, value, assertOptions.expected)
+      );
+    });
+  });
+}
+
+function makeAssertionMessage (path, key, type, value, expected) {
+  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
+  if (path.length > 0) {
+    buf += " in module \"" + (path.join('.')) + "\"";
+  }
+  buf += " is " + (JSON.stringify(value)) + ".";
+  return buf
+}
+
+var Vue; // bind on install
+
+var Store = function Store (options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  // Auto install if it is not done yet and `window` has `Vue`.
+  // To allow users to avoid auto-installation in some cases,
+  // this code should be placed here. See #731
+  if (!Vue && typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+  }
+
+  if ((true)) {
+    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
+    assert(this instanceof Store, "store must be called with the new operator.");
+  }
+
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._actionSubscribers = [];
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+  this._makeLocalGettersCache = Object.create(null);
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  var state = this._modules.root.state;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.forEach(function (plugin) { return plugin(this$1); });
+
+  var useDevtools = options.devtools !== undefined ? options.devtools : Vue.config.devtools;
+  if (useDevtools) {
+    devtoolPlugin(this);
+  }
+};
+
+var prototypeAccessors$1 = { state: { configurable: true } };
+
+prototypeAccessors$1.state.get = function () {
+  return this._vm._data.$$state
+};
+
+prototypeAccessors$1.state.set = function (v) {
+  if ((true)) {
+    assert(false, "use store.replaceState() to explicit replace store state.");
+  }
+};
+
+Store.prototype.commit = function commit (_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    if ((true)) {
+      console.error(("[vuex] unknown mutation type: " + type));
+    }
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+
+  this._subscribers
+    .slice() // shallow copy to prevent iterator invalidation if subscriber synchronously calls unsubscribe
+    .forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (
+    ( true) &&
+    options && options.silent
+  ) {
+    console.warn(
+      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
+      'Use the filter functionality in the vue-devtools'
+    );
+  }
+};
+
+Store.prototype.dispatch = function dispatch (_type, _payload) {
+    var this$1 = this;
+
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var action = { type: type, payload: payload };
+  var entry = this._actions[type];
+  if (!entry) {
+    if ((true)) {
+      console.error(("[vuex] unknown action type: " + type));
+    }
+    return
+  }
+
+  try {
+    this._actionSubscribers
+      .slice() // shallow copy to prevent iterator invalidation if subscriber synchronously calls unsubscribe
+      .filter(function (sub) { return sub.before; })
+      .forEach(function (sub) { return sub.before(action, this$1.state); });
+  } catch (e) {
+    if ((true)) {
+      console.warn("[vuex] error in before action subscribers: ");
+      console.error(e);
+    }
+  }
+
+  var result = entry.length > 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload);
+
+  return new Promise(function (resolve, reject) {
+    result.then(function (res) {
+      try {
+        this$1._actionSubscribers
+          .filter(function (sub) { return sub.after; })
+          .forEach(function (sub) { return sub.after(action, this$1.state); });
+      } catch (e) {
+        if ((true)) {
+          console.warn("[vuex] error in after action subscribers: ");
+          console.error(e);
+        }
+      }
+      resolve(res);
+    }, function (error) {
+      try {
+        this$1._actionSubscribers
+          .filter(function (sub) { return sub.error; })
+          .forEach(function (sub) { return sub.error(action, this$1.state, error); });
+      } catch (e) {
+        if ((true)) {
+          console.warn("[vuex] error in error action subscribers: ");
+          console.error(e);
+        }
+      }
+      reject(error);
+    });
+  })
+};
+
+Store.prototype.subscribe = function subscribe (fn, options) {
+  return genericSubscribe(fn, this._subscribers, options)
+};
+
+Store.prototype.subscribeAction = function subscribeAction (fn, options) {
+  var subs = typeof fn === 'function' ? { before: fn } : fn;
+  return genericSubscribe(subs, this._actionSubscribers, options)
+};
+
+Store.prototype.watch = function watch (getter, cb, options) {
+    var this$1 = this;
+
+  if ((true)) {
+    assert(typeof getter === 'function', "store.watch only accepts a function.");
+  }
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+};
+
+Store.prototype.replaceState = function replaceState (state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+};
+
+Store.prototype.registerModule = function registerModule (path, rawModule, options) {
+    if ( options === void 0 ) options = {};
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if ((true)) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+    assert(path.length > 0, 'cannot register the root module by using registerModule.');
+  }
+
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+};
+
+Store.prototype.unregisterModule = function unregisterModule (path) {
+    var this$1 = this;
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if ((true)) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+};
+
+Store.prototype.hasModule = function hasModule (path) {
+  if (typeof path === 'string') { path = [path]; }
+
+  if ((true)) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  return this._modules.isRegistered(path)
+};
+
+Store.prototype.hotUpdate = function hotUpdate (newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+};
+
+Store.prototype._withCommit = function _withCommit (fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+};
+
+Object.defineProperties( Store.prototype, prototypeAccessors$1 );
+
+function genericSubscribe (fn, subs, options) {
+  if (subs.indexOf(fn) < 0) {
+    options && options.prepend
+      ? subs.unshift(fn)
+      : subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i > -1) {
+      subs.splice(i, 1);
+    }
+  }
+}
+
+function resetStore (store, hot) {
+  store._actions = Object.create(null);
+  store._mutations = Object.create(null);
+  store._wrappedGetters = Object.create(null);
+  store._modulesNamespaceMap = Object.create(null);
+  var state = store.state;
+  // init all modules
+  installModule(store, state, [], store._modules.root, true);
+  // reset vm
+  resetStoreVM(store, state, hot);
+}
+
+function resetStoreVM (store, state, hot) {
+  var oldVm = store._vm;
+
+  // bind store public getters
+  store.getters = {};
+  // reset local getters cache
+  store._makeLocalGettersCache = Object.create(null);
+  var wrappedGetters = store._wrappedGetters;
+  var computed = {};
+  forEachValue(wrappedGetters, function (fn, key) {
+    // use computed to leverage its lazy-caching mechanism
+    // direct inline function use will lead to closure preserving oldVm.
+    // using partial to return function with only arguments preserved in closure environment.
+    computed[key] = partial(fn, store);
+    Object.defineProperty(store.getters, key, {
+      get: function () { return store._vm[key]; },
+      enumerable: true // for local getters
+    });
+  });
+
+  // use a Vue instance to store the state tree
+  // suppress warnings just in case the user has added
+  // some funky global mixins
+  var silent = Vue.config.silent;
+  Vue.config.silent = true;
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed: computed
+  });
+  Vue.config.silent = silent;
+
+  // enable strict mode for new vm
+  if (store.strict) {
+    enableStrictMode(store);
+  }
+
+  if (oldVm) {
+    if (hot) {
+      // dispatch changes in all subscribed watchers
+      // to force getter re-evaluation for hot reloading.
+      store._withCommit(function () {
+        oldVm._data.$$state = null;
+      });
+    }
+    Vue.nextTick(function () { return oldVm.$destroy(); });
+  }
+}
+
+function installModule (store, rootState, path, module, hot) {
+  var isRoot = !path.length;
+  var namespace = store._modules.getNamespace(path);
+
+  // register in namespace map
+  if (module.namespaced) {
+    if (store._modulesNamespaceMap[namespace] && ("development" !== 'production')) {
+      console.error(("[vuex] duplicate namespace " + namespace + " for the namespaced module " + (path.join('/'))));
+    }
+    store._modulesNamespaceMap[namespace] = module;
+  }
+
+  // set state
+  if (!isRoot && !hot) {
+    var parentState = getNestedState(rootState, path.slice(0, -1));
+    var moduleName = path[path.length - 1];
+    store._withCommit(function () {
+      if ((true)) {
+        if (moduleName in parentState) {
+          console.warn(
+            ("[vuex] state field \"" + moduleName + "\" was overridden by a module with the same name at \"" + (path.join('.')) + "\"")
+          );
+        }
+      }
+      Vue.set(parentState, moduleName, module.state);
+    });
+  }
+
+  var local = module.context = makeLocalContext(store, namespace, path);
+
+  module.forEachMutation(function (mutation, key) {
+    var namespacedType = namespace + key;
+    registerMutation(store, namespacedType, mutation, local);
+  });
+
+  module.forEachAction(function (action, key) {
+    var type = action.root ? key : namespace + key;
+    var handler = action.handler || action;
+    registerAction(store, type, handler, local);
+  });
+
+  module.forEachGetter(function (getter, key) {
+    var namespacedType = namespace + key;
+    registerGetter(store, namespacedType, getter, local);
+  });
+
+  module.forEachChild(function (child, key) {
+    installModule(store, rootState, path.concat(key), child, hot);
+  });
+}
+
+/**
+ * make localized dispatch, commit, getters and state
+ * if there is no namespace, just use root ones
+ */
+function makeLocalContext (store, namespace, path) {
+  var noNamespace = namespace === '';
+
+  var local = {
+    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if (( true) && !store._actions[type]) {
+          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      return store.dispatch(type, payload)
+    },
+
+    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if (( true) && !store._mutations[type]) {
+          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      store.commit(type, payload, options);
+    }
+  };
+
+  // getters and state object must be gotten lazily
+  // because they will be changed by vm update
+  Object.defineProperties(local, {
+    getters: {
+      get: noNamespace
+        ? function () { return store.getters; }
+        : function () { return makeLocalGetters(store, namespace); }
+    },
+    state: {
+      get: function () { return getNestedState(store.state, path); }
+    }
+  });
+
+  return local
+}
+
+function makeLocalGetters (store, namespace) {
+  if (!store._makeLocalGettersCache[namespace]) {
+    var gettersProxy = {};
+    var splitPos = namespace.length;
+    Object.keys(store.getters).forEach(function (type) {
+      // skip if the target getter is not match this namespace
+      if (type.slice(0, splitPos) !== namespace) { return }
+
+      // extract local getter type
+      var localType = type.slice(splitPos);
+
+      // Add a port to the getters proxy.
+      // Define as getter property because
+      // we do not want to evaluate the getters in this time.
+      Object.defineProperty(gettersProxy, localType, {
+        get: function () { return store.getters[type]; },
+        enumerable: true
+      });
+    });
+    store._makeLocalGettersCache[namespace] = gettersProxy;
+  }
+
+  return store._makeLocalGettersCache[namespace]
+}
+
+function registerMutation (store, type, handler, local) {
+  var entry = store._mutations[type] || (store._mutations[type] = []);
+  entry.push(function wrappedMutationHandler (payload) {
+    handler.call(store, local.state, payload);
+  });
+}
+
+function registerAction (store, type, handler, local) {
+  var entry = store._actions[type] || (store._actions[type] = []);
+  entry.push(function wrappedActionHandler (payload) {
+    var res = handler.call(store, {
+      dispatch: local.dispatch,
+      commit: local.commit,
+      getters: local.getters,
+      state: local.state,
+      rootGetters: store.getters,
+      rootState: store.state
+    }, payload);
+    if (!isPromise(res)) {
+      res = Promise.resolve(res);
+    }
+    if (store._devtoolHook) {
+      return res.catch(function (err) {
+        store._devtoolHook.emit('vuex:error', err);
+        throw err
+      })
+    } else {
+      return res
+    }
+  });
+}
+
+function registerGetter (store, type, rawGetter, local) {
+  if (store._wrappedGetters[type]) {
+    if ((true)) {
+      console.error(("[vuex] duplicate getter key: " + type));
+    }
+    return
+  }
+  store._wrappedGetters[type] = function wrappedGetter (store) {
+    return rawGetter(
+      local.state, // local state
+      local.getters, // local getters
+      store.state, // root state
+      store.getters // root getters
+    )
+  };
+}
+
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, function () {
+    if ((true)) {
+      assert(store._committing, "do not mutate vuex store state outside mutation handlers.");
+    }
+  }, { deep: true, sync: true });
+}
+
+function getNestedState (state, path) {
+  return path.reduce(function (state, key) { return state[key]; }, state)
+}
+
+function unifyObjectStyle (type, payload, options) {
+  if (isObject(type) && type.type) {
+    options = payload;
+    payload = type;
+    type = type.type;
+  }
+
+  if ((true)) {
+    assert(typeof type === 'string', ("expects string as the type, but found " + (typeof type) + "."));
+  }
+
+  return { type: type, payload: payload, options: options }
+}
+
+function install (_Vue) {
+  if (Vue && _Vue === Vue) {
+    if ((true)) {
+      console.error(
+        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
+      );
+    }
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}
+
+/**
+ * Reduce the code which written in Vue.js for getting the state.
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} states # Object's item can be a function which accept state and getters for param, you can do something for state and getters in it.
+ * @param {Object}
+ */
+var mapState = normalizeNamespace(function (namespace, states) {
+  var res = {};
+  if (( true) && !isValidMap(states)) {
+    console.error('[vuex] mapState: mapper parameter must be either an Array or an Object');
+  }
+  normalizeMap(states).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedState () {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+        if (!module) {
+          return
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === 'function'
+        ? val.call(this, state, getters)
+        : state[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for committing the mutation
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept anthor params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @return {Object}
+ */
+var mapMutations = normalizeNamespace(function (namespace, mutations) {
+  var res = {};
+  if (( true) && !isValidMap(mutations)) {
+    console.error('[vuex] mapMutations: mapper parameter must be either an Array or an Object');
+  }
+  normalizeMap(mutations).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedMutation () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      // Get the commit method from store
+      var commit = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
+        if (!module) {
+          return
+        }
+        commit = module.context.commit;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [commit].concat(args))
+        : commit.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for getting the getters
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} getters
+ * @return {Object}
+ */
+var mapGetters = normalizeNamespace(function (namespace, getters) {
+  var res = {};
+  if (( true) && !isValidMap(getters)) {
+    console.error('[vuex] mapGetters: mapper parameter must be either an Array or an Object');
+  }
+  normalizeMap(getters).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    // The namespace has been mutated by normalizeNamespace
+    val = namespace + val;
+    res[key] = function mappedGetter () {
+      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+        return
+      }
+      if (( true) && !(val in this.$store.getters)) {
+        console.error(("[vuex] unknown getter: " + val));
+        return
+      }
+      return this.$store.getters[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for dispatch the action
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} actions # Object's item can be a function which accept `dispatch` function as the first param, it can accept anthor params. You can dispatch action and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @return {Object}
+ */
+var mapActions = normalizeNamespace(function (namespace, actions) {
+  var res = {};
+  if (( true) && !isValidMap(actions)) {
+    console.error('[vuex] mapActions: mapper parameter must be either an Array or an Object');
+  }
+  normalizeMap(actions).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedAction () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      // get dispatch function from store
+      var dispatch = this.$store.dispatch;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
+        if (!module) {
+          return
+        }
+        dispatch = module.context.dispatch;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [dispatch].concat(args))
+        : dispatch.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+/**
+ * Rebinding namespace param for mapXXX function in special scoped, and return them by simple object
+ * @param {String} namespace
+ * @return {Object}
+ */
+var createNamespacedHelpers = function (namespace) { return ({
+  mapState: mapState.bind(null, namespace),
+  mapGetters: mapGetters.bind(null, namespace),
+  mapMutations: mapMutations.bind(null, namespace),
+  mapActions: mapActions.bind(null, namespace)
+}); };
+
+/**
+ * Normalize the map
+ * normalizeMap([1, 2, 3]) => [ { key: 1, val: 1 }, { key: 2, val: 2 }, { key: 3, val: 3 } ]
+ * normalizeMap({a: 1, b: 2, c: 3}) => [ { key: 'a', val: 1 }, { key: 'b', val: 2 }, { key: 'c', val: 3 } ]
+ * @param {Array|Object} map
+ * @return {Object}
+ */
+function normalizeMap (map) {
+  if (!isValidMap(map)) {
+    return []
+  }
+  return Array.isArray(map)
+    ? map.map(function (key) { return ({ key: key, val: key }); })
+    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+}
+
+/**
+ * Validate whether given map is valid or not
+ * @param {*} map
+ * @return {Boolean}
+ */
+function isValidMap (map) {
+  return Array.isArray(map) || isObject(map)
+}
+
+/**
+ * Return a function expect two param contains namespace and map. it will normalize the namespace and then the param's function will handle the new namespace and the map.
+ * @param {Function} fn
+ * @return {Function}
+ */
+function normalizeNamespace (fn) {
+  return function (namespace, map) {
+    if (typeof namespace !== 'string') {
+      map = namespace;
+      namespace = '';
+    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+      namespace += '/';
+    }
+    return fn(namespace, map)
+  }
+}
+
+/**
+ * Search a special module from store by namespace. if module not exist, print error message.
+ * @param {Object} store
+ * @param {String} helper
+ * @param {String} namespace
+ * @return {Object}
+ */
+function getModuleByNamespace (store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if (( true) && !module) {
+    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+  }
+  return module
+}
+
+var index = {
+  Store: Store,
+  install: install,
+  version: '3.4.0',
+  mapState: mapState,
+  mapMutations: mapMutations,
+  mapGetters: mapGetters,
+  mapActions: mapActions,
+  createNamespacedHelpers: createNamespacedHelpers
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (index);
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 3)))
+
+/***/ }),
+
+/***/ 13:
+/*!***********************************************!*\
+  !*** D:/weapp/weapp/store/modules sync \.js$ ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./label.js": 14,
+	"./list.js": 20,
+	"./request.js": 21,
+	"./user.js": 22
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 13;
+
+/***/ }),
+
+/***/ 14:
+/*!*********************************************!*\
+  !*** D:/weapp/weapp/store/modules/label.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);
+
+
+
+
+
+var _actionTypes = __webpack_require__(/*! ../action-types */ 16);
+
+
+
+var _api = __webpack_require__(/*! api */ 17);var _mutations;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+{
+  namespaced: true,
+  state: function state() {return {
+      labelList: [] };},
+
+  mutations: (_mutations = {}, _defineProperty(_mutations,
+
+  _mutationTypes.SET_LABEL_LIST, function (state) {var labelList = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    state.labelList = labelList;
+  }), _defineProperty(_mutations,
+
+  _mutationTypes.DELETE_LABEL, function (state, id) {
+    var index = state.labelList.findIndex(function (current) {return current.id === id;});
+    state.labelList.splice(index, 1);
+  }), _defineProperty(_mutations,
+
+  _mutationTypes.UPDATE_LABEL_LIST, function (state, _ref) {var labelColor = _ref.labelColor,labelName = _ref.labelName,id = _ref.id;
+    var index = state.labelList.findIndex(function (current) {return current.id === id;});
+    state.labelList[index].labelColor = labelColor;
+    state.labelList[index].labelName = labelName;
+  }), _mutations),
+
+  actions: _defineProperty({},
+  _actionTypes.GET_LABEL_LIST, function (_ref2) {var commit = _ref2.commit;var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    return new Promise(function (resolve) {
+      (0, _api.findDocUserLabelList)({}, config).then(function (res) {
+        resolve(res);
+        commit(_mutationTypes.SET_LABEL_LIST, res.data);
+      });
+    });
+  }) };exports.default = _default;
+
+/***/ }),
+
+/***/ 15:
+/*!**********************************************!*\
+  !*** D:/weapp/weapp/store/mutation-types.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.UPDATE_LABEL_LIST = exports.DELETE_LABEL = exports.SET_LABEL_LIST = exports.UPDATE_LIST_STATUS = exports.UPDATE_SUBTRACT_REQUEST_COUNT = exports.UPDATE_ADD_REQUEST_COUNT = exports.UPDATE_INIT_STATUS = exports.UPDATE_USER_DOC_SETTING = exports.UPDATE_CERTIFICATION = exports.UPDATE_USER_INFO = void 0; /*
+                                                                                                                                                                                                                                                                                                                                                                                                 * @Author: your name
+                                                                                                                                                                                                                                                                                                                                                                                                 * @Date: 2021-04-21 14:28:28
+                                                                                                                                                                                                                                                                                                                                                                                                 * @LastEditTime: 2021-04-30 16:16:45
+                                                                                                                                                                                                                                                                                                                                                                                                 * @LastEditors: Please set LastEditors
+                                                                                                                                                                                                                                                                                                                                                                                                 * @Description: In User Settings Edit
+                                                                                                                                                                                                                                                                                                                                                                                                 * @FilePath: \cloud_app\src\store\mutation-types.js
+                                                                                                                                                                                                                                                                                                                                                                                                 */
+
+// 用户模块
+var UPDATE_USER_INFO = 'UPDATE_USER_INFO';exports.UPDATE_USER_INFO = UPDATE_USER_INFO;
+var UPDATE_CERTIFICATION = 'UPDATE_CERTIFICATION';exports.UPDATE_CERTIFICATION = UPDATE_CERTIFICATION;
+var UPDATE_USER_DOC_SETTING = 'UPDATE_USER_DOC_SETTING';exports.UPDATE_USER_DOC_SETTING = UPDATE_USER_DOC_SETTING;
+var UPDATE_INIT_STATUS = 'UPDATE_INIT_STATUS';
+
+// 请求模块
+exports.UPDATE_INIT_STATUS = UPDATE_INIT_STATUS;var UPDATE_ADD_REQUEST_COUNT = 'UPDATE_ADD_REQUEST_COUNT';exports.UPDATE_ADD_REQUEST_COUNT = UPDATE_ADD_REQUEST_COUNT;
+var UPDATE_SUBTRACT_REQUEST_COUNT = 'UPDATE_SUBTRACT_REQUEST_COUNT';
+
+// 列表模块
+exports.UPDATE_SUBTRACT_REQUEST_COUNT = UPDATE_SUBTRACT_REQUEST_COUNT;var UPDATE_LIST_STATUS = 'UPDATE_LIST_STATUS'; // 列表查看或编辑状态
+
+// 标签模块
+exports.UPDATE_LIST_STATUS = UPDATE_LIST_STATUS;var SET_LABEL_LIST = 'SET_LABEL_LIST';exports.SET_LABEL_LIST = SET_LABEL_LIST;
+var DELETE_LABEL = 'DELETE_LABEL';exports.DELETE_LABEL = DELETE_LABEL;
+var UPDATE_LABEL_LIST = 'UPDATE_LABEL_LIST';exports.UPDATE_LABEL_LIST = UPDATE_LABEL_LIST;
+
+/***/ }),
+
+/***/ 16:
+/*!********************************************!*\
+  !*** D:/weapp/weapp/store/action-types.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.GET_LABEL_LIST = void 0; /*
+                                                                                                             * @Author: zeng_cheng
+                                                                                                             * @Date: 2021-04-29 14:08:42
+                                                                                                             * @LastEditTime: 2021-04-29 14:09:47
+                                                                                                             * @LastEditors: Please set LastEditors
+                                                                                                             * @Description: In User Settings Edit
+                                                                                                             * @FilePath: \cloud_app\src\store\action-types.js
+                                                                                                             */
+//标签模块
+var GET_LABEL_LIST = 'GET_LABEL_LIST';exports.GET_LABEL_LIST = GET_LABEL_LIST;
+
+/***/ }),
+
+/***/ 17:
+/*!**********************************!*\
+  !*** D:/weapp/weapp/api/docs.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.updateDocUserLabel = exports.deleteDocUserLabel = exports.downloadURL = exports.unbindDocFile = exports.bindDocFile = exports.unbindDocFolderLabel = exports.bindDocFolderLabel = exports.addDocUserLabel = exports.getDocFile = exports.getDocFolder = exports.addDocFolder = exports.copyDocFile = exports.moveDocFolder = exports.moveDocFile = exports.deleteDocFileRecent = exports.openDocFile = exports.getRecent = exports.renameFolderName = exports.renameFile = exports.deleteDocFolder = exports.deleteDocFile = exports.findDocFolder = exports.findDocFile = exports.findDocUserLabelList = exports.findDocSettingList = exports.getRootFolderId = exports.certification = exports.getUserInfo = exports.getToken = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @description: 获取令牌
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @param {*}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @return {*}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
+var getToken = function getToken() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/user/getTokenByWxToken",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取用户信息
+               * @param {*}
+               * @return {*}
+               */exports.getToken = getToken;
+var getUserInfo = function getUserInfo() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/user/getUserInfo",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 是否认证
+               * @param {*}
+               * @return {*}
+               */exports.getUserInfo = getUserInfo;
+var certification = function certification() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/certification/hasCertification",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取用户根目录ID
+               * @param {*}
+               * @return {*}
+               */exports.certification = certification;
+var getRootFolderId = function getRootFolderId() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/getRootFolder",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取用户所有参数
+               * @param {*}
+               * @return {*}
+               */exports.getRootFolderId = getRootFolderId;
+var findDocSettingList = function findDocSettingList() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docSetting/findDocSettingList",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取标签列表
+               * @param {*}
+               * @return {*}
+               */exports.findDocSettingList = findDocSettingList;
+var findDocUserLabelList = function findDocUserLabelList() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docUserLabel/findDocUserLabelList",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取文件列表数据
+               * @param {*}
+               * @return {*}
+               */exports.findDocUserLabelList = findDocUserLabelList;
+var findDocFile = function findDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/findDocFile",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取目录列表数据
+               * @param {*}
+               * @return {*}
+               */exports.findDocFile = findDocFile;
+var findDocFolder = function findDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/findDocFolder",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 删除文档
+               * @param {*}
+               * @return {*}
+               */exports.findDocFolder = findDocFolder;
+var deleteDocFile = function deleteDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/deleteDocFile",
+    method: 'DELETE',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 删除目录
+               * @param {*}
+               * @return {*}
+               */exports.deleteDocFile = deleteDocFile;
+var deleteDocFolder = function deleteDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/deleteDocFolder",
+    method: 'DELETE',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 文档重命名
+               * @param {*}
+               * @return {*}
+               */exports.deleteDocFolder = deleteDocFolder;
+var renameFile = function renameFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/rename",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 目录重命名
+               * @param {*}
+               * @return {*}
+               */exports.renameFile = renameFile;
+var renameFolderName = function renameFolderName() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/rename",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+
+/**
+               * @description: 最近打开列表
+               * @param {*}
+               * @return {*}
+               */exports.renameFolderName = renameFolderName;
+var getRecent = function getRecent() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFileRecentOpen/findPage",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 上传最近打开记录
+               * @param {*}
+               * @return {*}
+               */exports.getRecent = getRecent;
+var openDocFile = function openDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+    hideLoading: true };var
+  header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFileRecentOpen/openDocFile",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 删除打开记录
+               * @param {*}
+               * @return {*}
+               */exports.openDocFile = openDocFile;
+var deleteDocFileRecent = function deleteDocFileRecent() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFileRecentOpen/deleteDocFileRecent/" + data.docId,
+    method: 'DELETE',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 移动文档
+               * @param {*}
+               * @return {*}
+               */exports.deleteDocFileRecent = deleteDocFileRecent;
+var moveDocFile = function moveDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/moveDocFile",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 移动目录
+               * @param {*}
+               * @return {*}
+               */exports.moveDocFile = moveDocFile;
+var moveDocFolder = function moveDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/moveDocFolder",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 复制文档
+               * @param {*}
+               * @return {*}
+               */exports.moveDocFolder = moveDocFolder;
+var copyDocFile = function copyDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/copyDocFile",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 新建文件夹
+               * @param {*}
+               * @return {*}
+               */exports.copyDocFile = copyDocFile;
+var addDocFolder = function addDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/addDocFolder",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取目录详情
+               * @param {*}
+               * @return {*}
+               */exports.addDocFolder = addDocFolder;
+var getDocFolder = function getDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+    hideLoading: true };var
+  header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/getDocFolder",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取文档详情
+               * @param {*}
+               * @return {*}
+               */exports.getDocFolder = getDocFolder;
+var getDocFile = function getDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+    hideLoading: true };var
+  header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/getDocFile",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 添加标签
+               * @param {*}
+               * @return {*}
+               */exports.getDocFile = getDocFile;
+var addDocUserLabel = function addDocUserLabel() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docUserLabel/addDocUserLabel",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 绑定目录标签
+               * @param {*}
+               * @return {*}
+               */exports.addDocUserLabel = addDocUserLabel;
+var bindDocFolderLabel = function bindDocFolderLabel() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/bindDocFolderLabel",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 解除目录标签
+               * @param {*}
+               * @return {*}
+               */exports.bindDocFolderLabel = bindDocFolderLabel;
+var unbindDocFolderLabel = function unbindDocFolderLabel() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFolder/unbindDocFolderLabel",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 绑定文档标签
+               * @param {*}
+               * @return {*}
+               */exports.unbindDocFolderLabel = unbindDocFolderLabel;
+var bindDocFile = function bindDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/bindDocFile",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 解除文档标签
+               * @param {*}
+               * @return {*}
+               */exports.bindDocFile = bindDocFile;
+var unbindDocFile = function unbindDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/unbindDocFile",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 获取文件下载链接
+               * @param {*}
+               * @return {*}
+               */exports.unbindDocFile = unbindDocFile;
+var downloadURL = function downloadURL() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docFile/downloadURL",
+    method: 'GET',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 删除标签
+               * @param {*}
+               * @return {*}
+               */exports.downloadURL = downloadURL;
+var deleteDocUserLabel = function deleteDocUserLabel() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docUserLabel/deleteDocUserLabel/".concat(data.id),
+    method: 'DELETE',
+    data: data,
+    header: header },
+  config));};
+
+
+/**
+               * @description: 更新标签
+               * @param {*}
+               * @return {*}
+               */exports.deleteDocUserLabel = deleteDocUserLabel;
+var updateDocUserLabel = function updateDocUserLabel() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
+    url: "/docUserLabel/updateDocUserLabel",
+    method: 'POST',
+    data: data,
+    header: header },
+  config));};exports.updateDocUserLabel = updateDocUserLabel;
+
+/***/ }),
+
+/***/ 18:
+/*!*************************************!*\
+  !*** D:/weapp/weapp/api/request.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../store/index.js */ 11));
+var _const = __webpack_require__(/*! ../const/const.js */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var requestNumber = 0;
+var requestContinue = 100;
+
+var request = function request(config) {
+  // 处理 apiUrl
+  config.url = _const.REQUEST_URL + config.url;
+  if (!config.data) {
+    config.data = {};
+  }
+
+  if (!config.header) {var _uni$getStorageSync;
+    config.header = {
+      appKey: _const.APPKEY,
+      token: ((_uni$getStorageSync = uni.getStorageSync('token')) === null || _uni$getStorageSync === void 0 ? void 0 : _uni$getStorageSync.token) || '',
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8' };
+
+  } else {
+    Object.assign(config.header, {
+      'appKey': 'uw8PbyY2',
+      'token': uni.getStorageSync('token') || '' });
+
+  }
+
+  var promise = new Promise(function (resolve, reject) {
+    if (!config.hideLoading) {
+      requestNumber++;
+      uni.showLoading({
+        title: '加载中...',
+        mask: true });
+
+    }
+    uni.request(config).then(function (responses) {
+      if (!config.hideLoading) {
+        requestNumber--;
+        if (requestNumber === 0) uni.hideLoading();
+      }
+      // 异常
+      if (responses[0]) {
+        reject({
+          message: "网络超时" });
+
+      } else {var
+        data = responses[1].data;
+        if (data.code === 0) return resolve(data);
+        switch (data.code) {
+          case 401:
+            if (config.url.indexOf("getTokenByWxToken") !== -1) break;
+            uni.removeStorageSync('token');
+            uni.showLoading({
+              title: '重新获取登陆信息...',
+              mask: true });
+
+            setTimeout(function () {
+              uni.reLaunch({
+                url: '/pages/folder/folder' });
+
+            }, 1000);
+            break;
+          default:uni.showToast({
+              title: data.msg,
+              icon: 'none',
+              duration: 3000 });}
+
+
+        return reject(data);
+      }
+    }).catch(function (error) {
+      if (!config.hideLoading) {
+        requestNumber--;
+        if (requestNumber === 0) uni.hideLoading();
+      }
+      reject(error);
+    });
+  });
+  return promise;
+};var _default =
+
+request;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 19:
+/*!*************************************!*\
+  !*** D:/weapp/weapp/const/const.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.LABEL_COLOR = exports.TABBAR = exports.APPKEY = exports.REQUEST_URL = void 0;var REQUEST_URL = "https://docsapi.foxitcloud.cn";exports.REQUEST_URL = REQUEST_URL;
+var APPKEY = 'uw8PbyY2';exports.APPKEY = APPKEY;
+var TABBAR = [{
+  "pagePath": "/pages/index/index",
+  "iconPath": "/static/img/tabs/home.png",
+  "selectedIconPath": "/static/img/tabs/home_.png",
+  "text": "首页" },
+{
+  "pagePath": "/pages/folder/folder",
+  "iconPath": "/static/img/tabs/folder.png",
+  "selectedIconPath": "/static/img/tabs/folder_.png",
+  "text": "文档" },
+{
+  "pagePath": "/pages/appCenter/appCenter",
+  "iconPath": "/static/img/tabs/appCenter.png",
+  "selectedIconPath": "/static/img/tabs/appCenter_.png",
+  "text": "应用" },
+{
+  "pagePath": "/pages/userCenter/userCenter",
+  "iconPath": "/static/img/tabs/userCenter.png",
+  "selectedIconPath": "/static/img/tabs/userCenter_.png",
+  "text": "我的" }];exports.TABBAR = TABBAR;
+
+var LABEL_COLOR = [
+"#ff6260",
+"#f1d548",
+"#83d956",
+"#66a1ff",
+"#cd66cd",
+"#bbbbbb"];exports.LABEL_COLOR = LABEL_COLOR;
+
+/***/ }),
+
+/***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -7916,1827 +9861,8 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 3 */
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
-/*!*********************************!*\
-  !*** D:/weapp/weapp/pages.json ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 11 */
-/*!*************************************!*\
-  !*** D:/weapp/weapp/store/index.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-_vue.default.use(_vuex.default);
-
-var modulesFiles = __webpack_require__(13);
-var modules = modulesFiles.keys().reduce(function (modules, modulePath) {
-  var moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, "$1");
-  var value = modulesFiles(modulePath);
-  modules[moduleName] = value.default;
-  return modules;
-}, {});var _default =
-
-new _vuex.default.Store({
-  modules: modules });exports.default = _default;
-
-/***/ }),
-/* 12 */
-/*!********************************************!*\
-  !*** ./node_modules/vuex/dist/vuex.esm.js ***!
-  \********************************************/
-/*! exports provided: default, Store, createNamespacedHelpers, install, mapActions, mapGetters, mapMutations, mapState */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createNamespacedHelpers", function() { return createNamespacedHelpers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "install", function() { return install; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapActions", function() { return mapActions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapGetters", function() { return mapGetters; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
-/*!
- * vuex v3.4.0
- * (c) 2020 Evan You
- * @license MIT
- */
-function applyMixin (Vue) {
-  var version = Number(Vue.version.split('.')[0]);
-
-  if (version >= 2) {
-    Vue.mixin({ beforeCreate: vuexInit });
-  } else {
-    // override init and inject vuex init procedure
-    // for 1.x backwards compatibility.
-    var _init = Vue.prototype._init;
-    Vue.prototype._init = function (options) {
-      if ( options === void 0 ) options = {};
-
-      options.init = options.init
-        ? [vuexInit].concat(options.init)
-        : vuexInit;
-      _init.call(this, options);
-    };
-  }
-
-  /**
-   * Vuex init hook, injected into each instances init hooks list.
-   */
-
-  function vuexInit () {
-    var options = this.$options;
-    // store injection
-    if (options.store) {
-      this.$store = typeof options.store === 'function'
-        ? options.store()
-        : options.store;
-    } else if (options.parent && options.parent.$store) {
-      this.$store = options.parent.$store;
-    }
-  }
-}
-
-var target = typeof window !== 'undefined'
-  ? window
-  : typeof global !== 'undefined'
-    ? global
-    : {};
-var devtoolHook = target.__VUE_DEVTOOLS_GLOBAL_HOOK__;
-
-function devtoolPlugin (store) {
-  if (!devtoolHook) { return }
-
-  store._devtoolHook = devtoolHook;
-
-  devtoolHook.emit('vuex:init', store);
-
-  devtoolHook.on('vuex:travel-to-state', function (targetState) {
-    store.replaceState(targetState);
-  });
-
-  store.subscribe(function (mutation, state) {
-    devtoolHook.emit('vuex:mutation', mutation, state);
-  }, { prepend: true });
-
-  store.subscribeAction(function (action, state) {
-    devtoolHook.emit('vuex:action', action, state);
-  }, { prepend: true });
-}
-
-/**
- * Get the first item that pass the test
- * by second argument function
- *
- * @param {Array} list
- * @param {Function} f
- * @return {*}
- */
-
-/**
- * forEach for object
- */
-function forEachValue (obj, fn) {
-  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
-}
-
-function isObject (obj) {
-  return obj !== null && typeof obj === 'object'
-}
-
-function isPromise (val) {
-  return val && typeof val.then === 'function'
-}
-
-function assert (condition, msg) {
-  if (!condition) { throw new Error(("[vuex] " + msg)) }
-}
-
-function partial (fn, arg) {
-  return function () {
-    return fn(arg)
-  }
-}
-
-// Base data struct for store's module, package with some attribute and method
-var Module = function Module (rawModule, runtime) {
-  this.runtime = runtime;
-  // Store some children item
-  this._children = Object.create(null);
-  // Store the origin module object which passed by programmer
-  this._rawModule = rawModule;
-  var rawState = rawModule.state;
-
-  // Store the origin module's state
-  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
-};
-
-var prototypeAccessors = { namespaced: { configurable: true } };
-
-prototypeAccessors.namespaced.get = function () {
-  return !!this._rawModule.namespaced
-};
-
-Module.prototype.addChild = function addChild (key, module) {
-  this._children[key] = module;
-};
-
-Module.prototype.removeChild = function removeChild (key) {
-  delete this._children[key];
-};
-
-Module.prototype.getChild = function getChild (key) {
-  return this._children[key]
-};
-
-Module.prototype.hasChild = function hasChild (key) {
-  return key in this._children
-};
-
-Module.prototype.update = function update (rawModule) {
-  this._rawModule.namespaced = rawModule.namespaced;
-  if (rawModule.actions) {
-    this._rawModule.actions = rawModule.actions;
-  }
-  if (rawModule.mutations) {
-    this._rawModule.mutations = rawModule.mutations;
-  }
-  if (rawModule.getters) {
-    this._rawModule.getters = rawModule.getters;
-  }
-};
-
-Module.prototype.forEachChild = function forEachChild (fn) {
-  forEachValue(this._children, fn);
-};
-
-Module.prototype.forEachGetter = function forEachGetter (fn) {
-  if (this._rawModule.getters) {
-    forEachValue(this._rawModule.getters, fn);
-  }
-};
-
-Module.prototype.forEachAction = function forEachAction (fn) {
-  if (this._rawModule.actions) {
-    forEachValue(this._rawModule.actions, fn);
-  }
-};
-
-Module.prototype.forEachMutation = function forEachMutation (fn) {
-  if (this._rawModule.mutations) {
-    forEachValue(this._rawModule.mutations, fn);
-  }
-};
-
-Object.defineProperties( Module.prototype, prototypeAccessors );
-
-var ModuleCollection = function ModuleCollection (rawRootModule) {
-  // register root module (Vuex.Store options)
-  this.register([], rawRootModule, false);
-};
-
-ModuleCollection.prototype.get = function get (path) {
-  return path.reduce(function (module, key) {
-    return module.getChild(key)
-  }, this.root)
-};
-
-ModuleCollection.prototype.getNamespace = function getNamespace (path) {
-  var module = this.root;
-  return path.reduce(function (namespace, key) {
-    module = module.getChild(key);
-    return namespace + (module.namespaced ? key + '/' : '')
-  }, '')
-};
-
-ModuleCollection.prototype.update = function update$1 (rawRootModule) {
-  update([], this.root, rawRootModule);
-};
-
-ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
-    var this$1 = this;
-    if ( runtime === void 0 ) runtime = true;
-
-  if ((true)) {
-    assertRawModule(path, rawModule);
-  }
-
-  var newModule = new Module(rawModule, runtime);
-  if (path.length === 0) {
-    this.root = newModule;
-  } else {
-    var parent = this.get(path.slice(0, -1));
-    parent.addChild(path[path.length - 1], newModule);
-  }
-
-  // register nested modules
-  if (rawModule.modules) {
-    forEachValue(rawModule.modules, function (rawChildModule, key) {
-      this$1.register(path.concat(key), rawChildModule, runtime);
-    });
-  }
-};
-
-ModuleCollection.prototype.unregister = function unregister (path) {
-  var parent = this.get(path.slice(0, -1));
-  var key = path[path.length - 1];
-  if (!parent.getChild(key).runtime) { return }
-
-  parent.removeChild(key);
-};
-
-ModuleCollection.prototype.isRegistered = function isRegistered (path) {
-  var parent = this.get(path.slice(0, -1));
-  var key = path[path.length - 1];
-
-  return parent.hasChild(key)
-};
-
-function update (path, targetModule, newModule) {
-  if ((true)) {
-    assertRawModule(path, newModule);
-  }
-
-  // update target module
-  targetModule.update(newModule);
-
-  // update nested modules
-  if (newModule.modules) {
-    for (var key in newModule.modules) {
-      if (!targetModule.getChild(key)) {
-        if ((true)) {
-          console.warn(
-            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
-            'manual reload is needed'
-          );
-        }
-        return
-      }
-      update(
-        path.concat(key),
-        targetModule.getChild(key),
-        newModule.modules[key]
-      );
-    }
-  }
-}
-
-var functionAssert = {
-  assert: function (value) { return typeof value === 'function'; },
-  expected: 'function'
-};
-
-var objectAssert = {
-  assert: function (value) { return typeof value === 'function' ||
-    (typeof value === 'object' && typeof value.handler === 'function'); },
-  expected: 'function or object with "handler" function'
-};
-
-var assertTypes = {
-  getters: functionAssert,
-  mutations: functionAssert,
-  actions: objectAssert
-};
-
-function assertRawModule (path, rawModule) {
-  Object.keys(assertTypes).forEach(function (key) {
-    if (!rawModule[key]) { return }
-
-    var assertOptions = assertTypes[key];
-
-    forEachValue(rawModule[key], function (value, type) {
-      assert(
-        assertOptions.assert(value),
-        makeAssertionMessage(path, key, type, value, assertOptions.expected)
-      );
-    });
-  });
-}
-
-function makeAssertionMessage (path, key, type, value, expected) {
-  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
-  if (path.length > 0) {
-    buf += " in module \"" + (path.join('.')) + "\"";
-  }
-  buf += " is " + (JSON.stringify(value)) + ".";
-  return buf
-}
-
-var Vue; // bind on install
-
-var Store = function Store (options) {
-  var this$1 = this;
-  if ( options === void 0 ) options = {};
-
-  // Auto install if it is not done yet and `window` has `Vue`.
-  // To allow users to avoid auto-installation in some cases,
-  // this code should be placed here. See #731
-  if (!Vue && typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
-  }
-
-  if ((true)) {
-    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
-    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
-    assert(this instanceof Store, "store must be called with the new operator.");
-  }
-
-  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
-  var strict = options.strict; if ( strict === void 0 ) strict = false;
-
-  // store internal state
-  this._committing = false;
-  this._actions = Object.create(null);
-  this._actionSubscribers = [];
-  this._mutations = Object.create(null);
-  this._wrappedGetters = Object.create(null);
-  this._modules = new ModuleCollection(options);
-  this._modulesNamespaceMap = Object.create(null);
-  this._subscribers = [];
-  this._watcherVM = new Vue();
-  this._makeLocalGettersCache = Object.create(null);
-
-  // bind commit and dispatch to self
-  var store = this;
-  var ref = this;
-  var dispatch = ref.dispatch;
-  var commit = ref.commit;
-  this.dispatch = function boundDispatch (type, payload) {
-    return dispatch.call(store, type, payload)
-  };
-  this.commit = function boundCommit (type, payload, options) {
-    return commit.call(store, type, payload, options)
-  };
-
-  // strict mode
-  this.strict = strict;
-
-  var state = this._modules.root.state;
-
-  // init root module.
-  // this also recursively registers all sub-modules
-  // and collects all module getters inside this._wrappedGetters
-  installModule(this, state, [], this._modules.root);
-
-  // initialize the store vm, which is responsible for the reactivity
-  // (also registers _wrappedGetters as computed properties)
-  resetStoreVM(this, state);
-
-  // apply plugins
-  plugins.forEach(function (plugin) { return plugin(this$1); });
-
-  var useDevtools = options.devtools !== undefined ? options.devtools : Vue.config.devtools;
-  if (useDevtools) {
-    devtoolPlugin(this);
-  }
-};
-
-var prototypeAccessors$1 = { state: { configurable: true } };
-
-prototypeAccessors$1.state.get = function () {
-  return this._vm._data.$$state
-};
-
-prototypeAccessors$1.state.set = function (v) {
-  if ((true)) {
-    assert(false, "use store.replaceState() to explicit replace store state.");
-  }
-};
-
-Store.prototype.commit = function commit (_type, _payload, _options) {
-    var this$1 = this;
-
-  // check object-style commit
-  var ref = unifyObjectStyle(_type, _payload, _options);
-    var type = ref.type;
-    var payload = ref.payload;
-    var options = ref.options;
-
-  var mutation = { type: type, payload: payload };
-  var entry = this._mutations[type];
-  if (!entry) {
-    if ((true)) {
-      console.error(("[vuex] unknown mutation type: " + type));
-    }
-    return
-  }
-  this._withCommit(function () {
-    entry.forEach(function commitIterator (handler) {
-      handler(payload);
-    });
-  });
-
-  this._subscribers
-    .slice() // shallow copy to prevent iterator invalidation if subscriber synchronously calls unsubscribe
-    .forEach(function (sub) { return sub(mutation, this$1.state); });
-
-  if (
-    ( true) &&
-    options && options.silent
-  ) {
-    console.warn(
-      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
-      'Use the filter functionality in the vue-devtools'
-    );
-  }
-};
-
-Store.prototype.dispatch = function dispatch (_type, _payload) {
-    var this$1 = this;
-
-  // check object-style dispatch
-  var ref = unifyObjectStyle(_type, _payload);
-    var type = ref.type;
-    var payload = ref.payload;
-
-  var action = { type: type, payload: payload };
-  var entry = this._actions[type];
-  if (!entry) {
-    if ((true)) {
-      console.error(("[vuex] unknown action type: " + type));
-    }
-    return
-  }
-
-  try {
-    this._actionSubscribers
-      .slice() // shallow copy to prevent iterator invalidation if subscriber synchronously calls unsubscribe
-      .filter(function (sub) { return sub.before; })
-      .forEach(function (sub) { return sub.before(action, this$1.state); });
-  } catch (e) {
-    if ((true)) {
-      console.warn("[vuex] error in before action subscribers: ");
-      console.error(e);
-    }
-  }
-
-  var result = entry.length > 1
-    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
-    : entry[0](payload);
-
-  return new Promise(function (resolve, reject) {
-    result.then(function (res) {
-      try {
-        this$1._actionSubscribers
-          .filter(function (sub) { return sub.after; })
-          .forEach(function (sub) { return sub.after(action, this$1.state); });
-      } catch (e) {
-        if ((true)) {
-          console.warn("[vuex] error in after action subscribers: ");
-          console.error(e);
-        }
-      }
-      resolve(res);
-    }, function (error) {
-      try {
-        this$1._actionSubscribers
-          .filter(function (sub) { return sub.error; })
-          .forEach(function (sub) { return sub.error(action, this$1.state, error); });
-      } catch (e) {
-        if ((true)) {
-          console.warn("[vuex] error in error action subscribers: ");
-          console.error(e);
-        }
-      }
-      reject(error);
-    });
-  })
-};
-
-Store.prototype.subscribe = function subscribe (fn, options) {
-  return genericSubscribe(fn, this._subscribers, options)
-};
-
-Store.prototype.subscribeAction = function subscribeAction (fn, options) {
-  var subs = typeof fn === 'function' ? { before: fn } : fn;
-  return genericSubscribe(subs, this._actionSubscribers, options)
-};
-
-Store.prototype.watch = function watch (getter, cb, options) {
-    var this$1 = this;
-
-  if ((true)) {
-    assert(typeof getter === 'function', "store.watch only accepts a function.");
-  }
-  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
-};
-
-Store.prototype.replaceState = function replaceState (state) {
-    var this$1 = this;
-
-  this._withCommit(function () {
-    this$1._vm._data.$$state = state;
-  });
-};
-
-Store.prototype.registerModule = function registerModule (path, rawModule, options) {
-    if ( options === void 0 ) options = {};
-
-  if (typeof path === 'string') { path = [path]; }
-
-  if ((true)) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-    assert(path.length > 0, 'cannot register the root module by using registerModule.');
-  }
-
-  this._modules.register(path, rawModule);
-  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
-  // reset store to update getters...
-  resetStoreVM(this, this.state);
-};
-
-Store.prototype.unregisterModule = function unregisterModule (path) {
-    var this$1 = this;
-
-  if (typeof path === 'string') { path = [path]; }
-
-  if ((true)) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-  }
-
-  this._modules.unregister(path);
-  this._withCommit(function () {
-    var parentState = getNestedState(this$1.state, path.slice(0, -1));
-    Vue.delete(parentState, path[path.length - 1]);
-  });
-  resetStore(this);
-};
-
-Store.prototype.hasModule = function hasModule (path) {
-  if (typeof path === 'string') { path = [path]; }
-
-  if ((true)) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-  }
-
-  return this._modules.isRegistered(path)
-};
-
-Store.prototype.hotUpdate = function hotUpdate (newOptions) {
-  this._modules.update(newOptions);
-  resetStore(this, true);
-};
-
-Store.prototype._withCommit = function _withCommit (fn) {
-  var committing = this._committing;
-  this._committing = true;
-  fn();
-  this._committing = committing;
-};
-
-Object.defineProperties( Store.prototype, prototypeAccessors$1 );
-
-function genericSubscribe (fn, subs, options) {
-  if (subs.indexOf(fn) < 0) {
-    options && options.prepend
-      ? subs.unshift(fn)
-      : subs.push(fn);
-  }
-  return function () {
-    var i = subs.indexOf(fn);
-    if (i > -1) {
-      subs.splice(i, 1);
-    }
-  }
-}
-
-function resetStore (store, hot) {
-  store._actions = Object.create(null);
-  store._mutations = Object.create(null);
-  store._wrappedGetters = Object.create(null);
-  store._modulesNamespaceMap = Object.create(null);
-  var state = store.state;
-  // init all modules
-  installModule(store, state, [], store._modules.root, true);
-  // reset vm
-  resetStoreVM(store, state, hot);
-}
-
-function resetStoreVM (store, state, hot) {
-  var oldVm = store._vm;
-
-  // bind store public getters
-  store.getters = {};
-  // reset local getters cache
-  store._makeLocalGettersCache = Object.create(null);
-  var wrappedGetters = store._wrappedGetters;
-  var computed = {};
-  forEachValue(wrappedGetters, function (fn, key) {
-    // use computed to leverage its lazy-caching mechanism
-    // direct inline function use will lead to closure preserving oldVm.
-    // using partial to return function with only arguments preserved in closure environment.
-    computed[key] = partial(fn, store);
-    Object.defineProperty(store.getters, key, {
-      get: function () { return store._vm[key]; },
-      enumerable: true // for local getters
-    });
-  });
-
-  // use a Vue instance to store the state tree
-  // suppress warnings just in case the user has added
-  // some funky global mixins
-  var silent = Vue.config.silent;
-  Vue.config.silent = true;
-  store._vm = new Vue({
-    data: {
-      $$state: state
-    },
-    computed: computed
-  });
-  Vue.config.silent = silent;
-
-  // enable strict mode for new vm
-  if (store.strict) {
-    enableStrictMode(store);
-  }
-
-  if (oldVm) {
-    if (hot) {
-      // dispatch changes in all subscribed watchers
-      // to force getter re-evaluation for hot reloading.
-      store._withCommit(function () {
-        oldVm._data.$$state = null;
-      });
-    }
-    Vue.nextTick(function () { return oldVm.$destroy(); });
-  }
-}
-
-function installModule (store, rootState, path, module, hot) {
-  var isRoot = !path.length;
-  var namespace = store._modules.getNamespace(path);
-
-  // register in namespace map
-  if (module.namespaced) {
-    if (store._modulesNamespaceMap[namespace] && ("development" !== 'production')) {
-      console.error(("[vuex] duplicate namespace " + namespace + " for the namespaced module " + (path.join('/'))));
-    }
-    store._modulesNamespaceMap[namespace] = module;
-  }
-
-  // set state
-  if (!isRoot && !hot) {
-    var parentState = getNestedState(rootState, path.slice(0, -1));
-    var moduleName = path[path.length - 1];
-    store._withCommit(function () {
-      if ((true)) {
-        if (moduleName in parentState) {
-          console.warn(
-            ("[vuex] state field \"" + moduleName + "\" was overridden by a module with the same name at \"" + (path.join('.')) + "\"")
-          );
-        }
-      }
-      Vue.set(parentState, moduleName, module.state);
-    });
-  }
-
-  var local = module.context = makeLocalContext(store, namespace, path);
-
-  module.forEachMutation(function (mutation, key) {
-    var namespacedType = namespace + key;
-    registerMutation(store, namespacedType, mutation, local);
-  });
-
-  module.forEachAction(function (action, key) {
-    var type = action.root ? key : namespace + key;
-    var handler = action.handler || action;
-    registerAction(store, type, handler, local);
-  });
-
-  module.forEachGetter(function (getter, key) {
-    var namespacedType = namespace + key;
-    registerGetter(store, namespacedType, getter, local);
-  });
-
-  module.forEachChild(function (child, key) {
-    installModule(store, rootState, path.concat(key), child, hot);
-  });
-}
-
-/**
- * make localized dispatch, commit, getters and state
- * if there is no namespace, just use root ones
- */
-function makeLocalContext (store, namespace, path) {
-  var noNamespace = namespace === '';
-
-  var local = {
-    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
-      var args = unifyObjectStyle(_type, _payload, _options);
-      var payload = args.payload;
-      var options = args.options;
-      var type = args.type;
-
-      if (!options || !options.root) {
-        type = namespace + type;
-        if (( true) && !store._actions[type]) {
-          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
-          return
-        }
-      }
-
-      return store.dispatch(type, payload)
-    },
-
-    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
-      var args = unifyObjectStyle(_type, _payload, _options);
-      var payload = args.payload;
-      var options = args.options;
-      var type = args.type;
-
-      if (!options || !options.root) {
-        type = namespace + type;
-        if (( true) && !store._mutations[type]) {
-          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
-          return
-        }
-      }
-
-      store.commit(type, payload, options);
-    }
-  };
-
-  // getters and state object must be gotten lazily
-  // because they will be changed by vm update
-  Object.defineProperties(local, {
-    getters: {
-      get: noNamespace
-        ? function () { return store.getters; }
-        : function () { return makeLocalGetters(store, namespace); }
-    },
-    state: {
-      get: function () { return getNestedState(store.state, path); }
-    }
-  });
-
-  return local
-}
-
-function makeLocalGetters (store, namespace) {
-  if (!store._makeLocalGettersCache[namespace]) {
-    var gettersProxy = {};
-    var splitPos = namespace.length;
-    Object.keys(store.getters).forEach(function (type) {
-      // skip if the target getter is not match this namespace
-      if (type.slice(0, splitPos) !== namespace) { return }
-
-      // extract local getter type
-      var localType = type.slice(splitPos);
-
-      // Add a port to the getters proxy.
-      // Define as getter property because
-      // we do not want to evaluate the getters in this time.
-      Object.defineProperty(gettersProxy, localType, {
-        get: function () { return store.getters[type]; },
-        enumerable: true
-      });
-    });
-    store._makeLocalGettersCache[namespace] = gettersProxy;
-  }
-
-  return store._makeLocalGettersCache[namespace]
-}
-
-function registerMutation (store, type, handler, local) {
-  var entry = store._mutations[type] || (store._mutations[type] = []);
-  entry.push(function wrappedMutationHandler (payload) {
-    handler.call(store, local.state, payload);
-  });
-}
-
-function registerAction (store, type, handler, local) {
-  var entry = store._actions[type] || (store._actions[type] = []);
-  entry.push(function wrappedActionHandler (payload) {
-    var res = handler.call(store, {
-      dispatch: local.dispatch,
-      commit: local.commit,
-      getters: local.getters,
-      state: local.state,
-      rootGetters: store.getters,
-      rootState: store.state
-    }, payload);
-    if (!isPromise(res)) {
-      res = Promise.resolve(res);
-    }
-    if (store._devtoolHook) {
-      return res.catch(function (err) {
-        store._devtoolHook.emit('vuex:error', err);
-        throw err
-      })
-    } else {
-      return res
-    }
-  });
-}
-
-function registerGetter (store, type, rawGetter, local) {
-  if (store._wrappedGetters[type]) {
-    if ((true)) {
-      console.error(("[vuex] duplicate getter key: " + type));
-    }
-    return
-  }
-  store._wrappedGetters[type] = function wrappedGetter (store) {
-    return rawGetter(
-      local.state, // local state
-      local.getters, // local getters
-      store.state, // root state
-      store.getters // root getters
-    )
-  };
-}
-
-function enableStrictMode (store) {
-  store._vm.$watch(function () { return this._data.$$state }, function () {
-    if ((true)) {
-      assert(store._committing, "do not mutate vuex store state outside mutation handlers.");
-    }
-  }, { deep: true, sync: true });
-}
-
-function getNestedState (state, path) {
-  return path.reduce(function (state, key) { return state[key]; }, state)
-}
-
-function unifyObjectStyle (type, payload, options) {
-  if (isObject(type) && type.type) {
-    options = payload;
-    payload = type;
-    type = type.type;
-  }
-
-  if ((true)) {
-    assert(typeof type === 'string', ("expects string as the type, but found " + (typeof type) + "."));
-  }
-
-  return { type: type, payload: payload, options: options }
-}
-
-function install (_Vue) {
-  if (Vue && _Vue === Vue) {
-    if ((true)) {
-      console.error(
-        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
-      );
-    }
-    return
-  }
-  Vue = _Vue;
-  applyMixin(Vue);
-}
-
-/**
- * Reduce the code which written in Vue.js for getting the state.
- * @param {String} [namespace] - Module's namespace
- * @param {Object|Array} states # Object's item can be a function which accept state and getters for param, you can do something for state and getters in it.
- * @param {Object}
- */
-var mapState = normalizeNamespace(function (namespace, states) {
-  var res = {};
-  if (( true) && !isValidMap(states)) {
-    console.error('[vuex] mapState: mapper parameter must be either an Array or an Object');
-  }
-  normalizeMap(states).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedState () {
-      var state = this.$store.state;
-      var getters = this.$store.getters;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
-        if (!module) {
-          return
-        }
-        state = module.context.state;
-        getters = module.context.getters;
-      }
-      return typeof val === 'function'
-        ? val.call(this, state, getters)
-        : state[val]
-    };
-    // mark vuex getter for devtools
-    res[key].vuex = true;
-  });
-  return res
-});
-
-/**
- * Reduce the code which written in Vue.js for committing the mutation
- * @param {String} [namespace] - Module's namespace
- * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept anthor params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
- * @return {Object}
- */
-var mapMutations = normalizeNamespace(function (namespace, mutations) {
-  var res = {};
-  if (( true) && !isValidMap(mutations)) {
-    console.error('[vuex] mapMutations: mapper parameter must be either an Array or an Object');
-  }
-  normalizeMap(mutations).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedMutation () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-      // Get the commit method from store
-      var commit = this.$store.commit;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
-        if (!module) {
-          return
-        }
-        commit = module.context.commit;
-      }
-      return typeof val === 'function'
-        ? val.apply(this, [commit].concat(args))
-        : commit.apply(this.$store, [val].concat(args))
-    };
-  });
-  return res
-});
-
-/**
- * Reduce the code which written in Vue.js for getting the getters
- * @param {String} [namespace] - Module's namespace
- * @param {Object|Array} getters
- * @return {Object}
- */
-var mapGetters = normalizeNamespace(function (namespace, getters) {
-  var res = {};
-  if (( true) && !isValidMap(getters)) {
-    console.error('[vuex] mapGetters: mapper parameter must be either an Array or an Object');
-  }
-  normalizeMap(getters).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    // The namespace has been mutated by normalizeNamespace
-    val = namespace + val;
-    res[key] = function mappedGetter () {
-      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
-        return
-      }
-      if (( true) && !(val in this.$store.getters)) {
-        console.error(("[vuex] unknown getter: " + val));
-        return
-      }
-      return this.$store.getters[val]
-    };
-    // mark vuex getter for devtools
-    res[key].vuex = true;
-  });
-  return res
-});
-
-/**
- * Reduce the code which written in Vue.js for dispatch the action
- * @param {String} [namespace] - Module's namespace
- * @param {Object|Array} actions # Object's item can be a function which accept `dispatch` function as the first param, it can accept anthor params. You can dispatch action and do any other things in this function. specially, You need to pass anthor params from the mapped function.
- * @return {Object}
- */
-var mapActions = normalizeNamespace(function (namespace, actions) {
-  var res = {};
-  if (( true) && !isValidMap(actions)) {
-    console.error('[vuex] mapActions: mapper parameter must be either an Array or an Object');
-  }
-  normalizeMap(actions).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedAction () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-      // get dispatch function from store
-      var dispatch = this.$store.dispatch;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
-        if (!module) {
-          return
-        }
-        dispatch = module.context.dispatch;
-      }
-      return typeof val === 'function'
-        ? val.apply(this, [dispatch].concat(args))
-        : dispatch.apply(this.$store, [val].concat(args))
-    };
-  });
-  return res
-});
-
-/**
- * Rebinding namespace param for mapXXX function in special scoped, and return them by simple object
- * @param {String} namespace
- * @return {Object}
- */
-var createNamespacedHelpers = function (namespace) { return ({
-  mapState: mapState.bind(null, namespace),
-  mapGetters: mapGetters.bind(null, namespace),
-  mapMutations: mapMutations.bind(null, namespace),
-  mapActions: mapActions.bind(null, namespace)
-}); };
-
-/**
- * Normalize the map
- * normalizeMap([1, 2, 3]) => [ { key: 1, val: 1 }, { key: 2, val: 2 }, { key: 3, val: 3 } ]
- * normalizeMap({a: 1, b: 2, c: 3}) => [ { key: 'a', val: 1 }, { key: 'b', val: 2 }, { key: 'c', val: 3 } ]
- * @param {Array|Object} map
- * @return {Object}
- */
-function normalizeMap (map) {
-  if (!isValidMap(map)) {
-    return []
-  }
-  return Array.isArray(map)
-    ? map.map(function (key) { return ({ key: key, val: key }); })
-    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
-}
-
-/**
- * Validate whether given map is valid or not
- * @param {*} map
- * @return {Boolean}
- */
-function isValidMap (map) {
-  return Array.isArray(map) || isObject(map)
-}
-
-/**
- * Return a function expect two param contains namespace and map. it will normalize the namespace and then the param's function will handle the new namespace and the map.
- * @param {Function} fn
- * @return {Function}
- */
-function normalizeNamespace (fn) {
-  return function (namespace, map) {
-    if (typeof namespace !== 'string') {
-      map = namespace;
-      namespace = '';
-    } else if (namespace.charAt(namespace.length - 1) !== '/') {
-      namespace += '/';
-    }
-    return fn(namespace, map)
-  }
-}
-
-/**
- * Search a special module from store by namespace. if module not exist, print error message.
- * @param {Object} store
- * @param {String} helper
- * @param {String} namespace
- * @return {Object}
- */
-function getModuleByNamespace (store, helper, namespace) {
-  var module = store._modulesNamespaceMap[namespace];
-  if (( true) && !module) {
-    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
-  }
-  return module
-}
-
-var index = {
-  Store: Store,
-  install: install,
-  version: '3.4.0',
-  mapState: mapState,
-  mapMutations: mapMutations,
-  mapGetters: mapGetters,
-  mapActions: mapActions,
-  createNamespacedHelpers: createNamespacedHelpers
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (index);
-
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 3)))
-
-/***/ }),
-/* 13 */
-/*!***********************************************!*\
-  !*** D:/weapp/weapp/store/modules sync \.js$ ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./label.js": 14,
-	"./list.js": 20,
-	"./request.js": 21,
-	"./user.js": 22
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 13;
-
-/***/ }),
-/* 14 */
-/*!*********************************************!*\
-  !*** D:/weapp/weapp/store/modules/label.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);
-
-
-
-var _actionTypes = __webpack_require__(/*! ../action-types */ 16);
-
-
-
-var _api = __webpack_require__(/*! api */ 17);function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
-
-{
-  namespaced: true,
-  state: function state() {return {
-      labelList: [] };},
-
-  mutations: _defineProperty({},
-
-  _mutationTypes.SET_LABEL_LIST, function (state, labelList) {
-    state.labelList = labelList;
-  }),
-
-  actions: _defineProperty({},
-  _actionTypes.GET_LABEL_LIST, function (_ref) {var commit = _ref.commit;var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    return new Promise(function (resolve) {
-      (0, _api.findDocUserLabelList)({}, config).then(function (res) {
-        resolve(res);
-        commit(_mutationTypes.SET_LABEL_LIST, res.data);
-      });
-    });
-  }) };exports.default = _default;
-
-/***/ }),
-/* 15 */
-/*!**********************************************!*\
-  !*** D:/weapp/weapp/store/mutation-types.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.SET_LABEL_LIST = exports.UPDATE_LIST_STATUS = exports.UPDATE_SUBTRACT_REQUEST_COUNT = exports.UPDATE_ADD_REQUEST_COUNT = exports.UPDATE_INIT_STATUS = exports.UPDATE_USER_DOC_SETTING = exports.UPDATE_CERTIFICATION = exports.UPDATE_USER_INFO = void 0; /*
-                                                                                                                                                                                                                                                                                                                                              * @Author: your name
-                                                                                                                                                                                                                                                                                                                                              * @Date: 2021-04-21 14:28:28
-                                                                                                                                                                                                                                                                                                                                              * @LastEditTime: 2021-04-30 16:16:45
-                                                                                                                                                                                                                                                                                                                                              * @LastEditors: Please set LastEditors
-                                                                                                                                                                                                                                                                                                                                              * @Description: In User Settings Edit
-                                                                                                                                                                                                                                                                                                                                              * @FilePath: \cloud_app\src\store\mutation-types.js
-                                                                                                                                                                                                                                                                                                                                              */
-
-// 用户模块
-var UPDATE_USER_INFO = 'UPDATE_USER_INFO';exports.UPDATE_USER_INFO = UPDATE_USER_INFO;
-var UPDATE_CERTIFICATION = 'UPDATE_CERTIFICATION';exports.UPDATE_CERTIFICATION = UPDATE_CERTIFICATION;
-var UPDATE_USER_DOC_SETTING = 'UPDATE_USER_DOC_SETTING';exports.UPDATE_USER_DOC_SETTING = UPDATE_USER_DOC_SETTING;
-var UPDATE_INIT_STATUS = 'UPDATE_INIT_STATUS';
-
-// 请求模块
-exports.UPDATE_INIT_STATUS = UPDATE_INIT_STATUS;var UPDATE_ADD_REQUEST_COUNT = 'UPDATE_ADD_REQUEST_COUNT';exports.UPDATE_ADD_REQUEST_COUNT = UPDATE_ADD_REQUEST_COUNT;
-var UPDATE_SUBTRACT_REQUEST_COUNT = 'UPDATE_SUBTRACT_REQUEST_COUNT';
-
-// 列表模块
-exports.UPDATE_SUBTRACT_REQUEST_COUNT = UPDATE_SUBTRACT_REQUEST_COUNT;var UPDATE_LIST_STATUS = 'UPDATE_LIST_STATUS'; // 列表查看或编辑状态
-
-// 标签模块
-exports.UPDATE_LIST_STATUS = UPDATE_LIST_STATUS;var SET_LABEL_LIST = 'SET_LABEL_LIST';exports.SET_LABEL_LIST = SET_LABEL_LIST;
-
-/***/ }),
-/* 16 */
-/*!********************************************!*\
-  !*** D:/weapp/weapp/store/action-types.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.GET_LABEL_LIST = void 0; /*
-                                                                                                             * @Author: zeng_cheng
-                                                                                                             * @Date: 2021-04-29 14:08:42
-                                                                                                             * @LastEditTime: 2021-04-29 14:09:47
-                                                                                                             * @LastEditors: Please set LastEditors
-                                                                                                             * @Description: In User Settings Edit
-                                                                                                             * @FilePath: \cloud_app\src\store\action-types.js
-                                                                                                             */
-//标签模块
-var GET_LABEL_LIST = 'GET_LABEL_LIST';exports.GET_LABEL_LIST = GET_LABEL_LIST;
-
-/***/ }),
-/* 17 */
-/*!**********************************!*\
-  !*** D:/weapp/weapp/api/docs.js ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.addDocFolder = exports.copyDocFile = exports.moveDocFolder = exports.moveDocFile = exports.deleteDocFileRecent = exports.openDocFile = exports.getRecent = exports.renameFolderName = exports.renameFile = exports.deleteDocFolder = exports.deleteDocFile = exports.findDocFolder = exports.findDocFile = exports.findDocUserLabelList = exports.findDocSettingList = exports.getRootFolderId = exports.certification = exports.getUserInfo = exports.getToken = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-
-/**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @description: 获取令牌
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @param {*}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     * @return {*}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     */
-var getToken = function getToken() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/user/getTokenByWxToken",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 获取用户信息
-               * @param {*}
-               * @return {*}
-               */exports.getToken = getToken;
-var getUserInfo = function getUserInfo() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/user/getUserInfo",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 是否认证
-               * @param {*}
-               * @return {*}
-               */exports.getUserInfo = getUserInfo;
-var certification = function certification() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/certification/hasCertification",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 获取用户根目录ID
-               * @param {*}
-               * @return {*}
-               */exports.certification = certification;
-var getRootFolderId = function getRootFolderId() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFolder/getRootFolder",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 获取用户所有参数
-               * @param {*}
-               * @return {*}
-               */exports.getRootFolderId = getRootFolderId;
-var findDocSettingList = function findDocSettingList() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docSetting/findDocSettingList",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 获取标签列表
-               * @param {*}
-               * @return {*}
-               */exports.findDocSettingList = findDocSettingList;
-var findDocUserLabelList = function findDocUserLabelList() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docUserLabel/findDocUserLabelList",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 获取文件列表数据
-               * @param {*}
-               * @return {*}
-               */exports.findDocUserLabelList = findDocUserLabelList;
-var findDocFile = function findDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFile/findDocFile",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 获取目录列表数据
-               * @param {*}
-               * @return {*}
-               */exports.findDocFile = findDocFile;
-var findDocFolder = function findDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFolder/findDocFolder",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 删除文档
-               * @param {*}
-               * @return {*}
-               */exports.findDocFolder = findDocFolder;
-var deleteDocFile = function deleteDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFile/deleteDocFile",
-    method: 'DELETE',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 删除目录
-               * @param {*}
-               * @return {*}
-               */exports.deleteDocFile = deleteDocFile;
-var deleteDocFolder = function deleteDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFolder/deleteDocFolder",
-    method: 'DELETE',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 文档重命名
-               * @param {*}
-               * @return {*}
-               */exports.deleteDocFolder = deleteDocFolder;
-var renameFile = function renameFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFile/rename",
-    method: 'POST',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 目录重命名
-               * @param {*}
-               * @return {*}
-               */exports.renameFile = renameFile;
-var renameFolderName = function renameFolderName() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFolder/rename",
-    method: 'POST',
-    data: data,
-    header: header },
-  config));};
-
-
-
-/**
-               * @description: 最近打开列表
-               * @param {*}
-               * @return {*}
-               */exports.renameFolderName = renameFolderName;
-var getRecent = function getRecent() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFileRecentOpen/findPage",
-    method: 'GET',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 上传最近打开记录
-               * @param {*}
-               * @return {*}
-               */exports.getRecent = getRecent;
-var openDocFile = function openDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-    hideLoading: true };var
-  header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFileRecentOpen/openDocFile",
-    method: 'POST',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 删除打开记录
-               * @param {*}
-               * @return {*}
-               */exports.openDocFile = openDocFile;
-var deleteDocFileRecent = function deleteDocFileRecent() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFileRecentOpen/deleteDocFileRecent/" + data.docId,
-    method: 'DELETE',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 移动文档
-               * @param {*}
-               * @return {*}
-               */exports.deleteDocFileRecent = deleteDocFileRecent;
-var moveDocFile = function moveDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFile/moveDocFile",
-    method: 'POST',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 移动目录
-               * @param {*}
-               * @return {*}
-               */exports.moveDocFile = moveDocFile;
-var moveDocFolder = function moveDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFolder/moveDocFolder",
-    method: 'POST',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 复制文档
-               * @param {*}
-               * @return {*}
-               */exports.moveDocFolder = moveDocFolder;
-var copyDocFile = function copyDocFile() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFile/copyDocFile",
-    method: 'POST',
-    data: data,
-    header: header },
-  config));};
-
-
-/**
-               * @description: 新建文件夹
-               * @param {*}
-               * @return {*}
-               */exports.copyDocFile = copyDocFile;
-var addDocFolder = function addDocFolder() {var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var header = arguments.length > 2 ? arguments[2] : undefined;return (0, _request.default)(_objectSpread({
-    url: "/docFolder/addDocFolder",
-    method: 'POST',
-    data: data,
-    header: header },
-  config));};exports.addDocFolder = addDocFolder;
-
-/***/ }),
-/* 18 */
-/*!*************************************!*\
-  !*** D:/weapp/weapp/api/request.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../store/index.js */ 11));
-var _const = __webpack_require__(/*! ../const/const.js */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-var requestNumber = 0;
-var requestContinue = 100;
-
-var request = function request(config) {
-  // 处理 apiUrl
-  config.url = _const.REQUEST_URL + config.url;
-  if (!config.data) {
-    config.data = {};
-  }
-
-  if (!config.header) {var _uni$getStorageSync;
-    config.header = {
-      appKey: _const.APPKEY,
-      token: ((_uni$getStorageSync = uni.getStorageSync('token')) === null || _uni$getStorageSync === void 0 ? void 0 : _uni$getStorageSync.token) || '',
-      'content-type': 'application/x-www-form-urlencoded;charset=utf-8' };
-
-  } else {
-    Object.assign(config.header, {
-      'appKey': 'uw8PbyY2',
-      'token': uni.getStorageSync('token') || '' });
-
-  }
-
-  var promise = new Promise(function (resolve, reject) {
-    if (!config.hideLoading) {
-      requestNumber++;
-      uni.showLoading({
-        title: '加载中...' });
-
-    }
-    uni.request(config).then(function (responses) {
-      if (!config.hideLoading) {
-        requestNumber--;
-        if (requestNumber === 0) uni.hideLoading();
-      }
-      // 异常
-      if (responses[0]) {
-        reject({
-          message: "网络超时" });
-
-      } else {var
-        data = responses[1].data;
-        if (data.code === 0) return resolve(data);
-        switch (data.code) {
-          case 401:
-            if (config.url.indexOf("getTokenByWxToken") !== -1) break;
-            uni.removeStorageSync('token');
-            uni.showLoading({
-              title: '重新获取登陆信息...' });
-
-            setTimeout(function () {
-              uni.reLaunch({
-                url: '/pages/folder/folder' });
-
-            }, 1000);
-            break;
-          default:uni.showToast({
-              title: data.msg,
-              icon: 'none',
-              duration: 3000 });}
-
-
-        return reject(data);
-      }
-    }).catch(function (error) {
-      if (!config.hideLoading) {
-        requestNumber--;
-        if (requestNumber === 0) uni.hideLoading();
-      }
-      reject(error);
-    });
-  });
-  return promise;
-};var _default =
-
-request;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 19 */
-/*!*************************************!*\
-  !*** D:/weapp/weapp/const/const.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.TABBAR = exports.APPKEY = exports.REQUEST_URL = void 0;var REQUEST_URL = "https://docsapi.foxitcloud.cn";exports.REQUEST_URL = REQUEST_URL;
-var APPKEY = 'uw8PbyY2';exports.APPKEY = APPKEY;
-var TABBAR = [{
-  "pagePath": "/pages/index/index",
-  "iconPath": "/static/img/tabs/home.png",
-  "selectedIconPath": "/static/img/tabs/home_.png",
-  "text": "首页" },
-{
-  "pagePath": "/pages/folder/folder",
-  "iconPath": "/static/img/tabs/folder.png",
-  "selectedIconPath": "/static/img/tabs/folder_.png",
-  "text": "文档" },
-{
-  "pagePath": "/pages/appCenter/appCenter",
-  "iconPath": "/static/img/tabs/appCenter.png",
-  "selectedIconPath": "/static/img/tabs/appCenter_.png",
-  "text": "应用" },
-{
-  "pagePath": "/pages/userCenter/userCenter",
-  "iconPath": "/static/img/tabs/userCenter.png",
-  "selectedIconPath": "/static/img/tabs/userCenter_.png",
-  "text": "我的" }];exports.TABBAR = TABBAR;
-
-/***/ }),
-/* 20 */
+/***/ 20:
 /*!********************************************!*\
   !*** D:/weapp/weapp/store/modules/list.js ***!
   \********************************************/
@@ -9769,7 +9895,8 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);function _
   }) };exports.default = _default;
 
 /***/ }),
-/* 21 */
+
+/***/ 21:
 /*!***********************************************!*\
   !*** D:/weapp/weapp/store/modules/request.js ***!
   \***********************************************/
@@ -9808,7 +9935,8 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);var _mutat
   }), _mutations) };exports.default = _default;
 
 /***/ }),
-/* 22 */
+
+/***/ 22:
 /*!********************************************!*\
   !*** D:/weapp/weapp/store/modules/user.js ***!
   \********************************************/
@@ -9868,7 +9996,8 @@ var _mutationTypes = __webpack_require__(/*! ../mutation-types */ 15);var _mutat
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 23 */
+
+/***/ 23:
 /*!******************************************!*\
   !*** D:/weapp/weapp/utils/protoUtils.js ***!
   \******************************************/
@@ -9976,7 +10105,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   } };exports.default = _default;
 
 /***/ }),
-/* 24 */
+
+/***/ 24:
 /*!******************************************!*\
   !*** D:/weapp/weapp/plugins/useUView.js ***!
   \******************************************/
@@ -9989,7 +10119,8 @@ var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 25));f
 _vue.default.use(_uviewUi.default);
 
 /***/ }),
-/* 25 */
+
+/***/ 25:
 /*!*****************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/index.js ***!
   \*****************************************************/
@@ -10140,7 +10271,68 @@ var install = function install(Vue) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 26 */
+
+/***/ 259:
+/*!*****************************************************************!*\
+  !*** D:/weapp/weapp/node_modules/uview-ui/libs/util/emitter.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /**
+                                                                                                      * 递归使用 call 方式this指向
+                                                                                                      * @param componentName // 需要找的组件的名称
+                                                                                                      * @param eventName // 事件名称
+                                                                                                      * @param params // 需要传递的参数
+                                                                                                      */
+function _broadcast(componentName, eventName, params) {
+  // 循环子节点找到名称一样的子节点 否则 递归 当前子节点
+  this.$children.map(function (child) {
+    if (componentName === child.$options.name) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      _broadcast.apply(child, [componentName, eventName].concat(params));
+    }
+  });
+}var _default =
+{
+  methods: {
+    /**
+              * 派发 (向上查找) (一个)
+              * @param componentName // 需要找的组件的名称
+              * @param eventName // 事件名称
+              * @param params // 需要传递的参数
+              */
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root; //$parent 找到最近的父节点 $root 根节点
+      var name = parent.$options.name; // 获取当前组件实例的name
+      // 如果当前有节点 && 当前没名称 且 当前名称等于需要传进来的名称的时候就去查找当前的节点
+      // 循环出当前名称的一样的组件实例
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+        if (parent) {
+          name = parent.$options.name;
+        }
+      }
+      // 有节点表示当前找到了name一样的实例
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    /**
+        * 广播 (向下查找) (广播多个)
+        * @param componentName // 需要找的组件的名称
+        * @param eventName // 事件名称
+        * @param params // 需要传递的参数
+        */
+    broadcast: function broadcast(componentName, eventName, params) {
+      _broadcast.call(this, componentName, eventName, params);
+    } } };exports.default = _default;
+
+/***/ }),
+
+/***/ 26:
 /*!****************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/mixin/mixin.js ***!
   \****************************************************************/
@@ -10213,7 +10405,8 @@ var install = function install(Vue) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 27 */
+
+/***/ 27:
 /*!******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/request/index.js ***!
   \******************************************************************/
@@ -10393,7 +10586,8 @@ new Request();exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 28 */
+
+/***/ 28:
 /*!***********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/deepMerge.js ***!
   \***********************************************************************/
@@ -10433,7 +10627,8 @@ function deepMerge() {var target = arguments.length > 0 && arguments[0] !== unde
 deepMerge;exports.default = _default;
 
 /***/ }),
-/* 29 */
+
+/***/ 29:
 /*!***********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/deepClone.js ***!
   \***********************************************************************/
@@ -10466,7 +10661,39 @@ function deepClone(obj) {
 deepClone;exports.default = _default;
 
 /***/ }),
-/* 30 */
+
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 30:
 /*!******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/test.js ***!
   \******************************************************************/
@@ -10707,7 +10934,8 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
   code: code };exports.default = _default;
 
 /***/ }),
-/* 31 */
+
+/***/ 31:
 /*!*************************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/queryParams.js ***!
   \*************************************************************************/
@@ -10775,7 +11003,8 @@ function queryParams() {var data = arguments.length > 0 && arguments[0] !== unde
 queryParams;exports.default = _default;
 
 /***/ }),
-/* 32 */
+
+/***/ 32:
 /*!*******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/route.js ***!
   \*******************************************************************/
@@ -10908,7 +11137,8 @@ new Router().route;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 33 */
+
+/***/ 33:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
@@ -10918,7 +11148,8 @@ new Router().route;exports.default = _default;
 module.exports = __webpack_require__(/*! regenerator-runtime */ 34);
 
 /***/ }),
-/* 34 */
+
+/***/ 34:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -10965,7 +11196,8 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 35 */
+
+/***/ 35:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -11696,7 +11928,8 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 36 */
+
+/***/ 36:
 /*!************************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/timeFormat.js ***!
   \************************************************************************/
@@ -11757,7 +11990,8 @@ function timeFormat() {var dateTime = arguments.length > 0 && arguments[0] !== u
 timeFormat;exports.default = _default;
 
 /***/ }),
-/* 37 */
+
+/***/ 37:
 /*!**********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/timeFrom.js ***!
   \**********************************************************************/
@@ -11814,7 +12048,8 @@ function timeFrom() {var dateTime = arguments.length > 0 && arguments[0] !== und
 timeFrom;exports.default = _default;
 
 /***/ }),
-/* 38 */
+
+/***/ 38:
 /*!***************************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/colorGradient.js ***!
   \***************************************************************************/
@@ -11957,7 +12192,8 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
   colorToRgba: colorToRgba };exports.default = _default;
 
 /***/ }),
-/* 39 */
+
+/***/ 39:
 /*!******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/guid.js ***!
   \******************************************************************/
@@ -12008,7 +12244,19 @@ function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? 
 guid;exports.default = _default;
 
 /***/ }),
-/* 40 */
+
+/***/ 4:
+/*!*********************************!*\
+  !*** D:/weapp/weapp/pages.json ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 40:
 /*!*******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/color.js ***!
   \*******************************************************************/
@@ -12055,7 +12303,8 @@ var color = {
 color;exports.default = _default;
 
 /***/ }),
-/* 41 */
+
+/***/ 41:
 /*!***********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/type2icon.js ***!
   \***********************************************************************/
@@ -12100,7 +12349,8 @@ function type2icon() {var type = arguments.length > 0 && arguments[0] !== undefi
 type2icon;exports.default = _default;
 
 /***/ }),
-/* 42 */
+
+/***/ 42:
 /*!*************************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/randomArray.js ***!
   \*************************************************************************/
@@ -12117,7 +12367,8 @@ function randomArray() {var array = arguments.length > 0 && arguments[0] !== und
 randomArray;exports.default = _default;
 
 /***/ }),
-/* 43 */
+
+/***/ 43:
 /*!*********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/addUnit.js ***!
   \*********************************************************************/
@@ -12135,7 +12386,8 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 }
 
 /***/ }),
-/* 44 */
+
+/***/ 44:
 /*!********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/random.js ***!
   \********************************************************************/
@@ -12155,7 +12407,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 random;exports.default = _default;
 
 /***/ }),
-/* 45 */
+
+/***/ 45:
 /*!******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/trim.js ***!
   \******************************************************************/
@@ -12180,7 +12433,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 trim;exports.default = _default;
 
 /***/ }),
-/* 46 */
+
+/***/ 46:
 /*!*******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/toast.js ***!
   \*******************************************************************/
@@ -12200,7 +12454,8 @@ toast;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 47 */
+
+/***/ 47:
 /*!***********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/getParent.js ***!
   \***********************************************************************/
@@ -12257,7 +12512,8 @@ function getParent(name, keys) {
 }
 
 /***/ }),
-/* 48 */
+
+/***/ 48:
 /*!*********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/$parent.js ***!
   \*********************************************************************/
@@ -12285,7 +12541,8 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 }
 
 /***/ }),
-/* 49 */
+
+/***/ 49:
 /*!*****************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/sys.js ***!
   \*****************************************************************/
@@ -12303,7 +12560,8 @@ function sys() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 50 */
+
+/***/ 50:
 /*!**********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/debounce.js ***!
   \**********************************************************************/
@@ -12342,7 +12600,8 @@ function debounce(func) {var wait = arguments.length > 1 && arguments[1] !== und
 debounce;exports.default = _default;
 
 /***/ }),
-/* 51 */
+
+/***/ 51:
 /*!**********************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/function/throttle.js ***!
   \**********************************************************************/
@@ -12384,7 +12643,8 @@ function throttle(func) {var wait = arguments.length > 1 && arguments[1] !== und
 throttle;exports.default = _default;
 
 /***/ }),
-/* 52 */
+
+/***/ 52:
 /*!******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/config/config.js ***!
   \******************************************************************/
@@ -12407,7 +12667,8 @@ var version = '1.8.3';var _default =
   'warning'] };exports.default = _default;
 
 /***/ }),
-/* 53 */
+
+/***/ 53:
 /*!******************************************************************!*\
   !*** D:/weapp/weapp/node_modules/uview-ui/libs/config/zIndex.js ***!
   \******************************************************************/
@@ -12436,13 +12697,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   indexListSticky: 965 };exports.default = _default;
 
 /***/ }),
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */
+
+/***/ 60:
 /*!*******************************************!*\
   !*** D:/weapp/weapp/mixin/tabbarMixin.js ***!
   \*******************************************/
@@ -12479,7 +12735,438 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 61 */
+
+/***/ 61:
+/*!************************************!*\
+  !*** D:/weapp/weapp/mixin/init.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = __webpack_require__(/*! api */ 17);
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ 12);
+
+
+
+
+var _login = __webpack_require__(/*! ../utils/login.js */ 62);
+
+
+var _const = __webpack_require__(/*! ../const/const.js */ 19);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+
+
+{
+  computed: _objectSpread({},
+  (0, _vuex.mapState)('user', [
+  "initStatus"])),
+
+
+  methods: _objectSpread(_objectSpread(_objectSpread({},
+  (0, _vuex.mapMutations)('user', [
+  "UPDATE_CERTIFICATION",
+  "UPDATE_USER_INFO",
+  "UPDATE_USER_ROOT_FOLDER",
+  "UPDATE_USER_DOC_SETTING",
+  "UPDATE_INIT_STATUS"])),
+
+  (0, _vuex.mapActions)('label', ["GET_LABEL_LIST"])), {}, {
+    /**
+                                                              * [findDocSettingList 获取用户限制参数设置]
+                                                              *
+                                                              * @return  {[type]}  [return description]
+                                                              */
+    findDocSettingList: function findDocSettingList() {var _this = this;
+      return new Promise(function (resolve, reject) {
+        (0, _api.findDocSettingList)().then(
+        function (res) {
+          _this.UPDATE_USER_DOC_SETTING(res.data);
+          resolve(res);
+        },
+        function (err) {
+          reject(err);
+        });
+
+      });
+    },
+    /**
+        * [获取用户根文档ID]
+        *
+        * @return  {[type]}       [return description]
+        */
+    getRootFolderId: function getRootFolderId() {
+      if (uni.getStorageSync('rootFolder')) return Promise.resolve(_objectSpread(_objectSpread({},
+      uni.getStorageSync('rootFolder')), {}, {
+        code: 0 }));
+
+      return new Promise(function (resolve, reject) {
+        (0, _api.getRootFolderId)().then(
+        function (res) {
+          uni.setStorageSync('rootFolder', res.data);
+          resolve(res);
+        });
+
+      });
+    },
+    /**
+        * [certification 认证]
+        *
+        * @return  {[type]}       [return description]
+        */
+    certification: function certification() {var _this2 = this;
+      return new Promise(function (resolve, reject) {
+        (0, _api.certification)().then(
+        function (res) {
+          if (res.code === 0) {
+            _this2.UPDATE_CERTIFICATION(res.data);
+          }
+          resolve(res);
+        },
+        function (err) {
+          reject(err);
+        });
+
+      });
+    },
+    /**
+        * [获取用户信息]
+        *
+        * @return  {[type]}       [return description]
+        */
+    getUserInfo: function getUserInfo() {var _this3 = this;
+      return new Promise(function (resolve, reject) {
+        (0, _api.getUserInfo)().then(
+        function (res) {
+          _this3.UPDATE_USER_INFO(res.data);
+          resolve(res);
+        },
+        function (err) {
+          reject(err);
+        });
+
+      });
+    },
+    /**
+        * [initUserInfo 初始化用户信息]
+        *
+        * @return  {[type]}  [return description]
+        */
+    initUserInfo: function initUserInfo() {var _this4 = this;
+      return new Promise(function (resolve, reject) {
+        Promise.all([
+        _this4.certification(),
+        _this4.getUserInfo(),
+        _this4.getRootFolderId(),
+        _this4.findDocSettingList(),
+        _this4.GET_LABEL_LIST()]).
+        then(function (res) {
+          var isSuccess = res.every(function (item) {return item.code === 0;});
+          if (isSuccess) resolve(res);
+          if (!isSuccess) {
+            localStorage.clear();
+            window.location.href = "".concat(_const.REQUEST_URL, "/logout?url=").concat(window.location.href);
+          } // 登出 
+        });
+      });
+    },
+    /**
+        * [init 初始化]
+        *
+        * @return  {[type]}  [return description]
+        */
+    init: function init() {var _this5 = this;
+      if (uni.getStorageSync('token') && Number(uni.getStorageSync('token').expireTime) > Number(new Date().
+      getTime())) {
+        if (!this.initStatus) {
+          return new Promise(function (resolve, reject) {
+            _this5.initUserInfo().then(function () {
+              _this5.UPDATE_INIT_STATUS(true);
+              resolve();
+            });
+          });
+        }
+        return new Promise(function (resolve) {
+          resolve();
+        });
+      } else {
+        return new Promise(function (resolve, reject) {
+          (0, _api.getToken)({
+            wxToken: uni.getStorageSync('wxToken') || false }).
+
+          then(function (res) {
+            uni.setStorageSync('token', {
+              token: res.data.token,
+              expireTime: new Date().getTime() + res.data.expireTime * 1000 - 300 * 1000 // 提早5分钟过期
+            });
+            _this5.initUserInfo().then(function () {
+              _this5.UPDATE_INIT_STATUS(true);
+              resolve();
+            });
+          }).
+          catch(function (err) {
+            (0, _login.reGetToken)().then(function () {
+              resolve();
+            });
+          });
+        });
+      }
+    } }) };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 62:
+/*!*************************************!*\
+  !*** D:/weapp/weapp/utils/login.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.wxLogin = wxLogin;exports.reGetToken = reGetToken;exports.checkDocToken = checkDocToken;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 33));var _api = __webpack_require__(/*! api */ 17);
+
+
+var _index = _interopRequireDefault(__webpack_require__(/*! ../store/index.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+function wxLogin() {
+  return new Promise(function (resolve, reject) {
+    doWxlogin().
+    then(function (res) {
+      resolve(res);
+    }).
+    catch(function (msg) {
+      uni.showToast({
+        title: msg,
+        icon: 'none' });
+
+      _index.default.commit('user/UPDATE_INIT_STATUS', false);
+      setTimeout(function () {
+        uni.reLaunch({
+          url: '/pages/login/login' });
+
+      }, 1400);
+    });
+  });
+}
+
+/**
+   * 获取微信登陆
+   */
+function doWxlogin() {
+  return new Promise(function (resolve, reject) {
+    getCode().then(function (res) {
+      return getWxToken(res.code).then(function (res) {
+        resolve(res);
+      });
+    }).catch(function (msg) {
+      reject(msg);
+    });
+  });
+}
+
+/**
+   * 获取微信code 过期5分钟
+   */
+function getCode() {
+  return new Promise(function (resolve, reject) {
+    uni.login({
+      success: function success(res) {
+        resolve(res);
+      },
+      fail: function fail() {
+        reject("网络错误, 请重试");
+      } });
+
+  });
+}
+
+/**
+   * 获取微信token
+   * 
+   */
+function getWxToken(code) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: 'https://wechatmp.foxitreader.cn/api/miniProgramLogin',
+      data: {
+        code: code,
+        appid: "wxeeeee850023ae299" },
+
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' },
+
+      success: function success(data) {
+        if (data.data.ret == 0) {
+          uni.setStorageSync('wxToken', data.data.data.token);
+          checkLogin().then(function (checkLoginRes) {
+            return getCloudDocToken(data.data.data.token).then(function (res) {
+              resolve(res);
+            });
+          }).catch(function (msg) {
+            reject(msg);
+          });
+        } else {
+          reject('用户code认证授权失败！');
+          uni.hideLoading();
+        }
+      },
+      fail: function fail(res) {
+        reject("网络错误, 请重试");
+      } });
+
+  });
+}
+
+/**
+   * 用户信息验证
+   * 
+   */
+function checkLogin() {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: 'https://wechatmp.foxitreader.cn/api/miniProgramCheckLogin',
+      data: _objectSpread(_objectSpread({},
+      uni.getStorageSync('globalData')), {}, {
+        token: uni.getStorageSync('wxToken') }),
+
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' },
+
+      success: function success(res) {
+        if (res.data.ret === 0) {
+          var globalData = uni.getStorageSync('globalData');
+          //用户userId
+          globalData.userInfo.userId = res.data.data.userId;
+          //用户绑定手机
+          globalData.userInfo.tel = res.data.data.tel;
+          //用户绑定邮箱
+          globalData.userInfo.email = res.data.data.email;
+          //用户登录来源
+          globalData.userInfo.type = res.data.data.type;
+          //缓存用户信息
+          wx.setStorageSync({
+            key: "globalData",
+            data: globalData });
+
+          wx.setStorageSync("isLogin", true);
+          resolve(res);
+        } else {
+          reject('登陆认证失败,签名有误!');
+        }
+      },
+      fail: function fail(res) {
+        reject('登陆认证失败!');
+      } });
+
+  });
+}
+
+/**
+   * 获取云文档token
+   * 
+   */
+function getCloudDocToken() {
+  return new Promise(function (resolve, reject) {
+    (0, _api.getToken)({
+      wxToken: uni.getStorageSync('wxToken') }).
+
+    then(function (res) {
+      uni.setStorageSync('token', {
+        token: res.data.token,
+        expireTime: new Date().getTime() + res.data.expireTime * 1000 - 300 * 1000 });
+
+      resolve(res);
+    }).
+    catch(function (res) {
+      reject('docToken获取错误');
+    });
+  });
+}
+
+/**
+   * 重新获取token
+   * 
+   */
+function reGetToken() {
+  return new Promise(function (resolve, reject) {
+    uni.getUserInfo({
+      success: function success(res) {
+        var globalData = {
+          userInfo: res.userInfo,
+          encryptedData: res.encryptedData,
+          iv: res.iv,
+          rawData: res.rawData,
+          signature: res.signature };
+
+        uni.showLoading({
+          mask: true });
+
+        uni.setStorageSync('globalData', globalData);
+        wxLogin().
+        then(function (res) {
+          uni.hideLoading();
+          resolve(res);
+        }).
+        catch(function (msg) {
+          uni.hideLoading();
+          reject(msg);
+        });
+      },
+      fail: function fail(res) {
+        reject("网络错误, 请重试");
+      } });
+
+  });
+}
+
+// 验证token是否过期 过期重新获取
+function checkDocToken() {
+  return new Promise( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve, reject) {var tokenRes, reGetTokenRes;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
+              !uni.getStorageSync('token') || Number(uni.getStorageSync('token').expireTime) < Number(
+              new Date().getTime()))) {_context.next = 27;break;}_context.prev = 1;
+
+
+              // 首次尝试重新获取docToken
+              console.log('获取云文档token');_context.next = 5;return (
+                (0, _api.getToken)({
+                  wxToken: uni.getStorageSync('wxToken') || false }));case 5:tokenRes = _context.sent;
+
+              uni.setStorageSync('token', {
+                token: tokenRes.data.token,
+                expireTime: new Date().getTime() + tokenRes.data.expireTime * 1000 - 300 * 1000 });
+
+              resolve();_context.next = 25;break;case 10:_context.prev = 10;_context.t0 = _context["catch"](1);_context.prev = 12;
+
+
+
+              console.log('获取微信token', _context.t0);_context.next = 16;return (
+                reGetToken());case 16:reGetTokenRes = _context.sent;
+              resolve();_context.next = 25;break;case 20:_context.prev = 20;_context.t1 = _context["catch"](12);
+
+              console.log('获取微信token错误', _context.t1);
+              uni.showToast({
+                icon: 'none',
+                title: _context.t1 });
+
+              reject();case 25:_context.next = 28;break;case 27:
+
+
+
+              resolve();case 28:case "end":return _context.stop();}}}, _callee, null, [[1, 10], [12, 20]]);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
+
+
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 73:
 /*!*****************************************!*\
   !*** D:/weapp/weapp/mixin/listMixin.js ***!
   \*****************************************/
@@ -13018,12 +13705,14 @@ var _api = __webpack_require__(/*! api */ 17);function _interopRequireDefault(ob
                 //新开页面打开文档，支持格式：doc, xls, ppt, pdf, docx, xlsx, pptx
                 if (isOpenDocument) {
                   if (type === "jpeg" || type === "png" || type === "jpg") {
-                    console.log('图片');
                     uni.previewImage({
                       urls: [url] });
 
+                  } else if (type === "pdf") {
+                    uni.navigateTo({
+                      url: "/pages/editPdf/editPdf?docId=".concat(docId) });
+
                   } else {
-                    console.log('下载');
                     uni.downloadFile({
                       url: url,
                       success: function success(res) {
@@ -13066,7 +13755,8 @@ var _api = __webpack_require__(/*! api */ 17);function _interopRequireDefault(ob
           parentId: _this9.getFolderId() };
 
         uni.showLoading({
-          title: '正在创建...' });
+          title: '正在创建...',
+          mask: true });
 
         (0, _api.addDocFolder)(params).then(function (res) {
           uni.hideLoading();
@@ -13233,433 +13923,8 @@ var _api = __webpack_require__(/*! api */ 17);function _interopRequireDefault(ob
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 62 */
-/*!*************************************!*\
-  !*** D:/weapp/weapp/utils/login.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.wxLogin = wxLogin;exports.reGetToken = reGetToken;exports.checkDocToken = checkDocToken;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 33));var _api = __webpack_require__(/*! api */ 17);
-
-
-var _index = _interopRequireDefault(__webpack_require__(/*! ../store/index.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-
-function wxLogin() {
-  return new Promise(function (resolve, reject) {
-    doWxlogin().
-    then(function (res) {
-      resolve(res);
-    }).
-    catch(function (msg) {
-      uni.showToast({
-        title: msg,
-        icon: 'none' });
-
-      _index.default.commit('user/UPDATE_INIT_STATUS', false);
-      setTimeout(function () {
-        uni.reLaunch({
-          url: '/pages/login/login' });
-
-      }, 1400);
-    });
-  });
-}
-
-/**
-   * 获取微信登陆
-   */
-function doWxlogin() {
-  return new Promise(function (resolve, reject) {
-    getCode().then(function (res) {
-      return getWxToken(res.code).then(function (res) {
-        resolve(res);
-      });
-    }).catch(function (msg) {
-      reject(msg);
-    });
-  });
-}
-
-/**
-   * 获取微信code 过期5分钟
-   */
-function getCode() {
-  return new Promise(function (resolve, reject) {
-    uni.login({
-      success: function success(res) {
-        resolve(res);
-      },
-      fail: function fail() {
-        reject("网络错误, 请重试");
-      } });
-
-  });
-}
-
-/**
-   * 获取微信token
-   * 
-   */
-function getWxToken(code) {
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: 'https://wechatmp.foxitreader.cn/api/miniProgramLogin',
-      data: {
-        code: code,
-        appid: "wxeeeee850023ae299" },
-
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' },
-
-      success: function success(data) {
-        if (data.data.ret == 0) {
-          uni.setStorageSync('wxToken', data.data.data.token);
-          checkLogin().then(function (checkLoginRes) {
-            return getCloudDocToken(data.data.data.token).then(function (res) {
-              resolve(res);
-            });
-          }).catch(function (msg) {
-            reject(msg);
-          });
-        } else {
-          reject('用户code认证授权失败！');
-          uni.hideLoading();
-        }
-      },
-      fail: function fail(res) {
-        reject("网络错误, 请重试");
-      } });
-
-  });
-}
-
-/**
-   * 用户信息验证
-   * 
-   */
-function checkLogin() {
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: 'https://wechatmp.foxitreader.cn/api/miniProgramCheckLogin',
-      data: _objectSpread(_objectSpread({},
-      uni.getStorageSync('globalData')), {}, {
-        token: uni.getStorageSync('wxToken') }),
-
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' },
-
-      success: function success(res) {
-        if (res.data.ret === 0) {
-          var globalData = uni.getStorageSync('globalData');
-          //用户userId
-          globalData.userInfo.userId = res.data.data.userId;
-          //用户绑定手机
-          globalData.userInfo.tel = res.data.data.tel;
-          //用户绑定邮箱
-          globalData.userInfo.email = res.data.data.email;
-          //用户登录来源
-          globalData.userInfo.type = res.data.data.type;
-          //缓存用户信息
-          wx.setStorageSync({
-            key: "globalData",
-            data: globalData });
-
-          wx.setStorageSync("isLogin", true);
-          resolve(res);
-        } else {
-          reject('登陆认证失败,签名有误!');
-        }
-      },
-      fail: function fail(res) {
-        reject('登陆认证失败!');
-      } });
-
-  });
-}
-
-/**
-   * 获取云文档token
-   * 
-   */
-function getCloudDocToken() {
-  return new Promise(function (resolve, reject) {
-    (0, _api.getToken)({
-      wxToken: uni.getStorageSync('wxToken') }).
-
-    then(function (res) {
-      uni.setStorageSync('token', {
-        token: res.data.token,
-        expireTime: new Date().getTime() + res.data.expireTime * 1000 - 300 * 1000 });
-
-      resolve(res);
-    }).
-    catch(function (res) {
-      reject('docToken获取错误');
-    });
-  });
-}
-
-/**
-   * 重新获取token
-   * 
-   */
-function reGetToken() {
-  return new Promise(function (resolve, reject) {
-    uni.getUserInfo({
-      success: function success(res) {
-        var globalData = {
-          userInfo: res.userInfo,
-          encryptedData: res.encryptedData,
-          iv: res.iv,
-          rawData: res.rawData,
-          signature: res.signature };
-
-        uni.showLoading();
-        uni.setStorageSync('globalData', globalData);
-        wxLogin().
-        then(function (res) {
-          uni.hideLoading();
-          resolve(res);
-        }).
-        catch(function (msg) {
-          uni.hideLoading();
-          reject(msg);
-        });
-      },
-      fail: function fail(res) {
-        reject("网络错误, 请重试");
-      } });
-
-  });
-}
-
-// 验证token是否过期 过期重新获取
-function checkDocToken() {
-  return new Promise( /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(resolve, reject) {var tokenRes, reGetTokenRes;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
-              !uni.getStorageSync('token') || Number(uni.getStorageSync('token').expireTime) < Number(
-              new Date().getTime()))) {_context.next = 27;break;}_context.prev = 1;
-
-
-              // 首次尝试重新获取docToken
-              console.log('获取云文档token');_context.next = 5;return (
-                (0, _api.getToken)({
-                  wxToken: uni.getStorageSync('wxToken') || false }));case 5:tokenRes = _context.sent;
-
-              uni.setStorageSync('token', {
-                token: tokenRes.data.token,
-                expireTime: new Date().getTime() + tokenRes.data.expireTime * 1000 - 300 * 1000 });
-
-              resolve();_context.next = 25;break;case 10:_context.prev = 10;_context.t0 = _context["catch"](1);_context.prev = 12;
-
-
-
-              console.log('获取微信token', _context.t0);_context.next = 16;return (
-                reGetToken());case 16:reGetTokenRes = _context.sent;
-              resolve();_context.next = 25;break;case 20:_context.prev = 20;_context.t1 = _context["catch"](12);
-
-              console.log('获取微信token错误', _context.t1);
-              uni.showToast({
-                icon: 'none',
-                title: _context.t1 });
-
-              reject();case 25:_context.next = 28;break;case 27:
-
-
-
-              resolve();case 28:case "end":return _context.stop();}}}, _callee, null, [[1, 10], [12, 20]]);}));return function (_x, _x2) {return _ref.apply(this, arguments);};}());
-
-
-}
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 63 */
-/*!************************************!*\
-  !*** D:/weapp/weapp/mixin/init.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = __webpack_require__(/*! api */ 17);
-
-
-
-
-
-
-var _vuex = __webpack_require__(/*! vuex */ 12);
-
-
-
-
-var _login = __webpack_require__(/*! ../utils/login.js */ 62);
-
-
-var _const = __webpack_require__(/*! ../const/const.js */ 19);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
-
-
-{
-  computed: _objectSpread({},
-  (0, _vuex.mapState)('user', [
-  "initStatus"])),
-
-
-  methods: _objectSpread(_objectSpread(_objectSpread({},
-  (0, _vuex.mapMutations)('user', [
-  "UPDATE_CERTIFICATION",
-  "UPDATE_USER_INFO",
-  "UPDATE_USER_ROOT_FOLDER",
-  "UPDATE_USER_DOC_SETTING",
-  "UPDATE_INIT_STATUS"])),
-
-  (0, _vuex.mapActions)('label', ["GET_LABEL_LIST"])), {}, {
-    /**
-                                                              * [findDocSettingList 获取用户限制参数设置]
-                                                              *
-                                                              * @return  {[type]}  [return description]
-                                                              */
-    findDocSettingList: function findDocSettingList() {var _this = this;
-      return new Promise(function (resolve, reject) {
-        (0, _api.findDocSettingList)().then(
-        function (res) {
-          _this.UPDATE_USER_DOC_SETTING(res.data);
-          resolve(res);
-        },
-        function (err) {
-          reject(err);
-        });
-
-      });
-    },
-    /**
-        * [获取用户根文档ID]
-        *
-        * @return  {[type]}       [return description]
-        */
-    getRootFolderId: function getRootFolderId() {
-      if (uni.getStorageSync('rootFolder')) return Promise.resolve(_objectSpread(_objectSpread({},
-      uni.getStorageSync('rootFolder')), {}, {
-        code: 0 }));
-
-      return new Promise(function (resolve, reject) {
-        (0, _api.getRootFolderId)().then(
-        function (res) {
-          uni.setStorageSync('rootFolder', res.data);
-          resolve(res);
-        });
-
-      });
-    },
-    /**
-        * [certification 认证]
-        *
-        * @return  {[type]}       [return description]
-        */
-    certification: function certification() {var _this2 = this;
-      return new Promise(function (resolve, reject) {
-        (0, _api.certification)().then(
-        function (res) {
-          if (res.code === 0) {
-            _this2.UPDATE_CERTIFICATION(res.data);
-          }
-          resolve(res);
-        },
-        function (err) {
-          reject(err);
-        });
-
-      });
-    },
-    /**
-        * [获取用户信息]
-        *
-        * @return  {[type]}       [return description]
-        */
-    getUserInfo: function getUserInfo() {var _this3 = this;
-      return new Promise(function (resolve, reject) {
-        (0, _api.getUserInfo)().then(
-        function (res) {
-          _this3.UPDATE_USER_INFO(res.data);
-          resolve(res);
-        },
-        function (err) {
-          reject(err);
-        });
-
-      });
-    },
-    /**
-        * [initUserInfo 初始化用户信息]
-        *
-        * @return  {[type]}  [return description]
-        */
-    initUserInfo: function initUserInfo() {var _this4 = this;
-      return new Promise(function (resolve, reject) {
-        Promise.all([
-        _this4.certification(),
-        _this4.getUserInfo(),
-        _this4.getRootFolderId(),
-        _this4.findDocSettingList(),
-        _this4.GET_LABEL_LIST()]).
-        then(function (res) {
-          var isSuccess = res.every(function (item) {return item.code === 0;});
-          if (isSuccess) resolve(res);
-          if (!isSuccess) {
-            localStorage.clear();
-            window.location.href = "".concat(_const.REQUEST_URL, "/logout?url=").concat(window.location.href);
-          } // 登出 
-        });
-      });
-    },
-    /**
-        * [init 初始化]
-        *
-        * @return  {[type]}  [return description]
-        */
-    init: function init() {var _this5 = this;
-      if (uni.getStorageSync('token') && Number(uni.getStorageSync('token').expireTime) > Number(new Date().
-      getTime())) {
-        if (!this.initStatus) {
-          return new Promise(function (resolve, reject) {
-            _this5.initUserInfo().then(function () {
-              _this5.UPDATE_INIT_STATUS(true);
-              resolve();
-            });
-          });
-        }
-        return new Promise(function (resolve) {
-          resolve();
-        });
-      } else {
-        return new Promise(function (resolve, reject) {
-          (0, _api.getToken)({
-            wxToken: uni.getStorageSync('wxToken') || false }).
-
-          then(function (res) {
-            uni.setStorageSync('token', {
-              token: res.data.token,
-              expireTime: new Date().getTime() + res.data.expireTime * 1000 - 300 * 1000 // 提早5分钟过期
-            });
-            _this5.initUserInfo().then(function () {
-              _this5.UPDATE_INIT_STATUS(true);
-              resolve();
-            });
-          }).
-          catch(function (err) {
-            (0, _login.reGetToken)().then(function () {
-              resolve();
-            });
-          });
-        });
-      }
-    } }) };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 64 */
+/***/ 74:
 /*!***********************************!*\
   !*** D:/weapp/weapp/utils/bus.js ***!
   \***********************************/
@@ -13671,5 +13936,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 new _vue.default();exports.default = _default;
 
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

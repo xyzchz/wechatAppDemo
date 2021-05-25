@@ -22,3 +22,5 @@ export const UPDATE_LIST_STATUS = 'UPDATE_LIST_STATUS'; // 列表查看或编辑
 
 // 标签模块
 export const SET_LABEL_LIST = 'SET_LABEL_LIST';
+export const DELETE_LABEL = 'DELETE_LABEL';
+export const UPDATE_LABEL_LIST = 'UPDATE_LABEL_LIST';

@@ -28,7 +28,8 @@ const request = (config) => {
 		if (!config.hideLoading) {
 			requestNumber++;
 			uni.showLoading({
-				title: '加载中...'
+				title: '加载中...',
+				mask: true,
 			})
 		}
 		uni.request(config).then(responses => {
@@ -49,7 +50,8 @@ const request = (config) => {
 					if (config.url.indexOf("getTokenByWxToken") !== -1) break;
 					uni.removeStorageSync('token')
 					uni.showLoading({
-						title: '重新获取登陆信息...'
+						title: '重新获取登陆信息...',
+						mask: true,
 					})
 					setTimeout(() => {
 						uni.reLaunch({

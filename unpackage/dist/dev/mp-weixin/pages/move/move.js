@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uButton: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-button/u-button */ "node-modules/uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! uview-ui/components/u-button/u-button.vue */ 191))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-button/u-button */ "node-modules/uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! uview-ui/components/u-button/u-button.vue */ 233))
     },
     uToast: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-toast/u-toast */ "node-modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! uview-ui/components/u-toast/u-toast.vue */ 128))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-toast/u-toast */ "node-modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! uview-ui/components/u-toast/u-toast.vue */ 163))
     }
   }
 } catch (e) {
@@ -173,14 +173,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _listMixin = _interopRequireDefault(__webpack_require__(/*! mixin/listMixin */ 61));
-var _init = _interopRequireDefault(__webpack_require__(/*! mixin/init */ 63));
+var _listMixin = _interopRequireDefault(__webpack_require__(/*! mixin/listMixin */ 73));
+var _init = _interopRequireDefault(__webpack_require__(/*! mixin/init */ 61));
 var _api = __webpack_require__(/*! api */ 17);
 
 
 
 
-var _bus = _interopRequireDefault(__webpack_require__(/*! utils/bus */ 64));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var FolderList = function FolderList() {__webpack_require__.e(/*! require.ensure | components/folderList */ "components/folderList").then((function () {return resolve(__webpack_require__(/*! com/folderList */ 170));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _bus = _interopRequireDefault(__webpack_require__(/*! utils/bus */ 74));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var FolderList = function FolderList() {__webpack_require__.e(/*! require.ensure | components/folderList */ "components/folderList").then((function () {return resolve(__webpack_require__(/*! com/folderList */ 226));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   components: {
@@ -209,7 +209,8 @@ var _bus = _interopRequireDefault(__webpack_require__(/*! utils/bus */ 64));func
         return;
       }
       uni.showLoading({
-        title: "复制中..." });
+        title: "复制中...",
+        mask: true });
 
       this.copyLoading = true;
       var moveInfo = uni.getStorageSync("moveInfo");var
@@ -260,7 +261,8 @@ var _bus = _interopRequireDefault(__webpack_require__(/*! utils/bus */ 64));func
         return;
       }
       uni.showLoading({
-        title: "移动中..." });
+        title: "移动中...",
+        mask: true });
 
       this.moveLoading = true;
       var moveInfo = uni.getStorageSync("moveInfo");var

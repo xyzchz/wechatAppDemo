@@ -2,7 +2,11 @@
   "navigationBarTitleText": "福昕云文档",
   "usingComponents": {
     "u-tabs-swiper": "/node-modules/uview-ui/components/u-tabs-swiper/u-tabs-swiper",
+    "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal",
+    "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast",
     "u-tabbar": "/node-modules/uview-ui/components/u-tabbar/u-tabbar",
-    "header": "/components/header"
+    "header": "/components/header",
+    "label-list": "/components/labelList",
+    "label-opt-menu": "/components/labelOptMenu"
   }
 }

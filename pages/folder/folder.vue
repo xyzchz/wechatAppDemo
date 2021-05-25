@@ -91,6 +91,9 @@ export default {
 				this.getList({
 					listType: 'folder'
 				});
+				this.$nextTick(() => {
+					this.$refs.list._freshing = false; // 重置folderList下拉刷新
+				})
 			});
 		}
 		//解除绑定

@@ -20,4 +20,12 @@ export const TABBAR = [{
 	"iconPath": "/static/img/tabs/userCenter.png",
 	"selectedIconPath": "/static/img/tabs/userCenter_.png",
 	"text": "我的"
-}]
+}];
+export const LABEL_COLOR = [
+	"#ff6260",
+	"#f1d548",
+	"#83d956",
+	"#66a1ff",
+	"#cd66cd",
+	"#bbbbbb",
+]

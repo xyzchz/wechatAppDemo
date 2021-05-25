@@ -3,7 +3,7 @@
 		<h3>我的应用</h3>
 		<ul class="list">
 			<li>
-				<div @click="navigateToMiniProgram('')">
+				<div @click="toWebviewApp(`https://edit.foxitcloud.cn`)">
 					<img src="/static/img/appCenter/ybj_s.png" />
 					<span>云编辑</span>
 				</div>
@@ -15,7 +15,7 @@
 				</div>
 			</li>
 			<li>
-				<div @click="navigateToMiniProgram('')">
+				<div @click="toWebviewApp('https://sj.pdf365.cn')">
 					<img src="/static/img/appCenter/ysj_s.png" />
 					<span>云收集</span>
 				</div>
@@ -33,7 +33,7 @@
 				</div>
 			</li>
 		</ul>
-		<u-tabbar  :before-switch="beforeSwitch" :list="tabbar" height="88" active-color="#3370ff" icon-size="30" inactive-color="#999999"></u-tabbar>
+		<u-tabbar :before-switch="beforeSwitch" :list="tabbar" height="88" active-color="#3370ff" icon-size="30" inactive-color="#999999"></u-tabbar>
 	</div>
 </template>
 
@@ -51,7 +51,17 @@
 		methods: {
 			navigateToMiniProgram(appId) {
 				uni.navigateToMiniProgram({appId})
-			}
+			},
+			toWebviewApp(url) {
+				if (url.indexOf('edit') !== -1) {
+					url = encodeURIComponent(`${url}?token=${uni.getStorageSync('wxToken')}`)
+				} else {
+					url = encodeURIComponent(url)
+				}
+				uni.navigateTo({
+					url: `/pages/webViewApp/webViewApp?url=${url}`
+				})
+			},
 		},
 		mixins: [tabbarMixin],
 		onShow() {

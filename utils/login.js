@@ -173,7 +173,9 @@ function reGetToken() {
 					rawData: res.rawData,
 					signature: res.signature
 				}
-				uni.showLoading();
+				uni.showLoading({
+					mask: true
+				});
 				uni.setStorageSync('globalData', globalData)
 				wxLogin()
 					.then((res) => {

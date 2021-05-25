@@ -127,7 +127,7 @@
   width: 24rpx;
   height: 24rpx;
   border: solid 1px #ffffff;
-  border-radius: 12rpx;
+  border-radius: 50%;
 }
 .listContainer .pullRefresh .listItem .img_ske.data-v-a50108b2 {
   display: block;

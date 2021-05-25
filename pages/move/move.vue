@@ -52,6 +52,7 @@
 				}
 				uni.showLoading({
 					title: "复制中...",
+					mask: true,
 				});
 				this.copyLoading = true;
 				const moveInfo = uni.getStorageSync("moveInfo");
@@ -103,6 +104,7 @@
 				}
 				uni.showLoading({
 					title: "移动中...",
+					mask: true,
 				});
 				this.moveLoading = true;
 				const moveInfo = uni.getStorageSync("moveInfo");

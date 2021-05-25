@@ -13,37 +13,9 @@
 			<div class="block" />
 		</div>
 		<div class="fileInfo">
-			<img v-if="!item.docId" class="img" src="/static/img/list/folder.png" alt="folder" />
-			<img v-else-if="getExtName(item.fileName || item.folderName) === 'pdf'" class="img"
-				src="/static/img/list/pdf.png" alt="pdf" />
-			<img v-else-if="
-            getExtName(item.fileName || item.folderName) === 'doc' ||
-            getExtName(item.fileName || item.folderName) === 'docx'
-          " class="img" src="/static/img/list/word.png" alt="word" />
-			<img v-else-if="
-            getExtName(item.fileName || item.folderName) === 'wmv' ||
-            getExtName(item.fileName || item.folderName) === 'mp4' ||
-            getExtName(item.fileName || item.folderName) === 'avi'
-          " class="img" src="/static/img/list/video.png" alt="video" />
-			<img v-else-if="
-            getExtName(item.fileName || item.folderName) === 'xls' ||
-            getExtName(item.fileName || item.folderName) === 'xlsx'
-          " class="img" src="/static/img/list/excel.png" alt="excel" />
-			<img v-else-if="
-            getExtName(item.fileName || item.folderName) === 'ppt' ||
-            getExtName(item.fileName || item.folderName) === 'pptx'
-          " class="img" src="/static/img/list/ppt.png" alt="ppt" />
-			<img v-else-if="
-            getExtName(item.fileName || item.folderName) === 'jpg' ||
-            getExtName(item.fileName || item.folderName) === 'png' ||
-            getExtName(item.fileName || item.folderName) === 'jpeg'
-          " class="img" src="/static/img/list/jpg.png" alt="jpg" />
-			<img v-else-if="
-            getExtName(item.fileName || item.folderName) === 'zip' ||
-            getExtName(item.fileName || item.folderName) === 'rar' ||
-            getExtName(item.fileName || item.folderName) === 'iso'
-          " class="img" src="/static/img/list/zip.png" alt="zip" />
-			<img v-else class="img" src="/static/img/list/other.png" />
+			<view class="img">
+				<imgIcon :extName="getExtName(item.fileName || item.folderName)" :type="item.docId? 'file': 'folder'" />
+			</view>
 			<p class="fileName">
 				<span>{{ item | formatListName }}</span>
 				<span v-if="item.docId">{{
@@ -99,12 +71,16 @@
 
 <script>
 	import Bus from "../utils/bus.js";
+	import imgIcon from 'com/imgIcon';
 
 	export default {
 		data() {
 			return {
 				show: false,
 			};
+		},
+		components:{
+			imgIcon,
 		},
 		methods: {
 			toggleModal() {
@@ -161,26 +137,14 @@
 				}, 300);
 			},
 			toLabel() {
+				this.toggleModal();
 				const {
 					docId,
 					folderId,
-					labelList,
-					fileName,
-					folderName
 				} = this.item;
-				const exist = labelList ? labelList.map(item => item.id).join(',') : '';
-				const query = docId ? {
-					docId,
-					exist,
-					fileName
-				} : {
-					folderId,
-					exist,
-					folderName
-				};
-				this.$router.push({
-					name: "Label",
-					query
+				const url = docId? `/pages/label/label?docId=${docId}`: `/pages/label/label?folderId=${folderId}`
+				uni.navigateTo({
+					url,
 				});
 			},
 		},

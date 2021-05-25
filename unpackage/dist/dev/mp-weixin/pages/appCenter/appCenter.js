@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uTabbar: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar/u-tabbar.vue */ 135))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar/u-tabbar.vue */ 170))
     }
   }
 } catch (e) {
@@ -233,7 +233,7 @@ var _const = __webpack_require__(/*! const/const.js */ 19);function _interopRequ
 //
 //
 //
-var _default = { data: function data() {return { tabbar: '' };}, methods: { navigateToMiniProgram: function navigateToMiniProgram(appId) {uni.navigateToMiniProgram({ appId: appId });} }, mixins: [_tabbarMixin.default], onShow: function onShow() {this.setSelectedTabbar(2);}, onLoad: function onLoad(e) {this.tabbar = _const.TABBAR;} };exports.default = _default;
+var _default = { data: function data() {return { tabbar: '' };}, methods: { navigateToMiniProgram: function navigateToMiniProgram(appId) {uni.navigateToMiniProgram({ appId: appId });}, toWebviewApp: function toWebviewApp(url) {if (url.indexOf('edit') !== -1) {url = encodeURIComponent("".concat(url, "?token=").concat(uni.getStorageSync('wxToken')));} else {url = encodeURIComponent(url);}uni.navigateTo({ url: "/pages/webViewApp/webViewApp?url=".concat(url) });} }, mixins: [_tabbarMixin.default], onShow: function onShow() {this.setSelectedTabbar(2);}, onLoad: function onLoad(e) {this.tabbar = _const.TABBAR;} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

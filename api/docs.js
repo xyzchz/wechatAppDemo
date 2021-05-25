@@ -243,9 +243,143 @@ export const copyDocFile = (data = {}, config = {}, header) => request({
  * @return {*}
  */
 export const addDocFolder = (data = {}, config = {}, header) => request({
-  url: `/docFolder/addDocFolder`,
-  method: 'POST',
-  data,
-  header,
-  ...config
+	url: `/docFolder/addDocFolder`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 获取目录详情
+ * @param {*}
+ * @return {*}
+ */
+export const getDocFolder = (data = {}, config = {
+	hideLoading: true
+}, header) => request({
+	url: `/docFolder/getDocFolder`,
+	method: 'GET',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 获取文档详情
+ * @param {*}
+ * @return {*}
+ */
+export const getDocFile = (data = {}, config = {
+	hideLoading: true
+}, header) => request({
+	url: `/docFile/getDocFile`,
+	method: 'GET',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 添加标签
+ * @param {*}
+ * @return {*}
+ */
+export const addDocUserLabel = (data = {}, config = {}, header) => request({
+	url: `/docUserLabel/addDocUserLabel`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 绑定目录标签
+ * @param {*}
+ * @return {*}
+ */
+export const bindDocFolderLabel = (data = {}, config = {}, header) => request({
+	url: `/docFolder/bindDocFolderLabel`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 解除目录标签
+ * @param {*}
+ * @return {*}
+ */
+export const unbindDocFolderLabel = (data = {}, config = {}, header) => request({
+	url: `/docFolder/unbindDocFolderLabel`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 绑定文档标签
+ * @param {*}
+ * @return {*}
+ */
+export const bindDocFile = (data = {}, config = {}, header) => request({
+	url: `/docFile/bindDocFile`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 解除文档标签
+ * @param {*}
+ * @return {*}
+ */
+export const unbindDocFile = (data = {}, config = {}, header) => request({
+	url: `/docFile/unbindDocFile`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 获取文件下载链接
+ * @param {*}
+ * @return {*}
+ */
+export const downloadURL = (data = {}, config = {}, header) => request({
+	url: `/docFile/downloadURL`,
+	method: 'GET',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 删除标签
+ * @param {*}
+ * @return {*}
+ */
+export const deleteDocUserLabel = (data = {}, config = {}, header) => request({
+	url: `/docUserLabel/deleteDocUserLabel/${data.id}`,
+	method: 'DELETE',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 更新标签
+ * @param {*}
+ * @return {*}
+ */
+export const updateDocUserLabel = (data = {}, config = {}, header) => request({
+	url: `/docUserLabel/updateDocUserLabel`,
+	method: 'POST',
+	data,
+	header,
+	...config
 });

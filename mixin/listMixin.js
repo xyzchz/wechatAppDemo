@@ -529,12 +529,14 @@ export default {
 			//新开页面打开文档，支持格式：doc, xls, ppt, pdf, docx, xlsx, pptx
 			if (isOpenDocument) {
 				if (type === "jpeg" || type === "png" || type === "jpg") {
-					console.log('图片')
 					uni.previewImage({
 						urls: [url]
 					})
-				} else {
-					console.log('下载')
+				}else if(type === "pdf") {
+					uni.navigateTo({
+						url: `/pages/editPdf/editPdf?docId=${docId}`
+					})
+				}else {
 					uni.downloadFile({
 						url,
 						success: (res) => {
@@ -577,7 +579,8 @@ export default {
 						parentId: this.getFolderId(),
 					}
 					uni.showLoading({
-						title: '正在创建...'
+						title: '正在创建...',
+						mask: true,
 					})
 					addDocFolder(params).then((res) => {
 						uni.hideLoading();

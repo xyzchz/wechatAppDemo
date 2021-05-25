@@ -193,7 +193,8 @@ var _login = __webpack_require__(/*! ../../utils/login.js */ 62);function ownKey
             signature: res.signature };
 
           uni.showLoading({
-            title: '授权中...' });
+            title: '授权中...',
+            mask: true });
 
           uni.setStorageSync('globalData', globalData);
           (0, _login.wxLogin)().then(function (res) {

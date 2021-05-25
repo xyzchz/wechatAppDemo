@@ -1,13 +1,17 @@
 {
   "pages": [
-    "pages/folder/folder",
     "pages/index/index",
+    "pages/folder/folder",
     "pages/login/login",
     "pages/appCenter/appCenter",
     "pages/userCenter/userCenter",
     "pages/childrenList/childrenList",
     "pages/move/move",
-    "pages/localUpload/localUpload"
+    "pages/localUpload/localUpload",
+    "pages/webViewApp/webViewApp",
+    "pages/label/label",
+    "pages/createLabel/createLabel",
+    "pages/editPdf/editPdf"
   ],
   "subPackages": [],
   "window": {
@@ -49,6 +53,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }
