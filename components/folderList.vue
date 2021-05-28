@@ -44,7 +44,7 @@
 						</div>
 					</li>
 				</ul>
-				<ul v-if="isShowSkeleton && !listClosure">
+				<ul v-else-if="needShowSkeleton && (!listClosure || showSkeleton)">
 					<li class="listItem" :key="index" v-for="(item, index) in 20">
 						<div><span class="img_ske" /></div>
 						<div class="info_ske">
@@ -53,7 +53,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="empty" v-else-if="totalList.length === 0">
+				<div class="empty" v-else-if="totalList.length === 0 && listClosure">
 					<img class="empty_img" src="/static/img/list/empty.png" />
 					<p>暂无数据</p>
 				</div>
@@ -74,7 +74,7 @@ export default {
 	data() {
 		return {
 			triggered: false,
-			_freshing: false
+			_freshing: false,
 		};
 	},
 	methods: {
@@ -97,9 +97,9 @@ export default {
 			this.$emit('handleTdClick', item);
 		},
 		load() {
+			if(!this.needRollLoad) return
 			this.$emit('loadMore');
 		},
-
 		showPopup(item) {
 			this.$emit('showPopup', item);
 		}
@@ -118,21 +118,29 @@ export default {
 		listClosure: {
 			type: Boolean,
 			required: true,
-			default: () => false
+			default: () => true
 		},
 		rollLoad: {
 			type: Boolean,
 			required: true,
 			default: () => false
 		},
-		isShowSkeleton: {
+		needShowSkeleton: {
 			type: Boolean,
 			required: true,
+			default: () => true
+		},
+		showSkeleton: {
+			type: Boolean,
 			default: () => true
 		},
 		hideMenu: {
 			type: Boolean,
 			default: () => false
+		},
+		needRollLoad: {
+			type: Boolean,
+			default: () => true
 		}
 	}
 };

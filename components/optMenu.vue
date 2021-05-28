@@ -9,348 +9,330 @@
 
 <template>
 	<u-popup v-model="show" v-if="item" mode="bottom" border-radius="8" closeOnClickOverlay class="popup">
-		<div class="head" @click.stop="toggleModal">
-			<div class="block" />
-		</div>
+		<div class="head" @click.stop="toggleModal"><div class="block" /></div>
 		<div class="fileInfo">
-			<view class="img">
-				<imgIcon :extName="getExtName(item.fileName || item.folderName)" :type="item.docId? 'file': 'folder'" />
-			</view>
+			<view class="img"><imgIcon :extName="getExtName(item.fileName || item.folderName)" :type="item.docId ? 'file' : 'folder'" /></view>
 			<p class="fileName">
 				<span>{{ item | formatListName }}</span>
-				<span v-if="item.docId">{{
-            getExtName(item.fileName)
-              ? `.${getExtName(item.fileName)}`
-              : ""
-          }}</span>
+				<span v-if="item.docId">{{ getExtName(item.fileName) ? `.${getExtName(item.fileName)}` : '' }}</span>
 			</p>
 		</div>
 		<div class="line" />
 		<ul class="navMenu">
 			<li>
-				<span class="imgContainer">
-					<img class="bigImg" src="/static/img/menu/share.png" />
-				</span>
+				<span @click="toShare" class="imgContainer"><img class="bigImg" mode="heightFix" src="/static/img/menu/share.png" /></span>
 				<span class="des">分享</span>
 			</li>
 			<li @click="toMove" v-if="item.docId">
-				<span class="imgContainer">
-					<img class="bigImg" src="/static/img/menu/move.png" />
-				</span>
+				<span class="imgContainer"><img class="bigImg" mode="heightFix" src="/static/img/menu/move.png" /></span>
 				<span class="des">复制到</span>
 			</li>
 			<li @click="toMove">
-				<span class="imgContainer">
-					<img class="bigImg" src="/static/img/menu/move.png" />
-				</span>
+				<span class="imgContainer"><img class="bigImg" mode="heightFix" src="/static/img/menu/move.png" /></span>
 				<span class="des">移动到</span>
 			</li>
 			<li @click="toLabel">
-				<span class="imgContainer">
-					<img class="bigImg" src="/static/img/menu/tag.png" />
-				</span>
+				<span class="imgContainer"><img class="bigImg" mode="heightFix" src="/static/img/menu/tag.png" /></span>
 				<span class="des">标签</span>
 			</li>
 		</ul>
 		<ul class="otherOpt">
 			<li v-if="item.docId" @click.stop="open">
 				<img class="optImg" src="/static/img/menu/open.png" />
-				<span>打开</span>
+				<span>打开文档</span>
 			</li>
 			<li @click.stop="rename">
 				<img class="optImg" src="/static/img/menu/rename.png" />
 				<span>重命名</span>
 			</li>
-			<li @click.stop="removeItem">
+			<li @click.stop="deleteItem" v-if="!showRemove">
 				<img class="optImg" src="/static/img/menu/del.png" />
 				<span>删除</span>
+			</li>
+			<li @click.stop="removeItem" v-if="showRemove">
+				<img class="optImg" src="/static/img/menu/del.png" />
+				<span>移除列表</span>
 			</li>
 		</ul>
 	</u-popup>
 </template>
 
 <script>
-	import Bus from "../utils/bus.js";
-	import imgIcon from 'com/imgIcon';
+import Bus from '../utils/bus.js';
+import imgIcon from 'com/imgIcon';
 
-	export default {
-		data() {
-			return {
-				show: false,
-			};
+export default {
+	data() {
+		return {
+			show: false
+		};
+	},
+	components: {
+		imgIcon
+	},
+	methods: {
+		toggleModal() {
+			this.show = !this.show;
 		},
-		components:{
-			imgIcon,
+		deleteItem() {
+			this.toggleModal();
+			Bus.$emit('listOption', 'delete', this.item);
 		},
-		methods: {
-			toggleModal() {
-				this.show = !this.show;
-			},
-			removeItem() {
-				this.toggleModal();
-				Bus.$emit("listOption", "delete", this.item);
-			},
-			removeRecentItem() {
-				this.toggleModal();
-				Bus.$emit("listOption", "deleteRecently", this.item);
-			},
-			rename() {
-				this.toggleModal();
-				Bus.$emit("listOption", "rename", this.item);
-			},
-			open() {
-				this.toggleModal();
-				setTimeout(() => {
-					Bus.$emit("listOption", "open", this.item);
-				}, 300);
-			},
-			toMove() {
-				this.toggleModal();
-				setTimeout(() => {
-					const {
-						folderId,
-						folderName,
-						docId,
-						fileName
-					} = this.item;
-					const {
-						route,
-						options
-					} = this.$root.$mp.page;
-					const moveInfo = !this.item.docId ?
-						{
+		removeItem() {
+			this.toggleModal();
+			Bus.$emit('listOption', 'remove', this.item);
+		},
+		removeRecentItem() {
+			this.toggleModal();
+			Bus.$emit('listOption', 'deleteRecently', this.item);
+		},
+		rename() {
+			this.toggleModal();
+			Bus.$emit('listOption', 'rename', this.item);
+		},
+		open() {
+			this.toggleModal();
+			setTimeout(() => {
+				Bus.$emit('listOption', 'open', this.item);
+			}, 300);
+		},
+		toMove() {
+			this.toggleModal();
+			setTimeout(() => {
+				const { folderId, folderName, docId, fileName } = this.item;
+				const { route, options } = this.$root.$mp.page;
+				const moveInfo = !this.item.docId
+					? {
 							folderId,
 							folderName,
 							route,
 							options
-						} :
-						{
+					  }
+					: {
 							docId,
 							fileName,
 							route,
 							options
-						};
-					uni.setStorageSync("moveInfo", moveInfo);
-					uni.navigateTo({
-						url: '/pages/move/move'
-					})
-				}, 300);
-			},
-			toLabel() {
-				this.toggleModal();
-				const {
-					docId,
-					folderId,
-				} = this.item;
-				const url = docId? `/pages/label/label?docId=${docId}`: `/pages/label/label?folderId=${folderId}`
+					  };
+				uni.setStorageSync('moveInfo', moveInfo);
 				uni.navigateTo({
-					url,
+					url: '/pages/move/move'
 				});
-			},
+			}, 300);
 		},
-		props: {
-			item: {
-				required: true,
-				type: Object | null,
-				default: {},
-			},
+		toLabel() {
+			this.toggleModal();
+			const { docId, folderId } = this.item;
+			const url = docId ? `/pages/label/label?docId=${docId}` : `/pages/label/label?folderId=${folderId}`;
+			uni.navigateTo({
+				url
+			});
 		},
-	};
+		toShare() {
+			this.toggleModal();
+			if (!this.$store.state.user.isCertification) {
+				// 手机认证
+				uni.navigateTo({
+					url: `/pages/binding/binding?docId=${this.item.docId}`
+				});
+			} else {
+				// 跳转至分享
+				uni.navigateTo({
+					url: `/pages/createShare/createShare?docId=${this.item.docId}`
+				});
+			}
+		}
+	},
+	props: {
+		item: {
+			required: true,
+			type: Object | null,
+			default: {}
+		},
+		showRemove: {
+			required: true,
+			type: Boolean,
+			default: false
+		}
+	}
+};
 </script>
 
 <style lang="scss" scoped>
-	.height584 {
-		height: 584rpx !important;
+.height584 {
+	height: 584rpx !important;
+}
+
+.popup {
+	overflow: hidden;
+	border-radius: 10rpx 10rpx 0 0;
+
+	.head {
+		height: 24rpx;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+
+		.block {
+			width: 72rpx;
+			height: 8rpx;
+			background-color: #dee0e3;
+			border-radius: 4rpx;
+		}
 	}
 
-	.popup {
-		overflow: hidden;
-		border-radius: 10rpx 10rpx 0 0;
+	.fileInfo {
+		padding: 0 30rpx;
+		height: 107rpx;
+		display: flex;
+		align-items: center;
 
-		.head {
-			height: 24rpx;
-			display: flex;
-			flex-direction: column-reverse;
-			align-items: center;
-
-			.block {
-				width: 72rpx;
-				height: 8rpx;
-				background-color: #dee0e3;
-				border-radius: 4rpx;
-			}
+		.img {
+			width: 48rpx;
+			height: 48rpx;
+			margin-right: 24rpx;
 		}
 
-		.fileInfo {
-			padding: 0 30rpx;
-			height: 107rpx;
-			display: flex;
-			align-items: center;
+		.fileName {
+			font-family: MicrosoftYaHei;
+			font-size: 0;
+			font-weight: normal;
+			font-stretch: normal;
+			letter-spacing: 1rpx;
+			color: #333333;
+			display: block;
+			width: 489rpx;
+			line-height: 48rpx;
+			height: 48rpx;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
-			.img {
-				width: 48rpx;
-				height: 48rpx;
-				margin-right: 24rpx;
+			& > span:nth-child(1) {
+				font-family: MicrosoftYaHei;
+				font-size: 30rpx;
+				font-weight: normal;
+				font-stretch: normal;
+				letter-spacing: 2rpx;
+				color: #333333;
+				display: inline-block;
+				max-width: 370rpx;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 			}
 
-			.fileName {
+			& > span:nth-child(2) {
 				font-family: MicrosoftYaHei;
-				font-size: 0;
+				font-size: 30rpx;
+				font-weight: normal;
+				font-stretch: normal;
+				letter-spacing: 2rpx;
+				color: #333333;
+				width: 100rpx;
+				display: inline-block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.line {
+		width: 100%;
+		height: 14rpx;
+		background-color: #f7f7f7;
+	}
+
+	.navMenu {
+		height: 208rpx;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		align-items: center;
+		position: relative;
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #eeeeee;
+			transform: scaleY(0.5);
+		}
+		li {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			.imgContainer {
+				width: 96rpx;
+				height: 96rpx;
+				background-color: #f7f7f7;
+				border-radius: 48rpx;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 20rpx;
+
+				.bigImg {
+					height: 35rpx;
+					width: auto;
+					display: block;
+				}
+			}
+
+			.des {
+				font-family: MicrosoftYaHei;
+				font-size: 24rpx;
+				font-weight: normal;
+				font-stretch: normal;
+				letter-spacing: 1px;
+				color: #666666;
+			}
+		}
+	}
+
+	.otherOpt {
+		width: 100%;
+		overflow: hidden;
+
+		li:not(:last-child):after {
+			content: '';
+			height: 1px;
+			background-color: #eeeeee;
+			transform: scaleY(0.5);
+			position: absolute;
+			display: block;
+			left: 40rpx;
+			bottom: 0;
+			width: calc(100% - 80rpx);
+		}
+		li:hover {
+			background-color: $skeColor;
+		}
+		li {
+			width: 100%;
+			padding-left: 50rpx;
+			height: 110rpx;
+			display: flex;
+			align-items: center;
+			position: relative;
+			.optImg {
+				width: 33rpx;
+				height: 33rpx;
+				margin-right: 30rpx;
+			}
+
+			span {
+				font-family: MicrosoftYaHei;
+				font-size: 28rpx;
 				font-weight: normal;
 				font-stretch: normal;
 				letter-spacing: 1rpx;
 				color: #333333;
-				display: block;
-				width: 489rpx;
-				line-height: 48rpx;
-				height: 48rpx;
-				overflow: hidden;
-				text-overflow: ellipsis;
-
-				&>span:nth-child(1) {
-					font-family: MicrosoftYaHei;
-					font-size: 30rpx;
-					font-weight: normal;
-					font-stretch: normal;
-					letter-spacing: 2rpx;
-					color: #333333;
-					display: inline-block;
-					max-width: 370rpx;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-				}
-
-				&>span:nth-child(2) {
-					font-family: MicrosoftYaHei;
-					font-size: 30rpx;
-					font-weight: normal;
-					font-stretch: normal;
-					letter-spacing: 2rpx;
-					color: #333333;
-					width: 100rpx;
-					display: inline-block;
-					overflow: hidden;
-					text-overflow: ellipsis;
-					white-space: nowrap;
-				}
-			}
-		}
-
-		.line {
-			width: 100%;
-			height: 14rpx;
-			background-color: #f7f7f7;
-		}
-
-		.navMenu {
-			height: 208rpx;
-			border-bottom: 1px solid #eeeeee;
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
-			align-items: center;
-
-			li {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-
-				.imgContainer {
-					width: 96rpx;
-					height: 96rpx;
-					background-color: #f7f7f7;
-					border-radius: 48rpx;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					margin-bottom: 20rpx;
-
-					img {
-						width: 35rpx;
-						display: block;
-					}
-				}
-
-				.des {
-					font-family: MicrosoftYaHei;
-					font-size: 24rpx;
-					font-weight: normal;
-					font-stretch: normal;
-					letter-spacing: 1rpx;
-					color: #666666;
-				}
-			}
-		}
-
-		.navMenu {
-			height: 208rpx;
-			border-bottom: 1px solid #eeeeee;
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
-			align-items: center;
-
-			li {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-
-				.imgContainer {
-					width: 96rpx;
-					height: 96rpx;
-					background-color: #f7f7f7;
-					border-radius: 48rpx;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					margin-bottom: 20rpx;
-
-					.bigImg {
-						height: 35rpx;
-						display: block;
-					}
-				}
-
-				.des {
-					font-family: MicrosoftYaHei;
-					font-size: 24rpx;
-					font-weight: normal;
-					font-stretch: normal;
-					letter-spacing: 1px;
-					color: #666666;
-				}
-			}
-		}
-
-		.otherOpt {
-			width: 100%;
-			overflow: hidden;
-
-			li:not(:last-child) {
-				border-bottom: 1px solid #eeeeee;
-			}
-
-			li {
-				width: 700rpx;
-				margin-left: 50rpx;
-				height: 110rpx;
-				display: flex;
-				align-items: center;
-
-				.optImg {
-					width: 33rpx;
-					height: 33rpx;
-					margin-right: 30rpx;
-				}
-
-				span {
-					font-family: MicrosoftYaHei;
-					font-size: 28rpx;
-					font-weight: normal;
-					font-stretch: normal;
-					letter-spacing: 1rpx;
-					color: #333333;
-				}
 			}
 		}
 	}
+}
 </style>

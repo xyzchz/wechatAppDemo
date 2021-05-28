@@ -96,13 +96,13 @@ var components
 try {
   components = {
     uInput: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-input/u-input.vue */ 254))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-input/u-input.vue */ 285))
     },
     uButton: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-button/u-button */ "node-modules/uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! uview-ui/components/u-button/u-button.vue */ 233))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-button/u-button */ "node-modules/uview-ui/components/u-button/u-button").then(__webpack_require__.bind(null, /*! uview-ui/components/u-button/u-button.vue */ 264))
     },
     uToast: function() {
-      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-toast/u-toast */ "node-modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! uview-ui/components/u-toast/u-toast.vue */ 163))
+      return __webpack_require__.e(/*! import() | node-modules/uview-ui/components/u-toast/u-toast */ "node-modules/uview-ui/components/u-toast/u-toast").then(__webpack_require__.bind(null, /*! uview-ui/components/u-toast/u-toast.vue */ 194))
     }
   }
 } catch (e) {
@@ -211,11 +211,11 @@ var _default = { data: function data() {return { labelName: '', colorList: _cons
         if (oldLableName === labelName.trim() && labelColor === this.onSelect) {
           return uni.navigateBack();
         }
-        var current = this.labelList.find(function (item) {return item.labelColor === _this.onSelect && item.labelName === labelName.trim() && item.id !== id;});
+        var current = this.labelList.find(function (item) {return item.labelName === labelName.trim() && item.id !== id;});
         if (current) {
           this.isLoading = false;
           this.$refs.uToast.show({
-            title: '已存在相同标签' });
+            title: '标签名称已存在' });
 
           return;
         }
@@ -233,11 +233,11 @@ var _default = { data: function data() {return { labelName: '', colorList: _cons
         });
       } else {
         // 新增
-        var _current = this.labelList.find(function (item) {return item.labelColor === _this.onSelect && item.labelName === labelName.trim();});
+        var _current = this.labelList.find(function (item) {return item.labelName === labelName.trim();});
         if (_current) {
           this.isLoading = false;
           this.$refs.uToast.show({
-            title: '已存在相同标签' });
+            title: '标签名称已存在' });
 
           return;
         }
@@ -263,8 +263,10 @@ var _default = { data: function data() {return { labelName: '', colorList: _cons
 
   mounted: function mounted() {var _this$$mp$page$option2 =
     this.$mp.page.options,labelName = _this$$mp$page$option2.labelName,labelColor = _this$$mp$page$option2.labelColor;
-    this.labelName = labelName;
-    this.onSelect = labelColor;
+    if (labelName && labelColor) {
+      this.labelName = labelName;
+      this.onSelect = labelColor;
+    }
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

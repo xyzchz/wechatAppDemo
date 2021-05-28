@@ -32,7 +32,7 @@
 .search {
 		width: 690rpx;
 		height: 60rpx;
-		background-color: #f2f2f2;
+		background-color: #F7F7F7;
 		border-radius: 8rpx;
 		margin: 0 auto;
 		display: flex;

@@ -43,7 +43,7 @@ export default {
 			const { labelColor, id, labelName } = this.listItem;
 			uni.navigateTo({
 				url: this.urlPlusOptions('/pages/createLabel/createLabel', { labelColor, id, labelName })
-			})
+			});
 		},
 		removeItem() {
 			this.show = false;
@@ -67,82 +67,28 @@ export default {
 	overflow: hidden;
 	height: 682rpx;
 	border-radius: 10rpx 10rpx 0 0;
-	.head {
-		height: 24rpx;
-		display: flex;
-		flex-direction: column-reverse;
-		align-items: center;
-		.block {
-			width: 72rpx;
-			height: 8rpx;
-			background-color: #dee0e3;
-			border-radius: 4rpx;
-		}
-	}
-	.fileInfo {
-		padding: 0 30rpx;
-		height: 107rpx;
-		display: flex;
-		align-items: center;
-		img {
-			width: 66rpx;
-			height: 66rpx;
-			margin-right: 24rpx;
-		}
-		.fileName {
-			font-family: MicrosoftYaHei;
-			font-size: 0;
-			font-weight: normal;
-			font-stretch: normal;
-			letter-spacing: 1rpx;
-			color: #333333;
-			display: block;
-			width: 489rpx;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			& > span:nth-child(1) {
-				font-family: MicrosoftYaHei;
-				font-size: 30rpx;
-				font-weight: normal;
-				font-stretch: normal;
-				letter-spacing: 2rpx;
-				color: #333333;
-				display: inline-block;
-				max-width: 370rpx;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-			}
-			& > span:nth-child(2) {
-				font-family: MicrosoftYaHei;
-				font-size: 30rpx;
-				font-weight: normal;
-				font-stretch: normal;
-				letter-spacing: 2rpx;
-				color: #333333;
-				width: 100rpx;
-				display: inline-block;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-			}
-		}
-	}
-	.line {
-		width: 100%;
-		height: 10rpx;
-		background-color: #f7f7f7;
-	}
-
 	.otherOpt {
 		width: 100%;
 		overflow: hidden;
-		li:not(:last-child) {
-			border-bottom: 1px solid #eeeeee;
+		li:not(:last-child):after {
+			content: '';
+			height: 1px;
+			background-color: #eeeeee;
+			transform: scaleY(0.5);
+			position: absolute;
+			display: block;
+			left: 40rpx;
+			bottom: 0;
+			width: calc(100% - 80rpx);
+		}
+		li:hover {
+			background-color: $skeColor;
 		}
 		li {
 			width: 700rpx;
-			margin-left: 50rpx;
+			padding-left: 50rpx;
+			width: 100%;
+			position: relative;
 			height: 110rpx;
 			display: flex;
 			align-items: center;
@@ -177,5 +123,11 @@ export default {
 		color: #666666;
 		background-color: $skeColor;
 	}
+}
+
+.line {
+	width: 100%;
+	height: 14rpx;
+	background-color: #f7f7f7;
 }
 </style>

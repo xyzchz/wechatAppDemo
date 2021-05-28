@@ -18,6 +18,7 @@ export default {
   mutations: {
     // 用户限制参数  预留 暂未使用 例如 用于文件上传
     [SET_LABEL_LIST](state, labelList = []) {
+			console.log(labelList)
       state.labelList = labelList
     },
 		// 移除标签
@@ -36,8 +37,8 @@ export default {
     [GET_LABEL_LIST]({commit}, config = {}) {
       return new Promise((resolve) => {
         findDocUserLabelList({}, config).then(res=>{
-          resolve(res)
-          commit(SET_LABEL_LIST, res.data)
+          resolve(res);
+				  commit(SET_LABEL_LIST, res.data);
         })
       })
     }

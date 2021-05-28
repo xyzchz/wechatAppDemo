@@ -1,8 +1,3 @@
-
-page {
-	background: #f8f8f8;
-}
-
 @charset "UTF-8";
 /**
  * 这里是uni-app内置的常用样式变量
@@ -81,13 +76,62 @@ page {
 }
 .tips.data-v-57280228 {
   height: 155rpx;
-  padding-top: 40rpx;
-  text-align: center;
+  padding: 40rpx 70rpx 0;
+  text-align: left;
   font-family: MicrosoftYaHei;
   font-size: 28rpx;
   font-weight: normal;
   font-stretch: normal;
   letter-spacing: 1px;
   color: #666666;
+}
+.inputContainer.data-v-57280228 {
+  padding: 35rpx;
+  width: 100%;
+  margin-bottom: 45rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  box-sizing: border-box;
+}
+.inputContainer input.data-v-57280228 {
+  display: block;
+  width: 81%;
+  height: 80rpx;
+  padding: 0 30rpx;
+  background-color: #f5f5f5;
+  border-radius: 8rpx;
+  border: solid 1px #dddddd;
+  font-family: MicrosoftYaHei;
+  font-size: 28rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 1rpx;
+  color: #333333;
+}
+.checkbox.data-v-57280228 {
+  padding-left: 70rpx;
+  height: 95rpx;
+  font-family: MicrosoftYaHei;
+  font-size: 24rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 1rpx;
+  color: #999999;
+}
+.heightAuto.data-v-57280228 {
+  height: auto !important;
+  margin-bottom: 24rpx;
+}
+.upload_btn.data-v-57280228 {
+  display: block;
+  position: fixed;
+  bottom: calc(150rpx + env(safe-area-inset-bottom));
+  right: 50rpx;
+  height: 100rpx;
+  width: 100rpx;
 }
 

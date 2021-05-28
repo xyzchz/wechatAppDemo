@@ -59,7 +59,7 @@
   -webkit-box-flex: 1;
   -webkit-flex: auto;
           flex: auto;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
 }
 .btnContainer.data-v-9c05c0b4 .u-btn {
   width: 324rpx;

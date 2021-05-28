@@ -90,6 +90,7 @@
 }
 .list_skeleton .right-icon.data-v-c435f0a0 {
   width: 27rpx;
+  height: auto;
 }
 .list.data-v-c435f0a0 {
   -webkit-box-flex: 1;
@@ -114,6 +115,7 @@
 }
 .list .right-icon.data-v-c435f0a0 {
   width: 27rpx;
+  height: auto;
 }
 .no-list-w.data-v-c435f0a0 {
   width: 100%;

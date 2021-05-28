@@ -32,93 +32,30 @@
   height: 682rpx;
   border-radius: 10rpx 10rpx 0 0;
 }
-.popup .head.data-v-42cd70d9 {
-  height: 24rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-  -webkit-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-}
-.popup .head .block.data-v-42cd70d9 {
-  width: 72rpx;
-  height: 8rpx;
-  background-color: #dee0e3;
-  border-radius: 4rpx;
-}
-.popup .fileInfo.data-v-42cd70d9 {
-  padding: 0 30rpx;
-  height: 107rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-}
-.popup .fileInfo ._img.data-v-42cd70d9 {
-  width: 66rpx;
-  height: 66rpx;
-  margin-right: 24rpx;
-}
-.popup .fileInfo .fileName.data-v-42cd70d9 {
-  font-family: MicrosoftYaHei;
-  font-size: 0;
-  font-weight: normal;
-  font-stretch: normal;
-  letter-spacing: 1rpx;
-  color: #333333;
-  display: block;
-  width: 489rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.popup .fileInfo .fileName > ._span.data-v-42cd70d9:nth-child(1) {
-  font-family: MicrosoftYaHei;
-  font-size: 30rpx;
-  font-weight: normal;
-  font-stretch: normal;
-  letter-spacing: 2rpx;
-  color: #333333;
-  display: inline-block;
-  max-width: 370rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.popup .fileInfo .fileName > ._span.data-v-42cd70d9:nth-child(2) {
-  font-family: MicrosoftYaHei;
-  font-size: 30rpx;
-  font-weight: normal;
-  font-stretch: normal;
-  letter-spacing: 2rpx;
-  color: #333333;
-  width: 100rpx;
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.popup .line.data-v-42cd70d9 {
-  width: 100%;
-  height: 10rpx;
-  background-color: #f7f7f7;
-}
 .popup .otherOpt.data-v-42cd70d9 {
   width: 100%;
   overflow: hidden;
 }
-.popup .otherOpt ._li.data-v-42cd70d9:not(:last-child) {
-  border-bottom: 1px solid #eeeeee;
+.popup .otherOpt ._li.data-v-42cd70d9:not(:last-child):after {
+  content: '';
+  height: 1px;
+  background-color: #eeeeee;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  position: absolute;
+  display: block;
+  left: 40rpx;
+  bottom: 0;
+  width: calc(100% - 80rpx);
+}
+.popup .otherOpt ._li.data-v-42cd70d9:hover {
+  background-color: #f6f7f9;
 }
 .popup .otherOpt ._li.data-v-42cd70d9 {
   width: 700rpx;
-  margin-left: 50rpx;
+  padding-left: 50rpx;
+  width: 100%;
+  position: relative;
   height: 110rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -155,5 +92,10 @@
 .btn.data-v-42cd70d9:hover {
   color: #666666;
   background-color: #f6f7f9;
+}
+.line.data-v-42cd70d9 {
+  width: 100%;
+  height: 14rpx;
+  background-color: #f7f7f7;
 }
 

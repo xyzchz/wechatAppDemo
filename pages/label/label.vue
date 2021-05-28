@@ -173,6 +173,7 @@ export default {
 	}
 	.right-icon {
 		width: 27rpx;
+		height: auto;
 	}
 }
 
@@ -197,6 +198,7 @@ export default {
 	
 	.right-icon {
 		width: 27rpx;
+		height: auto;
 	}
 }
 

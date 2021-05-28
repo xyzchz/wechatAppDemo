@@ -131,6 +131,32 @@ export const deleteDocFolder = (data = {}, config = {}, header) => request({
 });
 
 /**
+ * @description: 移除文档
+ * @param {*}
+ * @return {*}
+ */
+export const removeDocFile = (data = {}, config = {}, header) => request({
+	url: `/docFile/removeDocFile`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 移除目录
+ * @param {*}
+ * @return {*}
+ */
+export const removeDocFolder = (data = {}, config = {}, header) => request({
+	url: `/docFolder/removeDocFolder`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
  * @description: 文档重命名
  * @param {*}
  * @return {*}
@@ -379,6 +405,84 @@ export const deleteDocUserLabel = (data = {}, config = {}, header) => request({
 export const updateDocUserLabel = (data = {}, config = {}, header) => request({
 	url: `/docUserLabel/updateDocUserLabel`,
 	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 发送认证验证码
+ * @param {*}
+ * @return {*}
+ */
+export const certSendMsg = (data = {}, config = {}, header) => request({
+	url: `/certification/certSendMsg`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 认证手机
+ * @param {*}
+ * @return {*}
+ */
+export const doCertificate = (data = {}, config = {}, header) => request({
+	url: `/certification/doCertificate`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 创建分享文件
+ * @param {*}
+ * @return {*}
+ */
+export const createShare = (data = {}, config = {}, header) => request({
+	url: `/docShare/createShare`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 获取分享信息
+ * @param {*}
+ * @return {*}
+ */
+export const getDocShare = (data = {}, config = {}, header) => request({
+	url: `/docShare/getDocShare`,
+	method: 'GET',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 修改分享信息
+ * @param {*}
+ * @return {*}
+ */
+export const updateShare = (data = {}, config = {}, header) => request({
+	url: `/docShare/updateShare`,
+	method: 'POST',
+	data,
+	header,
+	...config
+});
+
+/**
+ * @description: 生成二维码
+ * @param {*}
+ * @return {*}
+ */
+export const getQrCodeH5OrWx = (data = {}, config = {}, header) => request({
+	url: `/qrCode/getQrCodeH5OrWx`,
+	method: 'GET',
 	data,
 	header,
 	...config

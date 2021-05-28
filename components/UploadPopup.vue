@@ -43,6 +43,7 @@ export default {
 			this.$emit('toggleFolderModal');
 		},
 		uploadWxFile() {
+			this.$store.commit('list/SET_UPLOAD_STATUS', true);
 			this.showUploadPopup = false;
 			this.$emit('uploadWxFile');
 		},

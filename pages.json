@@ -25,7 +25,7 @@
 			"path": "pages/appCenter/appCenter",
 			"style": {
 				"navigationBarTitleText": "福昕云文档",
-				"backgroundColor": "#F2F2F2"
+				"backgroundColor": "#F7F7F7"
 			}
 		},
 		{
@@ -74,6 +74,26 @@
 			"path": "pages/editPdf/editPdf",
 			"style": {
 				"navigationBarTitleText": "福昕云文档"
+			}
+		},
+		{
+			"path": "pages/binding/binding",
+			"style": {
+				"navigationBarTitleText": "绑定手机"
+			}
+		},
+		{
+			"path": "pages/bindPhone/bindPhone",
+			"style": {
+				"navigationBarTitleText": "绑定手机",
+				"backgroundColor": "#F7F7F7"
+			}
+		},
+		{
+			"path": "pages/createShare/createShare",
+			"style": {
+				"navigationBarTitleText": "分享",
+				"backgroundColor": "#F7F7F7"
 			}
 		}
 	],

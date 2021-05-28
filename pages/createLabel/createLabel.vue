@@ -50,11 +50,11 @@ export default {
 				if (oldLableName === labelName.trim() && labelColor === this.onSelect) {
 					return uni.navigateBack();
 				}
-				const current = this.labelList.find(item => item.labelColor === this.onSelect && item.labelName === labelName.trim() && item.id !== id);
+				const current = this.labelList.find(item => item.labelName === labelName.trim() && item.id !== id);
 				if (current) {
 					this.isLoading = false;
 					this.$refs.uToast.show({
-						title: '已存在相同标签'
+						title: '标签名称已存在'
 					});
 					return;
 				}
@@ -72,11 +72,11 @@ export default {
 				});
 			} else {
 				// 新增
-				const current = this.labelList.find(item => item.labelColor === this.onSelect && item.labelName === labelName.trim());
+				const current = this.labelList.find(item => item.labelName === labelName.trim());
 				if (current) {
 					this.isLoading = false;
 					this.$refs.uToast.show({
-						title: '已存在相同标签'
+						title: '标签名称已存在'
 					});
 					return;
 				}
@@ -102,8 +102,10 @@ export default {
 	},
 	mounted() {
 		const { labelName, labelColor } = this.$mp.page.options;
-		this.labelName = labelName;
-		this.onSelect = labelColor;
+		if (labelName && labelColor) {
+			this.labelName = labelName;
+			this.onSelect = labelColor;
+		}
 	}
 };
 </script>

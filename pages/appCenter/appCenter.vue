@@ -76,7 +76,7 @@
 <style lang="scss" scoped>
 	.container {
 		padding: 55rpx 40rpx 0;
-		background-color: #F2F2F2;
+		background-color: #F7F7F7;
 		height: 100vh;
 
 		h3 {

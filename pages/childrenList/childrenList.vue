@@ -6,7 +6,7 @@
 		<view class="content" v-if="showPage">
 			<FolderList ref="list" @initList="initList" @handleTdClick="handleTdClick"
 				@loadMore="loadMore({ listType: 'folder' })" :totalList="totalList" :listClosure="listClosure"
-				@showPopup="showPopup" :isShowSkeleton="true" :labelListData="labelListData" :rollLoad="rollLoad" />
+				@showPopup="showPopup" :needShowSkeleton="true" :showSkeleton="showSkeleton" :labelListData="labelListData" :rollLoad="rollLoad" />
 		</view>
 		<optMenu ref="menu" :item="editItem" />
 		<u-modal v-model="showConfirm" show-confirm-button show-cancel-button border-radius="8" confirm-color="#3370ff"
@@ -66,6 +66,10 @@
 		},
 		mixins: [tabbarMixin, init, listMixin],
 		onShow() {
+			if(this.$store.state.list.uploadStatus) {
+				this.$store.commit('list/SET_UPLOAD_STATUS', false);
+				return
+			}
 			this.setSelectedTabbar(1);
 			// 初始化数据
 			if (uni.getStorageSync('isLogin')) {

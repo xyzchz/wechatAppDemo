@@ -30,11 +30,15 @@ import { LABEL_COLOR } from 'const/const';
 export default {
 	data() {
 		return {
-			labelList: [],
 			showSkeleton: true,
 			triggered: false,
 			_freshing: false,
 		};
+	},
+	computed:{
+		labelList () {
+			return this.$store.state.label.labelList;
+		}
 	},
 	methods: {
 		...mapActions('label', ['GET_LABEL_LIST']),
@@ -63,12 +67,10 @@ export default {
 		},
 		init() {
 			if (this.$store.state.label.labelList) {
-				this.labelList = this.$store.state.label.labelList;
 				this.showSkeleton = false;
 				return;
 			}
 			this.GET_LABEL_LIST().then(res => {
-				this.labelList = res.data;
 				this.showSkeleton = false;
 			});
 		}
@@ -119,6 +121,7 @@ export default {
 		align-items: center;
 		.optPng {
 			width: 34rpx;
+			height: auto;
 		}
 	}
 }

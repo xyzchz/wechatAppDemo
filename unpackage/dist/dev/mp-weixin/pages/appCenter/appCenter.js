@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uTabbar: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar/u-tabbar.vue */ 170))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabbar/u-tabbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabbar/u-tabbar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabbar/u-tabbar.vue */ 201))
     }
   }
 } catch (e) {
@@ -193,7 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _tabbarMixin = _interopRequireDefault(__webpack_require__(/*! mixin/tabbarMixin */ 60));
+var _tabbarMixin = _interopRequireDefault(__webpack_require__(/*! mixin/tabbarMixin */ 62));
 var _const = __webpack_require__(/*! const/const.js */ 19);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //

@@ -73,12 +73,14 @@ function getWxToken(code) {
 			success: (data) => {
 				if (data.data.ret == 0) {
 					uni.setStorageSync('wxToken', data.data.data.token);
-					checkLogin().then(checkLoginRes => {
-						return getCloudDocToken(data.data.data.token).then(res => {
-							resolve(res)
+					delay(2000).then(res => {
+						checkLogin().then(checkLoginRes => {
+							return getCloudDocToken(data.data.data.token).then(res => {
+								resolve(res)
+							})
+						}).catch((msg) => {
+							reject(msg);
 						})
-					}).catch((msg) => {
-						reject(msg);
 					})
 				} else {
 					reject('用户code认证授权失败！');
@@ -153,6 +155,7 @@ function getCloudDocToken() {
 				resolve(res)
 			})
 			.catch((res) => {
+				console.log(res)
 				reject('docToken获取错误');
 			})
 	})
@@ -229,6 +232,14 @@ function checkDocToken() {
 		} else {
 			resolve()
 		}
+	})
+}
+
+function delay(time) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve()
+		}, time)
 	})
 }
 

@@ -68,6 +68,7 @@
 }
 .pullRefresh .right-icon .optPng.data-v-2f1f8607 {
   width: 34rpx;
+  height: auto;
 }
 .no-list-w.data-v-2f1f8607 {
   width: 100%;

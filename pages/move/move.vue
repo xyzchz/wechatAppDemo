@@ -3,7 +3,7 @@
 		<div class="list">
 			<FolderList ref="list" @initList="initList" @handleTdClick="handleTdClick"
 				@loadMore="loadMore({ listType: 'folder' })" :totalList="totalList" :listClosure="listClosure"
-				:isShowSkeleton="true" :labelListData="labelListData" :rollLoad="rollLoad" hideMenu />
+				:needShowSkeleton="true" :labelListData="labelListData" :rollLoad="rollLoad" hideMenu />
 		</div>
 		<div :class="showCopy ? 'btnContainer' : 'btnContainer center'">
 			<u-button v-if="showCopy" @click="handleCopy()" :disabled="moveLoading" :loading="copyLoading" type="primary">复制</u-button>
@@ -196,7 +196,7 @@
 		align-items: flex-start;
 		padding: 0 40rpx;
 		flex: auto;
-		margin-top: 10rpx;
+		margin-top: 20rpx;
 		/deep/ .u-btn {
 		  width: 324rpx;
 		  height: 90rpx;

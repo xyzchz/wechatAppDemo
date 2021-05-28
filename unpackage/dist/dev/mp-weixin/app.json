@@ -11,7 +11,10 @@
     "pages/webViewApp/webViewApp",
     "pages/label/label",
     "pages/createLabel/createLabel",
-    "pages/editPdf/editPdf"
+    "pages/editPdf/editPdf",
+    "pages/binding/binding",
+    "pages/bindPhone/bindPhone",
+    "pages/createShare/createShare"
   ],
   "subPackages": [],
   "window": {

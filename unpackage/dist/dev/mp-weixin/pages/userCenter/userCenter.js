@@ -133,7 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _tabbarMixin = _interopRequireDefault(__webpack_require__(/*! mixin/tabbarMixin */ 60));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+var _tabbarMixin = _interopRequireDefault(__webpack_require__(/*! mixin/tabbarMixin */ 62));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
 //

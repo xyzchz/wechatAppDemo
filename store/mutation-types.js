@@ -19,6 +19,7 @@ export const UPDATE_SUBTRACT_REQUEST_COUNT = 'UPDATE_SUBTRACT_REQUEST_COUNT';
 
 // 列表模块
 export const UPDATE_LIST_STATUS = 'UPDATE_LIST_STATUS'; // 列表查看或编辑状态
+export const SET_UPLOAD_STATUS = 'SET_UPLOAD_STATUS';
 
 // 标签模块
 export const SET_LABEL_LIST = 'SET_LABEL_LIST';

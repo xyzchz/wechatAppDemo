@@ -62,7 +62,15 @@ export default {
 			}
 			return ''
 		});
-
+		/**
+		 * @description: 转化数字为时间显示
+		 * @param {*}
+		 * @return {*}
+		 */
+		Vue.filter('formatDay', function(num) {
+			if(Number(num) === 0) return '永久';
+			return `${num}天`;
+		})
 		/**
 		 * @description: 获取extName
 		 * @param {*}

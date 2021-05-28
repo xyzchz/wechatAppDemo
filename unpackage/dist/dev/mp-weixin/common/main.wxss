@@ -3323,20 +3323,24 @@ page {
   opacity: 0.6;
   min-height: 90rpx;
 }
-.labelListPage_cell_group .u-cell, .labelPage_cell_group .u-cell, .labelPage_cell_group_skeleton .u-cell {
+.labelListPage_cell_group .u-cell, .labelPage_cell_group .u-cell, .labelPage_cell_group_skeleton .u-cell, .createShare_cell .u-cell {
   height: 100rpx;
   ling-height: 100rpx;
 }
-.labelListPage_cell_group .u-cell-item-box:after, .labelPage_cell_group .u-cell-item-box:after, .labelPage_cell_group_skeleton .u-cell-item-box:after {
+.labelListPage_cell_group .u-cell-item-box:after, .labelPage_cell_group .u-cell-item-box:after, .labelPage_cell_group_skeleton .u-cell-item-box:after, .createShare_cell .u-cell-item-box:after {
   width: calc(199.8% - 160rpx);
   left: 40rpx;
 }
-.labelListPage_cell_group .u-border-top:after, .labelPage_cell_group .u-border-top:after, .labelPage_cell_group_skeleton .u-border-top:after {
+.labelListPage_cell_group .u-border-top:after, .labelPage_cell_group .u-border-top:after, .labelPage_cell_group_skeleton .u-border-top:after, .createShare_cell .u-border-top:after {
   border: 0;
 }
-.labelListPage_cell_group .u-cell:after, .labelPage_cell_group .u-cell:after, .labelPage_cell_group_skeleton .u-cell:after {
+.labelListPage_cell_group .u-cell:after, .labelPage_cell_group .u-cell:after, .labelPage_cell_group_skeleton .u-cell:after, .createShare_cell .u-cell:after {
   width: calc(199.8% - 160rpx);
   left: 40rpx;
+}
+.createShare_cell_height .u-cell {
+  height: 136rpx;
+  ling-height: 136rpx;
 }
 .labelPage_cell_group_skeleton .u-cell {
   height: 100rpx;

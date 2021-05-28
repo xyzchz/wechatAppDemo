@@ -22,7 +22,7 @@ page {
 	min-height: 90rpx;
 }
 
-.labelListPage_cell_group, .labelPage_cell_group, .labelPage_cell_group_skeleton {
+.labelListPage_cell_group, .labelPage_cell_group, .labelPage_cell_group_skeleton , .createShare_cell{
 	.u-cell {
 		height: 100rpx;
 		ling-height: 100rpx;
@@ -37,6 +37,13 @@ page {
 	.u-cell:after {
 		width: calc(199.8% - 160rpx);
 		left: 40rpx;
+	}
+}
+
+.createShare_cell_height{
+	.u-cell {
+		height: 136rpx;
+		ling-height: 136rpx;
 	}
 }
 

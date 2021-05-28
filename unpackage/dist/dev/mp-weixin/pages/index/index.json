@@ -3,10 +3,15 @@
   "usingComponents": {
     "u-tabs-swiper": "/node-modules/uview-ui/components/u-tabs-swiper/u-tabs-swiper",
     "u-modal": "/node-modules/uview-ui/components/u-modal/u-modal",
+    "u-checkbox": "/node-modules/uview-ui/components/u-checkbox/u-checkbox",
     "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast",
     "u-tabbar": "/node-modules/uview-ui/components/u-tabbar/u-tabbar",
     "header": "/components/header",
+    "folder-list": "/components/folderList",
+    "opt-menu": "/components/optMenu",
     "label-list": "/components/labelList",
-    "label-opt-menu": "/components/labelOptMenu"
+    "label-opt-menu": "/components/labelOptMenu",
+    "opt-modal": "/components/optModal",
+    "upload-popup": "/components/UploadPopup"
   }
 }

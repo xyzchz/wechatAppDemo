@@ -13,8 +13,8 @@ import {
 	getToken,
 	findDocFolder,
 	findDocFile,
-	deleteDocFile,
-	deleteDocFolder,
+	removeDocFile,
+	removeDocFolder,
 	renameFile,
 	renameFolderName,
 	getRecent,
@@ -34,6 +34,7 @@ export default {
 			labelListData: [], // 标签列表数据
 			listType: 'folder',
 			tempFileLength: 0,
+			showSkeleton: true, //骨架屏展示开关
 		};
 	},
 	computed: {
@@ -84,6 +85,7 @@ export default {
 			this.page = 1
 			this.limit = 15,
 				this.listClosure = false;
+			this.showSkeleton = true;
 			const folderId = this.getFolderId()
 			const pageParams = {
 				folderId,
@@ -98,6 +100,7 @@ export default {
 			}, config), findDocFile(pageParams, config)]).then(
 				(res) => {
 					this.listClosure = true; // 开启按钮防止重复请求
+					this.showSkeleton = false; // 关闭骨架屏
 					const [resFolderList, resFileList] = res
 					if (resFolderList.code !== 0 || resFileList.code !== 0) return
 					this.folderList = resFolderList.data || []
@@ -106,7 +109,8 @@ export default {
 					if (params && params.callback) params.callback()
 				},
 				err => {
-					this.listClosure = true;
+					this.listClosure = true; // 开启按钮防止重复请求
+					this.showSkeleton = false; // 关闭骨架屏
 				});
 		},
 		/**
@@ -134,7 +138,8 @@ export default {
 			} = params
 			this.listType = listType
 			this.listClosure = false;
-			this.rollLoad = false
+			this.rollLoad = false;
+			this.showSkeleton = true;
 			const folderId = this.getFolderId()
 			this.page += 1
 			const pageParams = {
@@ -158,6 +163,7 @@ export default {
 			};
 			requestFunc(pageParams, config).then(resFileList => {
 				this.listClosure = true; // 开启按钮防止重复请求
+				this.showSkeleton = false;
 				if (resFileList.code !== 0) return
 				this.fileList = [...this.fileList, ...resFileList.data.records]
 				if (resFileList.data.pages > resFileList.data.current) this.rollLoad = true // 还有更多数据时开启滚动加载
@@ -177,17 +183,19 @@ export default {
 			this.page = 1;
 			this.limit = 10;
 			this.listClosure = false;
+			this.showSkeleton = true;
 			const pageParams = {
 				page: this.page,
 				limit: this.limit,
 			}
 			const config = {
-				showLoading: false
+				hideLoading: true
 			};
 			getRecent(pageParams, config)
 				.then(
 					(resFileList) => {
 						this.listClosure = true; // 开启按钮防止重复请求
+						this.showSkeleton = false;
 						if (resFileList.code !== 0) return
 						this.folderList = []
 						this.fileList = resFileList.data.records || []
@@ -196,6 +204,7 @@ export default {
 					},
 					err => {
 						this.listClosure = true;
+						this.showSkeleton = false;
 					});
 		},
 		/**
@@ -219,7 +228,7 @@ export default {
 					break;
 				case 'deleteRecently':
 					// 删除最近记录
-					this.deleteRecenlyDataObject(listItem);
+					this.deleteRecenlyDataObject(listItem, inputValue);
 					break;
 				case 'rename':
 					// 重命名
@@ -262,7 +271,7 @@ export default {
 					this.getFolder()
 				}
 			}
-			const removeFunc = !listItem.docId ? deleteDocFolder : deleteDocFile;
+			const removeFunc = !listItem.docId ? removeDocFolder : removeDocFile;
 			const params = !listItem.docId ? {
 				folderId: listItem.folderId
 			} : {
@@ -284,7 +293,7 @@ export default {
 		 *
 		 * @return  {[type]}            [return description]
 		 */
-		deleteRecenlyDataObject(listItem) {
+		deleteRecenlyDataObject(listItem, checked) {
 			const removeItem = (item) => {
 				// if (!item.docId) {
 				//   const index = this.folderList.findIndex(item => item.folderId === listItem.folderId);
@@ -296,31 +305,38 @@ export default {
 				// 由于分页参数问题 暂时无法实现前端控制 必须刷新列表
 				this.fileList = []
 				this.folderList = []
-				this.recentOpenDocuments()
+				this.recentOpenDocuments();
 			}
-			this.$confirm({
-					title: '提示',
-					message: `是否从最近列表中移除？移除后，该内容在最近列表将不可见`
+			uni.showLoading({
+				mask: true,
+				message: "正在移除...",
+			})
+			const params = {
+				docId: listItem.docId
+			}
+			deleteDocFileRecent(params, {
+					hideLoading: true
 				})
-				.then(() => {
-					this.$message.loading({
-						forbidClick: true,
-						message: "正在移除...",
-						duration: 0,
-					})
-					const params = {
-						docId: listItem.docId
+				.then((res) => {
+					if (res.code !== 0) return
+					if (!checked) {
+						removeItem(listItem);
+						uni.hideLoading();
+						this.$refs.uToast.show({
+							title: '移除成功!'
+						})
+					} else {
+						removeDocFile(params)
+							.then((res) => {
+								if (res.code !== 0) return
+								removeItem(listItem);
+								uni.hideLoading();
+								this.$refs.uToast.show({
+									title: '移除成功!'
+								})
+							})
 					}
-					deleteDocFileRecent(params, {
-							showLoading: false
-						})
-						.then((res) => {
-							if (res.code !== 0) return
-							removeItem(listItem)
-							this.$message("移除成功")
-						})
 				})
-				.catch(() => {})
 		},
 		/**
 		 * [rename 重命名]
@@ -532,11 +548,11 @@ export default {
 					uni.previewImage({
 						urls: [url]
 					})
-				}else if(type === "pdf") {
+				} else if (type === "pdf") {
 					uni.navigateTo({
 						url: `/pages/editPdf/editPdf?docId=${docId}`
 					})
-				}else {
+				} else {
 					uni.downloadFile({
 						url,
 						success: (res) => {
@@ -587,6 +603,7 @@ export default {
 						this.$refs.uToast.show({
 							title: '创建成功！'
 						})
+						if(this.$root.$mp.page.route === 'pages/index/index') return
 						this.addDataObject(res.data, 'folder')
 					})
 				})
@@ -648,7 +665,8 @@ export default {
 					const {
 						userDocSetting
 					} = this.$store.state.user
-					const uploadMaxLimit = userDocSetting.find(item => item.paramKey === 'uploadMaxLimit')
+					const uploadMaxLimit = userDocSetting.find(item => item.paramKey ===
+							'uploadMaxLimit')
 						.paramValue
 					const uploadFileNotFormat = userDocSetting.find(item => item.paramKey ===
 						'uploadFileNotFormat').paramValue.split(',')
@@ -681,11 +699,16 @@ export default {
 							})
 							return;
 						}
+					}
+					for (let i = 0, max = res.tempFiles.length; i < max; i++) {
+						let uploadFilePath = res.tempFiles[i].path;
+						let uploadFileName = res.tempFiles[i].name;
 						uni.getFileInfo({
 							filePath: uploadFilePath,
 							success: (fileRes) => {
 								const md5 = res.fileRes;
-								this.setUploadFile(uploadFilePath, uploadFileName, md5, res.tempFiles.length, err)
+								this.setUploadFile(uploadFilePath, uploadFileName, md5, res
+									.tempFiles.length, err)
 							}
 						})
 					}
@@ -716,26 +739,30 @@ export default {
 						return
 					}
 					uni.hideLoading();
-					if(err.length > 0) {
+					if (err.length > 0) {
 						if (total === err.length) {
 							return this.$refs.uToast.show({
-								title: '上传失败!'
+								title: '文件重名，上传失败!'
 							})
 						} else {
-							this.fileList = []
-							this.folderList = []
-							this.getFolder();
+							if(this.$root.$mp.page.route !== 'pages/index/index') {
+								this.fileList = [];
+								this.folderList = [];
+								this.getFolder();
+							}
 							return this.$refs.uToast.show({
-								title: '部分文件上传失败!'
+								title: '部分文件重名，上传失败!'
 							})
 						}
 					} else {
 						this.$refs.uToast.show({
 							title: '上传成功!'
 						})
-						this.fileList = []
-						this.folderList = []
-						this.getFolder();
+						if(this.$root.$mp.page.route !== 'pages/index/index') {
+							this.fileList = [];
+							this.folderList = [];
+							this.getFolder();
+						}
 					}
 				},
 				fail: (data) => {

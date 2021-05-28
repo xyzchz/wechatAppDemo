@@ -28,9 +28,9 @@
 				:totalList="totalList"
 				:listClosure="listClosure"
 				@showPopup="showPopup"
-				:isShowSkeleton="true"
+				:needShowSkeleton="true"
 				:labelListData="labelListData"
-				:rollLoad="rollLoad"
+				:showSkeleton="showSkeleton"
 			/>
 		</view>
 		<OptMenu ref="menu" :item="editItem" />
@@ -83,7 +83,18 @@ export default {
 	onLoad(e) {
 		this.tabbar = TABBAR;
 	},
+	onHide() {
+		if(this.$store.state.list.uploadStatus) return
+		// 重置状态 避免tabbar页面被自动缓存， 导致加载骨架屏时闪屏
+		this.showSkeleton = true;
+		this.folderList = [];
+		this.fileList = [];
+	},
 	onShow() {
+		if(this.$store.state.list.uploadStatus) {
+			this.$store.commit('list/SET_UPLOAD_STATUS', false);
+			return
+		}
 		this.setSelectedTabbar(1);
 		if (uni.getStorageSync('isLogin')) {
 			this.init().then(() => {
