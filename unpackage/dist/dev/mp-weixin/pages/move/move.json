@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "福昕云文档",
-  "usingComponents": {
-    "u-button": "/node-modules/uview-ui/components/u-button/u-button",
-    "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast",
-    "folder-list": "/components/folderList"
-  }
-}

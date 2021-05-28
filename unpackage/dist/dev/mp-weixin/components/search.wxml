@@ -1,1 +1,0 @@
-<view data-event-opts="{{[['tap',[['toSearch',['$event']]]]]}}" class="search data-v-039252a3" bindtap="__e"><image src="/static/img/home/search.png" class="data-v-039252a3"></image>搜索</view>

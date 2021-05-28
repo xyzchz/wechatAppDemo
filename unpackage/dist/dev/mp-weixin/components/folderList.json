@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "opt-menu": "/components/optMenu",
-    "img-icon": "/components/imgIcon"
-  }
-}

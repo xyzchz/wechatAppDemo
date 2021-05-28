@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "绑定手机",
-  "backgroundColor": "#F7F7F7",
-  "usingComponents": {
-    "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast"
-  }
-}

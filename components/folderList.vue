@@ -125,10 +125,31 @@ export default {
 			required: true,
 			default: () => false
 		},
-		needShowSkeleton: {
-			type: Boolean,
-			required: true,
-			default: () => true
+		methods: {
+			// 下拉刷新
+			onRefresh() {
+				console.log('出发下拉刷新-进入')
+				if (this._freshing) return;
+				this._freshing = true;
+				if (!this.triggered) this.triggered = true; //界面下拉触发，triggered可能不是true，要设为true
+				console.log('出发下拉刷新-发起')
+				const callback = () => {
+					this.triggered = false;
+					this._freshing = false;
+				};
+				this.$emit("initList", callback);
+			},
+			// 点击列表Item
+			handleClickItem(item) {
+				this.$emit("handleTdClick", item);
+			},
+			load() {
+				this.$emit("loadMore");
+			},
+				
+			showPopup(item) {
+				this.$emit("showPopup", item)
+			},
 		},
 		showSkeleton: {
 			type: Boolean,
