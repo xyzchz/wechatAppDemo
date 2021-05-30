@@ -6,6 +6,7 @@
     @closed="remove"
     show-cancel-button
     close-on-popstate
+		:zoom="false"
   >
     <div class="inputContainer">
       <input type="text" :placeholder="placehodler" v-model="value" />

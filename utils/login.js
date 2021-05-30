@@ -3,9 +3,9 @@ import {
 } from 'api'
 import store from '../store/index.js'
 
-function wxLogin() {
+function wxLogin(code) {
 	return new Promise((resolve, reject) => {
-		doWxlogin()
+		doWxlogin(code)
 			.then(res => {
 				resolve(res)
 			})
@@ -27,15 +27,15 @@ function wxLogin() {
 /**
  * 获取微信登陆
  */
-function doWxlogin() {
+function doWxlogin(code) {
 	return new Promise((resolve, reject) => {
-		getCode().then(res => {
-			return getWxToken(res.code).then((res) => {
-				resolve(res)
+		getWxToken(code)
+		  .then((res) => {
+			  resolve(res)
+		  })
+			.catch((msg) => {
+				reject(msg)
 			})
-		}).catch((msg) => {
-			reject(msg)
-		})
 	})
 }
 
@@ -167,6 +167,27 @@ function getCloudDocToken() {
  */
 function reGetToken() {
 	return new Promise((resolve, reject) => {
+		Promise.all([getCode(), wxGetUserInfo()]).then(res => {
+			wxLogin(res[0].code)
+				.then((res) => {
+					uni.hideLoading();
+					resolve(res)
+				})
+				.catch((msg) => {
+					uni.hideLoading();
+					reject(msg)
+				})
+		}).catch(() => {
+			reject("网络错误, 请重试");
+		})
+	})
+}
+
+/** 
+ * 微信获取用户info
+*/
+function wxGetUserInfo() {
+	return new Promise((resolve, reject) => {
 		uni.getUserInfo({
 			success: res => {
 				const globalData = {
@@ -177,18 +198,11 @@ function reGetToken() {
 					signature: res.signature
 				}
 				uni.showLoading({
+					title: '加载中',
 					mask: true
 				});
 				uni.setStorageSync('globalData', globalData)
-				wxLogin()
-					.then((res) => {
-						uni.hideLoading();
-						resolve(res)
-					})
-					.catch((msg) => {
-						uni.hideLoading();
-						reject(msg)
-					})
+				resolve();
 			},
 			fail: (res) => {
 				reject("网络错误, 请重试");
@@ -200,12 +214,11 @@ function reGetToken() {
 // 验证token是否过期 过期重新获取
 function checkDocToken() {
 	return new Promise(async (resolve, reject) => {
-		if (!uni.getStorageSync('token') || Number(uni.getStorageSync('token').expireTime) < Number(
+		if (!uni.getStorageSync('token') || !uni.getStorageSync('token').token ||Number(uni.getStorageSync('token').expireTime) < Number(
 				new Date().getTime())) {
 			// 重新获取token
 			try {
 				// 首次尝试重新获取docToken
-				console.log('获取云文档token')
 				const tokenRes = await getToken({
 					wxToken: uni.getStorageSync('wxToken') || false
 				})
@@ -217,11 +230,9 @@ function checkDocToken() {
 			} catch (msg) {
 				// 初次获取doctoken失败后，重新获取wxToken后再获取DocToken
 				try {
-					console.log('获取微信token', msg)
 					const reGetTokenRes = await reGetToken()
 					resolve()
 				} catch (msg) {
-					console.log('获取微信token错误', msg)
 					uni.showToast({
 						icon: 'none',
 						title: msg
@@ -246,5 +257,6 @@ function delay(time) {
 export {
 	wxLogin,
 	reGetToken,
-	checkDocToken
+	checkDocToken,
+	getCode,
 }

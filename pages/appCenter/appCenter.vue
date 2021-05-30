@@ -91,7 +91,7 @@
 		}
 
 		.list {
-			background-color: rgb(242, 242, 242);
+			background-color: #F7F7F7;
 			height: calc(100% - 55rpx - 50rpx - 88rpx);
 			display: flex;
 			justify-content: space-between;

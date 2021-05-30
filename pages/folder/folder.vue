@@ -34,10 +34,10 @@
 			/>
 		</view>
 		<OptMenu ref="menu" :item="editItem" />
-		<u-modal v-model="showConfirm" show-confirm-button show-cancel-button border-radius="8" confirm-color="#3370ff" negative-top="150" @confirm="confirm">
+		<u-modal :zoom="false" v-model="showConfirm" show-confirm-button show-cancel-button border-radius="8" confirm-color="#3370ff" negative-top="150" @confirm="confirm">
 			<view class="tips">您是否想要删除该{{ !editItem.docId ? '文档' : '文件' }}？</view>
 		</u-modal>
-		<u-modal title="重命名" v-model="showPrompt" show-confirm-button show-cancel-button border-radius="8" confirm-color="#3370ff" negative-top="150" @confirm="prompt">
+		<u-modal :zoom="false" title="重命名" v-model="showPrompt" show-confirm-button show-cancel-button border-radius="8" confirm-color="#3370ff" negative-top="150" @confirm="prompt">
 			<div class="inputContainer"><input type="text" v-model="name" /></div>
 		</u-modal>
 		<image v-if="isLogin" @click="toggleUploadPopup" class="upload_btn" src="/static/img/list/btn.png" />
@@ -87,8 +87,7 @@ export default {
 		if(this.$store.state.list.uploadStatus) return
 		// 重置状态 避免tabbar页面被自动缓存， 导致加载骨架屏时闪屏
 		this.showSkeleton = true;
-		this.folderList = [];
-		this.fileList = [];
+		this.$refs.list.scrollTop = 1;
 	},
 	onShow() {
 		if(this.$store.state.list.uploadStatus) {
@@ -104,6 +103,7 @@ export default {
 				});
 				this.$nextTick(() => {
 					this.$refs.list._freshing = false; // 重置folderList下拉刷新
+					this.$refs.list.scrollTop = 0; // 重置至顶部
 				})
 			});
 		}

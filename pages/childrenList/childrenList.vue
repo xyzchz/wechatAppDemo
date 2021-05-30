@@ -3,19 +3,19 @@
 		<view class="header">
 			<Search />
 		</view>
-		<view class="content" v-if="showPage">
+		<view class="content">
 			<FolderList ref="list" @initList="initList" @handleTdClick="handleTdClick"
 				@loadMore="loadMore({ listType: 'folder' })" :totalList="totalList" :listClosure="listClosure"
-				@showPopup="showPopup" :needShowSkeleton="true" :showSkeleton="showSkeleton" :labelListData="labelListData" :rollLoad="rollLoad" />
+				@showPopup="showPopup" needShowSkeleton :showSkeleton="showSkeleton" :labelListData="labelListData" :rollLoad="rollLoad" />
 		</view>
 		<optMenu ref="menu" :item="editItem" />
-		<u-modal v-model="showConfirm" show-confirm-button show-cancel-button border-radius="8" confirm-color="#3370ff"
+		<u-modal :zoom="false" v-model="showConfirm" show-confirm-button show-cancel-button border-radius="8" confirm-color="#3370ff"
 			negative-top="150" @confirm="confirm">
 			<view class="tips">
 				您是否想要删除该{{!editItem.docId ? '文档' : '文件'}}？
 			</view>
 		</u-modal>
-		<u-modal title="重命名" v-model="showPrompt" show-confirm-button show-cancel-button border-radius="8"
+		<u-modal title="重命名" :zoom="false" v-model="showPrompt" show-confirm-button show-cancel-button border-radius="8"
 			confirm-color="#3370ff" negative-top="150" @confirm="prompt">
 			<div class="inputContainer">
 				<input type="text" v-model="name" />
@@ -52,7 +52,6 @@
 				tabbar: '',
 				isShowTabs: false,
 				isLogin: uni.getStorageSync('isLogin'),
-				showPage: false,
 				route: this.$mp.page.route,
 				editItem: null,
 				name: '',
@@ -74,7 +73,6 @@
 			// 初始化数据
 			if (uni.getStorageSync('isLogin')) {
 				this.init().then(() => {
-					this.showPage = true;
 					this.getList({
 						listType: "folder"
 					});

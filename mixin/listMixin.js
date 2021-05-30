@@ -10,7 +10,6 @@ import {
 	checkDocToken
 } from '../utils/login.js'
 import {
-	getToken,
 	findDocFolder,
 	findDocFile,
 	removeDocFile,
@@ -84,7 +83,7 @@ export default {
 			// 刷新重置
 			this.page = 1
 			this.limit = 15,
-				this.listClosure = false;
+			this.listClosure = false;
 			this.showSkeleton = true;
 			const folderId = this.getFolderId()
 			const pageParams = {

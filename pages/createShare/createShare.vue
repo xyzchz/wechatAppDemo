@@ -62,6 +62,7 @@
 				confirm-color="#3370ff"
 				negative-top="150"
 				@confirm="copy"
+				:zoom="false"
 			>
 				<view class="tips">
 					<text>{{ shareInfo.shareUrl || '' }}</text>

@@ -1,7 +1,7 @@
 <template>
 	<div class="mainList">
 		<div class="listContainer">
-			<scroll-view class="pullRefresh" :refresher-triggered="triggered" @refresherrefresh="onRefresh" refresher-enabled @scrolltolower="load" lower-threshold="300" scroll-y="true">
+			<scroll-view class="pullRefresh" :scroll-top="scrollTop" :refresher-triggered="triggered" @refresherrefresh="onRefresh" refresher-enabled @scrolltolower="load" lower-threshold="300" scroll-y="true">
 				<ul v-if="totalList && totalList.length !== 0">
 					<li
 						class="listItem"
@@ -44,7 +44,7 @@
 						</div>
 					</li>
 				</ul>
-				<ul v-else-if="needShowSkeleton && (!listClosure || showSkeleton)">
+				<ul v-if="needShowSkeleton && (!listClosure || showSkeleton)">
 					<li class="listItem" :key="index" v-for="(item, index) in 20">
 						<div><span class="img_ske" /></div>
 						<div class="info_ske">
@@ -75,6 +75,7 @@ export default {
 		return {
 			triggered: false,
 			_freshing: false,
+			scrollTop: 0,
 		};
 	},
 	methods: {
@@ -152,6 +153,10 @@ export default {
 			},
 		},
 		showSkeleton: {
+			type: Boolean,
+			default: () => true
+		},
+		needShowSkeleton: {
 			type: Boolean,
 			default: () => true
 		},

@@ -20,7 +20,7 @@
 
 <script>
 	import { mapMutations } from 'vuex'
-	import { wxLogin } from '../../utils/login.js'
+	import { wxLogin, getCode } from '../../utils/login.js'
 
 	export default {
 		data() {
@@ -49,42 +49,58 @@
 			 * 
 			*/
 			handleGetUserInfo() {
-				let req;
-				// 授权
-				if (uni.getUserProfile) req = uni.getUserProfile
-				if (!uni.getUserProfile) req = uni.getUserInfo
-				req({
-					desc: 'Login', // 这个参数是必须的
-					success: res => {
-						const globalData = {
-							userInfo: res.userInfo,
-							encryptedData: res.encryptedData,
-							iv: res.iv,
-							rawData: res.rawData,
-							signature: res.signature
-						}
-						uni.showLoading({
-							title: '授权中...',
-							mask: true,
+				Promise.all([getCode(), this.getUserAuth()]).then((res) => {
+					wxLogin(res[0].code).then((res) => {
+						uni.hideLoading();
+						uni.showToast({
+							title: '授权成功',
+							icon: 'success'
 						})
-						uni.setStorageSync('globalData', globalData);
-						wxLogin().then((res) => {
-							uni.hideLoading();
-							uni.showToast({
-								title: '授权成功',
-								icon: 'success'
-							})
-							uni.reLaunch({
-								url: this.$mp.page.options.url || '/pages/folder/folder'
-							})
+						uni.reLaunch({
+							url: this.$mp.page.options.url || '/pages/folder/folder'
 						})
-					},
-					fail: (res) => {
+					})
+				})
+				  .catch(() => {
 						uni.showToast({
 							title: '授权失败，请重试',
 							icon: 'none'
 						})
-					}
+					})
+			},
+			/**
+			 * 获取userProfile及userInfo
+			 */
+			getUserAuth() {
+				return new Promise((resolve, reject) => {
+					let req;
+					// 授权
+					if (uni.getUserProfile) req = uni.getUserProfile
+					if (!uni.getUserProfile) req = uni.getUserInfo
+					req({
+						desc: 'Login', // 这个参数是必须的
+						success: res => {
+							const globalData = {
+								userInfo: res.userInfo,
+								encryptedData: res.encryptedData,
+								iv: res.iv,
+								rawData: res.rawData,
+								signature: res.signature
+							}
+							uni.showLoading({
+								title: '授权中...',
+								mask: true,
+							})
+							uni.setStorageSync('globalData', globalData);
+							resolve();
+						},
+						fail: (res) => {
+							uni.showToast({
+								title: '授权失败，请重试',
+								icon: 'none'
+							})
+						}
+					})
 				})
 			},
 		},

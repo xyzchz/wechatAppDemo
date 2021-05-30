@@ -1,10 +1,11 @@
 import store from '../store/index.js';
 import { REQUEST_URL, APPKEY } from '../const/const.js'
+import { checkDocToken } from 'utils/login.js'
 
 let requestNumber = 0
 const requestContinue = 100;
 
-const request = (config) => {
+const request = async (config) => {
 	// 处理 apiUrl
 	config.url = REQUEST_URL + config.url;
 	if (!config.data) {
@@ -22,6 +23,14 @@ const request = (config) => {
 			'appKey': 'uw8PbyY2',
 			'token': uni.getStorageSync('token') || ''
 		})
+	}
+	
+	if (config.url.indexOf('/user/getTokenByWxToken') === -1) {
+		try {
+			await checkDocToken()
+		} catch (e) {
+			return
+		}
 	}
 
 	const promise = new Promise((resolve, reject) => {

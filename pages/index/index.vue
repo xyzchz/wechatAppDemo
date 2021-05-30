@@ -110,8 +110,7 @@ export default {
 		if(this.$store.state.list.uploadStatus) return
 		// 重置状态 避免tabbar页面被自动缓存， 导致加载骨架屏时闪屏
 		this.showSkeleton = true;
-		this.folderList = [];
-		this.fileList = [];
+		this.$refs.list.scrollTop = 1;
 	},
 	onShow() {
 		if(this.$store.state.list.uploadStatus) {
@@ -141,6 +140,7 @@ export default {
 					this.getList({
 						listType: 'recently'
 					});
+					this.$refs.list.scrollTop = 0;
 				});
 			});
 		}

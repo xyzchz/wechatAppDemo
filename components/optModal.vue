@@ -9,6 +9,7 @@
 			confirm-color="#3370ff"
 			negative-top="150"
 			@confirm="submitFolderName"
+			:zoom="false"
 		>
 			<div class="inputContainer"><input type="text" placeholder="请输入文件夹名称" v-model="folderName" /></div>
 		</u-modal>
